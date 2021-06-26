@@ -5,7 +5,7 @@
 # DİSCORD: https://discord.gg/RZwGEGKBct
 
 `
-VAMPİR KÖYLÜ BOT ALTYAPISI
+SAHTE NİTRO GENERATOR ALTYAPISI
 `
 
 `
