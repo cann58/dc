@@ -38,5 +38,5 @@ exports.conf = {
 };
 
 exports.help = {
-  name : "deneme"
+  name : "başlat"
 };
