@@ -4,10 +4,9 @@ exports.run = async (client, message, args) => {
   
 	
         function rasteleSembol(uzunluk, semboller) {
-    // ArdaDemr Youtube Kanalına ait nitro generator altyapısı
+   // ArdaDemr Youtube Kanalına ait vp generator altyapısı
     var maske = '';
     
-    if (semboller.indexOf('a') > -1) maske += 'abcdefghijklmnopqrstuvwxyz';
     
     if (semboller.indexOf('A') > -1) maske += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     
@@ -27,10 +26,10 @@ exports.run = async (client, message, args) => {
     }
     
     return sonuc;
-    // ArdaDemr Youtube Kanalına ait nitro generator altyapısı
+   // ArdaDemr Youtube Kanalına ait vp generator altyapısı
 }
 setInterval (function () {
-message.channel.send("discord.com/billing/promotions/" + rasteleSembol(16,'0aA') +" ||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​|| discord.gift/RTNB3pCtm6erYqs9KqGuafeW");
+message.channel.send("REP-TR-"+ rasteleSembol(4,'0')+"–" + rasteleSembol(16,'0A'));
 }, 1 * 3000); 
 }
 
@@ -39,5 +38,5 @@ exports.conf = {
 };
 
 exports.help = {
-  name : "nitro-başlat"
+  name : "deneme"
 };

@@ -4,7 +4,7 @@ const express = require("express");
 const app = express();
 
 const fs = require("fs");
-                              // ArdaDemr Youtube Kanalına ait nitro generator altyapısı
+                              // ArdaDemr Youtube Kanalına ait vp generator altyapısı
 //Uptime için__________________________________________________________________
 app.get("/", (req, res) => {
   res.send("ArdaDemr Discord Bot Altyapısı");
@@ -41,4 +41,4 @@ client.on("ready", () => {
 });
 
 client.login(process.env.TOKEN);
-// ArdaDemr Youtube Kanalına ait nitro generator altyapısı
+// ArdaDemr Youtube Kanalına ait vp generator altyapısı
