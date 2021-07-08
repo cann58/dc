@@ -1,7 +1,7 @@
 {
   "name": "ArdaDemr",
   "version": "1.0.0",
-  "description": "ArdaDemr Youtube Kanalına Ait VP Generator Bot Altyapısı",
+  "description": "ArdaDemr Youtube Kanalına ait owo sayaç bot",
   "main": "node ardademr.js",
   "scripts": {
     "start": "node ardademr.js"

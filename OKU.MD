@@ -5,7 +5,7 @@
 # DİSCORD: https://discord.gg/RZwGEGKBct
 
 `
-VP GENERATOR BOT ALTYAPISI
+OwO Sayaç Bot
 `
 
 `

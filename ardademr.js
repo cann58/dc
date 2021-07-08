@@ -4,7 +4,7 @@ const express = require("express");
 const app = express();
 
 const fs = require("fs");
-                              // ArdaDemr Youtube Kanalına ait vp generator altyapısı
+                              // ArdaDemr Youtube Kanalına ait owo sayaç bot
 //Uptime için__________________________________________________________________
 app.get("/", (req, res) => {
   res.send("ArdaDemr Discord Bot Altyapısı");
@@ -24,7 +24,7 @@ fs.readdir("./komutlar/", (err, files) => {
     client.commands.set(cmd.help.name, cmd);
   });
 });
-
+// ArdaDemr Youtube Kanalına ait owo sayaç bot
 //EVENTS Yükleyici_______________________________________________________________
 fs.readdir("./events/", (err, files) => {
   if (err) return console.error(err);
@@ -41,4 +41,4 @@ client.on("ready", () => {
 });
 
 client.login(process.env.TOKEN);
-// ArdaDemr Youtube Kanalına ait vp generator altyapısı
+// ArdaDemr Youtube Kanalına ait owo sayaç bot
