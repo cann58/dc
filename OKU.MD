@@ -1,11 +1,9 @@
-# BU ALTYAPI ArdaDemr YOUTUBE KANALINA AİTTİR
-
-# KODLAYAN: ARDADEMR
+# BU ALTYAPI ArdaDemr YOUTUBE KANALI TARAFINDAN PAYLAŞILMIŞTIR
 
 # DİSCORD: https://discord.gg/RZwGEGKBct
 
 `
-OwO Sayaç Bot
+GÜNCEL MÜZİK BOTU ALTYAPISI
 `
 
 `
@@ -17,4 +15,4 @@ https://www.youtube.com/channel/UCk2r0Vkh-ktRrseLrL-ZUCw
 `
 
 
-**TOKENİ .evn KISMINA GİRMELİSİNİZ**
+**BILGILERI AYARLAR KISMINA GİRMELİSİNİZ**
