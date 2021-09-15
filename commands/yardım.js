@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 const ayarlar = require('../ayarlar.json')
 module.exports = {
   name: "yardım",
-  description: "yardım", 
+  description: "ArdaDemr - Youtube", 
   execute(client, message) {
   message.channel.send(new Discord.MessageEmbed()
                       .setDescription(

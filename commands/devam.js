@@ -1,6 +1,6 @@
 module.exports = {
   name: "devam", 
-  description: "Resume the paused Song",
+  description: "ArdaDemr - Youtube",
   execute (client, message, args) {
       const { channel } = message.member.voice;
     if (!channel) {

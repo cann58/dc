@@ -1,6 +1,6 @@
 module.exports = {
   name: "durdur",
-  description: "pause the song",
+  description: "ArdaDemr - Youtube",
   execute (client, message, args) {
   const { channel } = message.member.voice;
     if (!channel) {

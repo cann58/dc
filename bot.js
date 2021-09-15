@@ -4,10 +4,10 @@ const client = new discord.Client({ disableEveryone: true, disabledEvents: ["TYP
 const { readdirSync } = require("fs");
 const { join } = require("path");
 const ayarlar = require("./ayarlar.json")
-
+// ARDADEMR YOUTUBE KANALINDAN ALINMIŞTIR
 client.on("ready", () => {
-  console.log('Bot çalıştırıldı!')
-  client.user.setActivity("7/24 Aktif | .yardım | 👍")
+  console.log('ArdaDemr Youtube Kanalına Abone Olmayı Unutma! BOTUN AKTİF!')
+  client.user.setActivity("ArdaDemr - Youtube")
 })
 client.on("warn", info => console.log(info));
 
@@ -17,7 +17,7 @@ client.commands = new discord.Collection()
 client.prefix = ayarlar.PREFIX
 client.queue = new Map();
 
-
+// ARDADEMR YOUTUBE KANALINDAN ALINMIŞTIR
 const cmdFiles = readdirSync(join(__dirname, "commands")).filter(file => file.endsWith(".js"))
 for (const file of cmdFiles) {
   const command = require(join(__dirname, "commands", file))
@@ -45,7 +45,7 @@ client.on("message", message => {
     }
     
   }
-  
+  // ARDADEMR YOUTUBE KANALINDAN ALINMIŞTIR
 });
 
 client.login(ayarlar.TOKEN)
