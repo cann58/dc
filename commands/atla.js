@@ -1,5 +1,5 @@
 module.exports = {
-  name: "atla",
+  name: "geç",
   description: "Matthe Müzik Botu",
   execute(client, message, args) {
     const { channel } = message.member.voice;

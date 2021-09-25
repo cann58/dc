@@ -26,7 +26,7 @@ module.exports = {
       } else {
         console.error(error)
       }
-    } // ARDADEMR YOUTUBE KANALINDAN ALINMIŞTIR
+    } 
     
     const dispatcher = queue.connection
     .play(stream, {type: "opus"}).on("finish", () => {
@@ -62,4 +62,4 @@ module.exports = {
     
     
   }
-}// ARDADEMR YOUTUBE KANALINDAN ALINMIŞTIR
+}

@@ -7,7 +7,7 @@ const youtube = new YoutubeAPI(YOUTUBE_API_KEY);
 const Discord = require('discord.js')
 const { play } = require("../system/music.js") 
 module.exports = {
-  name: "oynat",
+  name: "çal",
   description: "Matthe Müzik Botu",
   async execute(client, message, args) {
 
