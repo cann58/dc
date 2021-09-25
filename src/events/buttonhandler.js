@@ -8,11 +8,11 @@ module.exports = async button => {
         if (button.clicker.member.roles.cache.get(config.buttons.giveaway)) {
             await button.clicker.member.roles.remove(config.buttons.giveaway);
             await button.reply.think(true);
-            await button.reply.edit("Çekiliş katılımcısı rolü başarıyla üzerinizden alındı!");
+            await button.reply.edit("Çekiliş Katılımcısı rolü başarıyla üzerinizden alındı!");
         } else {
             await button.clicker.member.roles.add(config.buttons.giveaway);
             await button.reply.think(true);
-            await button.reply.edit("Çekiliş katılımcısı rolünü başarıyla aldınız!");
+            await button.reply.edit("Çekiliş Katılımcısı rolünü başarıyla aldınız!");
         }
     };
 
@@ -20,11 +20,11 @@ module.exports = async button => {
         if (button.clicker.member.roles.cache.get(config.buttons.activity)) {
             await button.clicker.member.roles.remove(config.buttons.giveaway);
             await button.reply.think(true);
-            await button.reply.edit("Etkinlik katılımcısı rolü başarıyla üzerinizden alındı!");
+            await button.reply.edit("Etkinlik Katılımcısı rolü başarıyla üzerinizden alındı!");
         } else {
             await button.clicker.member.roles.add(config.buttons.activity);
             await button.reply.think(true);
-            await button.reply.edit("Etkinlik katılımcısı rolünü başarıyla aldınız!");
+            await button.reply.edit("Etkinlik Katılımcısı rolünü başarıyla aldınız!");
         }
     };
 

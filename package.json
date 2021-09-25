@@ -1,12 +1,12 @@
 {
-  "name": "advanced-mod",
+  "name": "matthe-advanced-mod",
   "version": "1.0.0",
   "description": "",
-  "main": "jahky.js",
+  "main": "matthe.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Jahky",
+  "author": "Matthe",
   "license": "MIT",
   "dependencies": {
     "chalk": "^4.1.2",

@@ -1,8 +1,8 @@
 {
     "bot": {
-        "token": "",
-        "owner": "618444525727383592",
+        "owner": "796263552771817472",
         "prefix": ".",
+        "BotStatus": "Developed by Matthe",
         "cooldown": 8,
         "iltifatsize": 70
     },
@@ -80,7 +80,7 @@
     "Guild": {
         "GuildID": "",
         "GuilDName": "",
-        "GuildOwnerRole": []
+        "GuildOwnerRole": [""]
     },
     "emojis": {
         "mark": "",

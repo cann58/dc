@@ -1,9 +1,11 @@
+
 const db = require("quick.db");
 const config = require("../../config.json");
 const moment = require("moment");
 moment.locale("tr");
 require("moment-duration-format");
 const { MessageEmbed } = require("discord.js")
+
 
 
 module.exports = async member => {
@@ -54,13 +56,14 @@ module.exports = async member => {
     if (kurulus > 604800000) {
         member.setNickname(config.registration.autonickname);
         member.roles.add(config.registration.unregistered);
-        client.channels.cache.get(config.channels.welcomechannel).send(`**:tada: ${config.Guild.GuilDName}'e** hoş geldin, ${member}!
+        client.channels.cache.get(config.channels.welcomechannel).send(`:tada: **${config.Guild.GuilDName}** sunucumuza hoş geldin ${member}!
       
-      Hesabın **${kuruluş}** tarihinde **${zaman}** önce  açılmış
+      Hesabın **${kuruluş}** tarihinde **${zaman}** önce oluşturulmuş.
   
-      Sunucu kurallarımız <#${config.channels.rules}> kanalında belirtilmiştir. Unutma sunucu içerisinde ki **ceza işlemlerin kuralları okuduğunu varsayarak** gerçekleştirilecek.
+      Sunucu kurallarımız <#${config.channels.rules}> kanalında belirtilmiştir, kuralları okumayı ihmal etme!
   
-      Seninle beraber **${member.guild.memberCount}** kişi olduk! Sol tarafta bulunan **Confirmation** odalarından birine girerek kayıt işlemini gerçekleştirebilirsin.`);
+      <@&${config.registration.staff}> rolündeki yetkililerimiz seninle ilgilenecektir. 
+      Seninle birlikte **${member.guild.memberCount}** kişiye ulaştık!`);
     } else {
         member.setNickname(config.registration.susoeciosnickname);
         member.roles.add(config.registration.suspecios);
@@ -68,7 +71,7 @@ module.exports = async member => {
             new MessageEmbed()
                 .setAuthor(member.user.username, member.user.avatarURL({ dynamic: true }))
                 .setColor("RED")
-                .setDescription(`${member}, Adlı Kullanıcı Sunucuya Katıldı Hesabı **${zaman2}** Önce Açıldığı İçin Şüpheli!`)
+                .setDescription(`${member}, kullanıcısı sunucuya katıldı hesabı **${zaman2}** önce açıldığı için şüpheli!`)
                 .setFooter(`Jahky ❤️ ${config.Guild.GuilDName}`)
                 .setTimestamp());
     }

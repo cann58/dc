@@ -22,7 +22,7 @@ readdir("./src/commands/", (err, files) => {
             if (err2) console.log(err2)
             files2.forEach(file => {
                 let prop = require(`./src/commands/${f}/` + file);
-                console.log(`[COMMAND] ${prop.name} loaded!`);
+                console.log(`[MATTHE-COMMAND] ${prop.name} loaded!`);
                 commands.set(prop.name, prop);
                 prop.aliases.forEach(alias => {
                     aliases.set(alias, prop.name);
@@ -53,7 +53,7 @@ client.on("message", async message => {
             .setLabel("Etkinlik Katılımcısı")
             .setID("Activity");
 
-        message.channel.send(`Merhaba!\n\nRollerimizi alarak sunucumuzda bir sürü şeyden haberdar olabilirsiniz.\n\nAşağıda bulunan butonlardan rollerinizi alarak **duyurularımızdan, ve etkinliklerimizden** faydalanabilirsiniz.\n\n\`NOT:\` Hepiniz bu kanalı görebilmektesiniz. Bu sunucumuzda everyone here atılmayacağından dolayı kesinlikle rollerinizi almayı unutmayın.`,
+        message.channel.send(`Merhaba! \n\nRollerimizi alarak sunucumuzda bir sürü şeyden haberdar olabilirsiniz.\n\n Aşağıda bulunan butonlardan rollerinizi alarak **duyurularımızdan, ve etkinliklerimizden** faydalanabilirsiniz.\n\n \`NOT:\` Hepiniz bu kanalı görebilmektesiniz. Bu sunucumuzda everyone here atılmayacağından dolayı kesinlikle rollerinizi almayı unutmayın.`,
             {
                 buttons: [Giveaway, Activity]
             });
@@ -85,8 +85,8 @@ client.on("message", async message => {
             .setStyle("gray")
             .setLabel("5")
             .setID("five");
-        message.channel.send("Merhaba!\n\n Aşşağıdaki butonlarla etkileşime girerek sunucumuzdaki durumunuz hakkında bilgi edinebilirsiniz!", { buttons: [one, two, three, four, five] })
+        message.channel.send("Merhaba! \n\n Aşşağıdaki butonlarla etkileşime girerek sunucumuzdaki durumunuz hakkında bilgi edinebilirsiniz!", { buttons: [one, two, three, four, five] })
     }
 });
 
-client.login(config.bot.token).then(x => console.log(`Bot ${client.user.username} olarak giriş yaptı`)).catch(err => console.log(`Bot Giriş yapamadı sebep: ${err}`));
+client.login(process.env.token).then(x => console.log(`Bot ${client.user.username} olarak giriş yaptı`)).catch(err => console.log(`Bot Giriş yapamadı sebep: ${err}`));
