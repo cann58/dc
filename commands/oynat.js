@@ -8,7 +8,7 @@ const Discord = require('discord.js')
 const { play } = require("../system/music.js") 
 module.exports = {
   name: "oynat",
-  description: "ArdaDemr - Youtube",
+  description: "Tuna Development",
   async execute(client, message, args) {
 
     if (!args.length) {
@@ -23,7 +23,7 @@ module.exports = {
 
 
 
-    const targetsong = args.join(" ");
+    const targetsong = args.join("882197906478731304");
     const videoPattern = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/gi;
     const playlistPattern = /^.*(youtu.be\/|list=)([^#\&\?]*).*/gi;
     const urlcheck = videoPattern.test(args[0]);
