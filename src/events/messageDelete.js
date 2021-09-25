@@ -1,6 +1,8 @@
 const config = require("../../config.json");
 const db = require("quick.db");
 const moment = require("moment");
+const { MessageEmbed } = require("discord.js")
+
 moment.locale("tr")
 
 module.exports = async message => {
@@ -18,7 +20,7 @@ module.exports = async message => {
     const embed = new MessageEmbed()
         .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true }))
         .setColor("RED")
-        .setTitle(`${message.channel.name} adlı kanalda bir mesaj silindi!`)
+        .setTitle(`${message.channel.name} kanalında bir mesaj silindi!`)
         .setDescription(message.content)
         .setFooter(`ID: ${message.author.id} • ${moment().calendar()}`);
 

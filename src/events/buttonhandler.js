@@ -38,7 +38,7 @@ module.exports = async button => {
     if (button.id === "two") {
         const kke = db.get(`kke_${button.clicker.id}`)
         await button.reply.think(true)
-        if (!kke) return button.reply.edit("Sunucumuza daha önce kayıt olmamışsınız confirmation odalarına girerek kayıt olabilirsiniz")
+        if (!kke) return button.reply.edit("Sunucumuza daha önce kayıt olmamışsınız confirmation odalarına girerek kayıt olabilirsiniz!")
         await button.reply.edit(`Sunucumuza daha önceden kayıt olurken sizi kayıt eden yetkililerimiz:\n${kke.map(data => `${data}`).join("\n")}!`)
     };
 
@@ -47,7 +47,7 @@ module.exports = async button => {
         const points = db.get(`points_${button.clicker.id}`) || 0
         await button.reply.think(true);
         if (!sicil) return button.reply.edit("Şuana kadar ceza almamışsınız");
-        await button.reply.edit(`Şuanki toplam ceza puanınız: ${points}, aldığınız cezalar ise: ${sicil.map(data => `${data}`).join("\n")}!`)
+        await button.reply.edit(`Şuanki toplam ceza puanınız: ${points}, aldığınız cezalar: ${sicil.map(data => `${data}`).join("\n")}!`)
     };
 
     if (button.id === "four") {
@@ -58,7 +58,7 @@ module.exports = async button => {
     if (button.id === "five") {
         const guild = button.guild.joinedAt
         await button.reply.think(true);
-        await button.reply.edit(`Sunucumuza ${moment(guild).format("LLL")} tarihinde katılmışsınız`)
+        await button.reply.edit(`Sunucumuza ${moment(guild).format("LLL")} tarihinde katılmışsınız!`)
     }
 
 }

@@ -73,8 +73,9 @@
         "suspecios": "",
         "susoeciosnickname": "Şüpheli | Hesap",
         "oneman": "",
+        "EtiketTag": "",
         "onewoman": "",
-        "minage": 12,
+        "minage": 13,
         "purchase": false
     },
     "Guild": {

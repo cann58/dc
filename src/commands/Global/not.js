@@ -5,8 +5,8 @@ module.exports = {
     aliases: ["notal", "nottut"],
     execute: async (client, message, args, embed, author, channel, guild) => {
         const notes = args.join(" ")
-        if (!notes) return channel.error(message, "Lütfen bir not girip tekrar dene");
+        if (!notes) return channel.error(message, "Öncelikle geçerli bir not girip tekrar dene!");
         db.push(`notes_${author.id}`, notes);
-        channel.send(embed.setDescription(`Başarıyla ${notes} notunu not aldınız`))
+        channel.send(embed.setDescription(`Başarıyla ${notes} notunu not aldınız!`))
     }
 }

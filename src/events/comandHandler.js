@@ -2,6 +2,7 @@ const client = global.client;
 const { MessageEmbed } = require("discord.js");
 const config = require("../../config.json");
 const db = require("quick.db");
+const ms = require('ms');
 
 const iltifatlar = [
     'Gözlerindeki saklı cenneti benden başkası fark etsin istemiyorum.',
@@ -28,18 +29,6 @@ const iltifatlar = [
     'Kalbime giden yolu aydınlatıyor gözlerin.  Sadece sen görebilirsin kalbimi. Ve sadece ben hissedebilirim bana karşı olan hislerini.',
     'Onu Bunu Boşver de bize gel 2 bira içelim.',
     'Taş gibi kızsın ama okey taşı… Elden elde gidiyorsun farkında değilsin.',
-    'Jahky seni çok sevdi...',
-    'Jahky seni çok sevdi...',
-    'Jahky seni çok sevdi...',
-    'Jahky seni çok sevdi...',
-    'Jahky seni çok sevdi...',
-    'Jahky seni çok sevdi...',
-    'Jahky seni çok sevdi...',
-    'Jahky seni çok sevdi...',
-    'Jahky seni çok sevdi...',
-    'Jahky seni çok sevdi...',
-    'Jahky seni çok sevdi...',
-    'Jahky seni çok sevdi...',
     'Mucizelerden bahsediyordum.',
     "Yaşanılacak en güzel mevsim sensin.",
     "Sıradanlaşmış her şeyi, ne çok güzelleştiriyorsun.",
@@ -83,7 +72,7 @@ var iltifatSayi = 0;
 module.exports = async (message) => {
     if (!message.guild || message.author.bot) return
     if ([".tag", "!tag", "tag", "TAG"].some(x => message.content === x)) {
-        message.channel.send(`\`${config.registration.GuilDTag}\``)
+        message.channel.send(`\`${config.registration.GuilDTag}\`, \`${config.registration.EtiketTag}\` `)
     }
     if (message.channel.id === config.channels.chat) {
         iltifatSayi++
@@ -95,7 +84,8 @@ module.exports = async (message) => {
     const afkembed = new MessageEmbed()
         .setColor(message.member.displayHexColor)
         .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true, size: 2048 }))
-        .setFooter(`Jahky. ❤️ ${config.Guild.GuilDName}`)
+        .setFooter((config.bot.footer), message.guild.iconURL())
+        .setTimestamp()
     const etiket = message.mentions.users.first()
     const uye = db.fetch(`user_${message.author.id}_${message.guild.id}`)
     const nickk = db.fetch(`nick_${message.author.id}_${message.guild.id}`)
@@ -115,25 +105,25 @@ module.exports = async (message) => {
         db.deconste(`nick_${message.author.id}_${message.guild.id}`)
         db.deconste(`user_${message.author.id}_${message.guild.id}`);
         db.deconste(`afktime_${message.guild.id}`)
-        message.channel.send(afkembed.setDescription(`Başarıyla \`AFK\` modundan çıkış yaptın.`))
+        message.channel.send(afkembed.setDescription(`Başarıyla \`AFK\` modundan çıkış yaptınız!`))
     }
     if (!message.content.startsWith(config.bot.prefix)) return;
     const args = message.content.slice(1).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
     const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command))
-    const owner = client.users.cache.get("618444525727383592");
+    const owner = client.users.cache.get("796263552771817472");
     const author = message.author
     const channel = message.channel
     const guild = message.guild
     const embed = new MessageEmbed()
         .setColor(message.member.displayHexColor)
         .setAuthor(message.member.displayName, author.avatarURL({ dynamic: true, size: 2048 }))
-        .setFooter("Developed By Jahky.", owner.avatarURL({ dynamic: true }))
+        .setFooter("Developed by Matthe", owner.avatarURL({ dynamic: true }))
     if (cmd) {
         if (cmd.owner && config.bot.owner !== author.id) return
         if (cmd.guildowner && config.bot.owner !== author.id && guild.owner.id !== author.id) return
         if (client.cooldown.has(author.id) === config.bot.cooldown) {
-            commandblocked.push(author.id)
+            client.commandblocked.push(author.id)
             channel.send(embed.setDescription(`${author} Komutları kötüye kullandığın için engellendin! Açtırmak için \`${owner.tag}\` ulaşarak açtırabilirsin.`))
         }
         if (client.commandblocked.includes(message.author.id)) return

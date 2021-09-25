@@ -1,12 +1,13 @@
 const config = require("../../config.json");
 const db = require("quick.db");
 const {MessageEmbed} = require("discord.js");
+const client = global.client;
 
 module.exports = async function(oldUser, newUser) {
     const guild = client.guilds.cache.get(config.Guild.GuildID)
     const role = guild.roles.cache.find(roleInfo => roleInfo.id === config.roles.team)
     const member = guild.members.cache.get(newUser.id)
-    const embed = new MessageEmbed().setTimestamp().setFooter(`Jahky ❤️ ${config.Guild.GuilDName}`)
+    const embed = new MessageEmbed().setTimestamp().setFooter(`Developed by Matthe`)
     if (newUser.username !== oldUser.username) {
         if (oldUser.username.includes(config.registration.GuilDTag) && !newUser.username.includes(config.registration.GuilDTag)) {
             member.roles.remove(config.roles.team)

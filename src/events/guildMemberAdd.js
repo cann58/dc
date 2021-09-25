@@ -1,7 +1,7 @@
-
 const db = require("quick.db");
 const config = require("../../config.json");
 const moment = require("moment");
+const client = global.client;
 moment.locale("tr");
 require("moment-duration-format");
 const { MessageEmbed } = require("discord.js")
@@ -13,7 +13,7 @@ module.exports = async member => {
     db.add(`girişçıkış.${member.id}`, 1);
     if (db.get(`girişçıkış.${member.id}`) >= 3) {//3 defa çık gir yaparsa
         member.guild.members.ban(member.id, { reason: `Sunucudan kısa sürede çok fazla gir çık yapmak.` })
-        client.channels.cache.get(config.penals.ban.log).send(`${member} adlı kullanıcı sunucuya kısa süre içinde defalarca çık gir yaptığı için sunucudan banlandı!`)
+        member.guild.channels.cache.get(config.penals.ban.log).send(`${member} adlı kullanıcı sunucuya kısa süre içinde defalarca çık gir yaptığı için sunucudan banlandı!`)
         member.send("Sunucuya kısa süre içinde defalarca çık gir yaptığın için sunucudan banlandın!")
     }
     const role = db.fetch(`roles_${member.id}`)
@@ -56,7 +56,7 @@ module.exports = async member => {
     if (kurulus > 604800000) {
         member.setNickname(config.registration.autonickname);
         member.roles.add(config.registration.unregistered);
-        client.channels.cache.get(config.channels.welcomechannel).send(`:tada: **${config.Guild.GuilDName}** sunucumuza hoş geldin ${member}!
+        member.guild.channels.cache.get(config.channels.welcomechannel).send(`:tada: **${config.Guild.GuilDName}** sunucumuza hoş geldin ${member}!
       
       Hesabın **${kuruluş}** tarihinde **${zaman}** önce oluşturulmuş.
   
@@ -67,12 +67,12 @@ module.exports = async member => {
     } else {
         member.setNickname(config.registration.susoeciosnickname);
         member.roles.add(config.registration.suspecios);
-        client.channels.cache.get(config.channels.welcomechannel).send(
+        member.guild.channels.cache.get(config.channels.welcomechannel).send(
             new MessageEmbed()
                 .setAuthor(member.user.username, member.user.avatarURL({ dynamic: true }))
                 .setColor("RED")
                 .setDescription(`${member}, kullanıcısı sunucuya katıldı hesabı **${zaman2}** önce açıldığı için şüpheli!`)
-                .setFooter(`Jahky ❤️ ${config.Guild.GuilDName}`)
+                .setFooter(`Developed by Matthe`)
                 .setTimestamp());
     }
     if (role) {
