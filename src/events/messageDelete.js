@@ -1,0 +1,31 @@
+const config = require("../../config.json");
+const db = require("quick.db");
+const moment = require("moment");
+moment.locale("tr")
+
+module.exports = async message => {
+    if (message.channel.type === "dm" || !message.guild || message.author.bot) return;
+    const snipe = {
+        mesaj: message.content,
+        mesajyazan: message.author.id,
+        ytarihi: message.createdTimestamp,
+        starihi: Date.now(),
+        kanal: message.channel.id
+    }
+    await db.set(`snipe.${message.guild.id}`, snipe)
+    const channel = message.guild.channels.cache.get(config.logs.messagelog);
+    if (!channel) return;
+    const embed = new MessageEmbed()
+        .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true }))
+        .setColor("RED")
+        .setTitle(`${message.channel.name} adlı kanalda bir mesaj silindi!`)
+        .setDescription(message.content)
+        .setFooter(`ID: ${message.author.id} • ${moment().calendar()}`);
+
+    if (message.attachments.first()) embed.setImage(message.attachments.first().proxyURL);
+    channel.send(embed);
+}
+
+module.exports.conf = {
+    name: "messageDelete"
+}
