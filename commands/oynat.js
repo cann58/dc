@@ -8,17 +8,17 @@ const Discord = require('discord.js')
 const { play } = require("../system/music.js") 
 module.exports = {
   name: "oynat",
-  description: "Tuna Development",
+  description: "Matthe Müzik Botu",
   async execute(client, message, args) {
 
     if (!args.length) {
-      return message.channel.send("**Şarkı ismi veya link girmelisin.**");
+      return message.channel.send("Öncelikle geçerli bir şarkı ismi veya link girmelisiniz!");
     }
     
     const { channel } = message.member.voice;
     if (!channel) {
       
-      return message.channel.send("**Herhangi bir ses kanalına girmelisin.**");
+      return message.channel.send("Öncelikle geçerli bir ses kanalına girmelisiniz!");
     }
 
 
@@ -29,7 +29,7 @@ module.exports = {
     const urlcheck = videoPattern.test(args[0]);
 
     if (!videoPattern.test(args[0]) && playlistPattern.test(args[0])) {
-      return message.channel.send("**Oynatma listesi oynatılamıyor.**");
+      return message.channel.send("Oynatma listesi oynatılamıyor!");
     }
 
     const serverQueue = message.client.queue.get(message.guild.id);
@@ -51,7 +51,7 @@ module.exports = {
       try {
          
          const result = await youtube.searchVideos(args[0], 1)
-         if(!result[0]) return message.channel.send('**Yanlış link.**')
+         if(!result[0]) return message.channel.send('Öncelikle geçerli bir link belirtmelisin!')
         songData = await ytdl.getInfo(result[0].url,{});
        
         console.log(songData)
@@ -71,7 +71,7 @@ module.exports = {
       } catch (error) {
         if (message.include === "copyright") {
           return message
-            .reply("**Bu video telif hakları nedeni ile oynatılamıyor.**")
+            .reply("Bu şarkı telif hakları nedeni ile oynatılamıyor!")
             .catch(console.error);
         } else {
           console.error(error);
@@ -80,7 +80,7 @@ module.exports = {
     } else {
       try {
          const result = await youtube.searchVideos(targetsong, 1)
-        if(!result[0]) return message.channel.send('**Arama sonucu bulunamadı.**')
+        if(!result[0]) return message.channel.send('Öncelikle geçerli bir arama yapmalısınız!')
         songData = await ytdl.getInfo(result[0].url)
          song = {
            title: songData.videoDetails.title,
@@ -104,7 +104,7 @@ module.exports = {
     if(serverQueue) {
       serverQueue.songs.push(song)
       return serverQueue.textChannel.send( new Discord.MessageEmbed()
-        .setAuthor('Sıraya Eklendi!',message.author.avatarURL({format : "png",dynamic : true}))
+        .setAuthor('Belirttiğiniz şarkı başarıyla sıraya eklendi!',message.author.avatarURL({format : "png",dynamic : true}))
         .setTitle(song.title)
         .setURL(song.url)
         .setThumbnail(song.thumbnail)
@@ -128,7 +128,7 @@ module.exports = {
         console.error(`Could not join voice channel: ${error}`);
         message.client.queue.delete(message.guild.id);
         await channel.leave();
-        return message.channel.send({embed: {"description": `Kanala giriş yapamıyorum.: ${error}`, "color": "#ffc300"}}).catch(console.error);
+        return message.channel.send({embed: {"description": `Kanala giriş yapmam için yetki vermelisiniz!: ${error}`, "color": "RANDOM"}}).catch(console.error);
       }
     }
     

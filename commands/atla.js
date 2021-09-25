@@ -1,19 +1,19 @@
 module.exports = {
   name: "atla",
-  description: "ArdaDemr - Youtube",
+  description: "Matthe Müzik Botu",
   execute(client, message, args) {
     const { channel } = message.member.voice;
 
     if (!channel) {
-      return message.channel.send("**Herhangi bir ses kanalında bulunmalısınız.**");
+      return message.channel.send("Öncelikle geçerli bir ses kanalına girmelisiniz!");
     }
 
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      return message.channel.send("**Atlayabileceğim bir şarkı yok.**");
+      return message.channel.send("Öncelikle geçerli bir şarkı oynatılmalı!");
     }
     serverQueue.connection.dispatcher.end();
-    message.channel.send("✔ **| Şarkı geçildi.**");
+    message.channel.send("Belirttiğiniz şarkı başarıyla atlatıldı!");
   }
 };

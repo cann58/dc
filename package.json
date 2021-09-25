@@ -1,11 +1,11 @@
 {
-  "//1": "v12 Müzik Botu",
-  "name": "ArdaDemr Müzik Bot",
+  "//1": "matthe-muzik-botu",
+  "name": "Matthe Müzik Botu",
   "version": "0.0.1",
-  "description": "ArdaDemr Müzik Bot",
-  "main": "bot.js",
+  "description": "Matthe Müzik Botu",
+  "main": "matthe.js",
   "scripts": {
-    "start": "node bot.js"
+    "start": "node matthe.js"
   },
   "dependencies": {
     "@discordjs/opus": "^0.3.3",
@@ -32,5 +32,5 @@
     "glitch",
     "express"
   ],
-  "author": "ArdaDemr"
+  "author": "Matthe"
 }
