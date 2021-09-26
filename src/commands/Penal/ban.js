@@ -18,7 +18,7 @@ module.exports = {
     if (config.penals.ban.limit > 0 && limit.has(author.id) && limit.get(author.id) == config.penals.ban.limit) return channel.send(embed.setDescription("Saatlik ban sınırına ulaştın!"));
     if (!message.member.hasPermission(8) && member && member.roles.highest.position >= message.member.roles.highest.position) return channel.send("Kendinle aynı yetkide ya da daha yetkili olan birini banlayamazsın!");
     guild.members.ban(user, { reason: reason });
-    channel.send(embed.setDescription(`**${user.tag}** kullanıcısı ${author} tarafından **${reason}** sebebiyle sunucudan banlanmıştır!`))
+    channel.send(embed.setDescription(`**${user.tag}** kullanıcısı ${author} tarafından **${reason}** sebebiyle sunucudan banlandı!`))
     db.add(`ceza_${guild.id}`, 1)
 
     const log = new Discord.MessageEmbed()

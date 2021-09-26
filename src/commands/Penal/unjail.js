@@ -8,7 +8,7 @@ module.exports = {
   execute: async (client, message, args, embed, author, channel, guild) => {
     if (message.member.roles.has(config.penals.jail.staff) && message.member.hasPermission("ADMİNİSTRATOR")) return channel.send(embed.setDescription(`Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!`))
     let member = message.mentions.members.first()
-    if (!member) return message.channel.send(embed.setDescription(`Bir Üye Etiketle`))
+    if (!member) return message.channel.send(embed.setDescription(`Öncelikle geçerli bir kullanıcı belirtmelisin!`))
     let rol = await db.get(`roles.${member.id}`);
     let nick = await db.get(`isim.${member.id}`)
     member.roles.set(rol).catch(e => { });
@@ -18,7 +18,7 @@ module.exports = {
     .setColor("GREEN")
     .setTimestamp()
     .setDescription(`
-    ${member ? member.toString: member.username} Kullanıcısı karantinadan çıkarıldı!
+    ${member ? member.toString: member.username} kullanıcısı karantinadan çıkarıldı!
     
     
     Kullanıcı: ${member ? member.toString: member.username} - ${member.id}

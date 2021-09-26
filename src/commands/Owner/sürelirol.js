@@ -15,10 +15,10 @@ module.exports = {
         if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(embed1.setDescripton(`Bu Komutu Kullanabilmek İçin Mesajları Yönet Yetkisine Sahip Olmalısın!`))
         let user = message.mentions.users.first()
         let roles = message.mentions.roles.first()
-        if (!args[0]) return message.channel.send(embed1.setDescription(`Öncelikle bir kullanıcı belirtmelisin.`))
+        if (!args[0]) return message.channel.send(embed1.setDescription(`Öncelikle bir kullanıcı belirtmelisin!`))
         if (!user) return message.channel.send(embed1.setDescription(`**${args[0]}**, kişisi sunucuda bulunmamakta!`))
-        if (!args[1]) return message.channel.send(embed1.setDescription(`Öncelikle bir rol etiketlemelisin.`))
-        if (!roles) return message.channel.send(embed1.setDescription(`**${args[1]}**, rolü sunucuda bulunmamakta.`))
+        if (!args[1]) return message.channel.send(embed1.setDescription(`Öncelikle geçerli bir rol etiketlemelisin!`))
+        if (!roles) return message.channel.send(embed1.setDescription(`**${args[1]}**, rolü sunucuda bulunmamakta!`))
         if (!args[2]) return message.channel.send(embed1.setDescription(`Rolün ne kadar süre içerisinde kullanıcıda kalacağını belirtmelisin.`))
         let süre = args[2];
         message.guild.members.cache.get(user.id).roles.add(roles.id)

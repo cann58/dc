@@ -45,7 +45,7 @@ module.exports = {
       .setColor("GREEN")
       .setTimestamp()
       .setDescription(`
-      ${banList.user} Üyesinin yasağı kaldırıldı!
+      ${banList.user} üyesinin yasağı kaldırıldı!
 
 
       Kullanıcı: ${banList.user} - ${user.id}

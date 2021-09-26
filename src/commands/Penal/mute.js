@@ -14,9 +14,9 @@ module.exports = {
     let member = message.mentions.members.first() || guild.members.cache.get(args[0]) 
     let reason = args.splice(2).join(" ")
     let sure = args[1]
-    if (!member) return channel.send(embed.setDescription(`${author} Lütfen bir kullanıcı belirtiniz`));
-    if (!sure) return channel.send(embed.setDescription(`${author} Lütfen bir süre belirtiniz`));
-    if (!reason) return channel.send(embed.setDescription(`${author} Lütfen geçerli bir sebeb belirtiniz`));
+    if (!member) return channel.send(embed.setDescription(`Öncelikle geçerli bir kullanıcı belirtmelisin!`));
+    if (!sure) return channel.send(embed.setDescription(`Öncelikle geçerli bir süre belirtmelisin!`));
+    if (!reason) return channel.send(embed.setDescription(`Öncelikle geçerli bir sebep belirtmelisin!`));
     sure
       .replace("s", " Saniye")
       .replace("m", " Dakika")
@@ -34,7 +34,7 @@ module.exports = {
       .setColor("RED")
       .setTimestamp()
       .setDescription(`
-      ${member ? member.toString() : member.username} Kişisi susturuldu!
+      ${member ? member.toString() : member.username} kişisi susturuldu!
 
 
       Ceza ID: \`${db.fetch(`ceza_${guild.id}`)}\`

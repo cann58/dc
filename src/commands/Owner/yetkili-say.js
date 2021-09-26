@@ -11,6 +11,6 @@ module.exports = {
         Aktif olup seste olmayan yetkililer: 
     ${sesdedeğil.map(s => `${s} \`${s.user.tag}\``).join('\n')}`)
     } else
-      return message.channel.send(`Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı.`)
+      return message.channel.send(`Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!`)
   }
 }

@@ -24,17 +24,17 @@ module.exports = {
             .setColor("RED")
             .setTimestamp()
             .setDescription(`
-            ${member ? member.toString(): user.username} kullanıcısı karantinaya atıldı!
+            ${member ? member.toString(): member.username} kullanıcısı karantinaya atıldı!
 
 
             Ceza ID: \`${db.fetch(`ceza_${guild.id}`)}\`
-            Kullanıcı: ${member ? member.toString() : ""} - ${user.id}
+            Kullanıcı: ${member ? member.toString() : ""} - ${member.id}
             Yetkili: ${author} - ${author.id}
             Sebeb: ${sebep}
             Tarih: ${moment(Date.now()).format("LLL")}
             `);
         client.channels.cache.get(config.penals.jail.log).send(log);
-        db.push(`sicil_${member.id}`, `${message.author} Tarafından ${moment(Date.now()).format("LLL")} tarihinde ${sebep} sebebiyle **[JAIL]** cezası almış.`)
+        db.push(`sicil_${member.id}`, `${message.author} Tarafından ${moment(Date.now()).format("LLL")} tarihinde ${sebep} sebebiyle **[ JAIL ]** cezası almış.`)
         db.add(`points_${member}`, config.penals.points.jailpoints);
         if (config.penals.jail.limit > 0) {
             if (!limit.has(message.author.id)) limit.set(message.author.id, 1);
