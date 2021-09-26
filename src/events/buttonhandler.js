@@ -46,7 +46,7 @@ module.exports = async button => {
         const sicil = db.get(`sicil_${button.clicker.id}`);
         const points = db.get(`points_${button.clicker.id}`) || 0
         await button.reply.think(true);
-        if (!sicil) return button.reply.edit("Şuana kadar ceza almamışsınız");
+        if (!sicil) return button.reply.edit("Veri tabanında herhangi bir sicil veriniz bulunmamakta!");
         await button.reply.edit(`Şuanki toplam ceza puanınız: ${points}, aldığınız cezalar: ${sicil.map(data => `${data}`).join("\n")}!`)
     };
 
