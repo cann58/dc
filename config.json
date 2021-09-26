@@ -74,10 +74,9 @@
         "susoeciosnickname": "Şüpheli Hesap",
         "oneman": "888698312658673724",
         "onewoman": "891580801517510686",
-        "EtiketTag": "0001",
+        "GuildDiscrim": "0001",
         "minage": 13,
-        "purchase": false,
-      "GuildDiscrim": ""
+        "purchase": false
     },
     "Guild": {
         "GuildID": "849594771461898280",
