@@ -24,6 +24,8 @@ module.exports = {
     const log = new Discord.MessageEmbed()
       .setColor("RED")
       .setTimestamp()
+      .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true }))
+      .setFooter("Developed by Matthe")
       .setDescription(`
       ${user ? user.toString() : user.username} kişisi sunucudan banlandı!
 

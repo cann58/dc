@@ -23,6 +23,8 @@ module.exports = {
         const log = new Discord.MessageEmbed()
             .setColor("RED")
             .setTimestamp()
+            .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true }))
+            .setFooter("Developed by Matthe")
             .setDescription(`
             ${member ? member.toString(): member.username} kullanıcısı karantinaya atıldı!
 

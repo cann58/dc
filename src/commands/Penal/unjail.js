@@ -1,5 +1,7 @@
 const Discord = require("discord.js");
 const db = require("quick.db")
+const moment = require("moment");
+
 const config = require("../../../config.json")
 
 module.exports = {
@@ -17,6 +19,8 @@ module.exports = {
     const log = new Discord.MessageEmbed()
     .setColor("GREEN")
     .setTimestamp()
+    .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true }))
+    .setFooter("Developed by Matthe")
     .setDescription(`
     ${member ? member.toString: member.username} kullanıcısı karantinadan çıkarıldı!
     
