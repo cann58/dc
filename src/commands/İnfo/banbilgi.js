@@ -7,7 +7,7 @@ module.exports = {
 
         let kullanici = args[0];
 
-        if (!kullanici) return channel.error(message, "Öncelikle bir kullanıcı ID girmen gerek!")
+        if (!kullanici) return channel.error(message, "Öncelikle geçerli bir kullanıcı ID belirtmelisin!")
 
         guild.fetchBans()
 
@@ -15,7 +15,7 @@ module.exports = {
 
                 if (!bans.has(kullanici)) {
 
-                    return channel.error(message, `Bu kullanıcı banlanmamış.`)
+                    return channel.error(message, `Belirttiğiniz kullanıcı banlanmamış.`)
 
                 }
 
@@ -23,7 +23,7 @@ module.exports = {
 
         guild.fetchBan(kullanici).then(({ user, reason }) => {
 
-            channel.send(embed.setDescription(`${user.tag} adlı kullanıcının ban sebebi: **${reason}**`))
+            channel.send(embed.setDescription(`${user.tag} kullanıcısının ban sebebi: **${reason}**`))
 
 
 

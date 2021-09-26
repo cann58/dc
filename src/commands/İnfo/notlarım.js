@@ -5,7 +5,7 @@ module.exports = {
     aliases: [],
     execute: async (client, message, args, embed, author, channel, guild) => {
         const notes = db.get(`notes_${author.id}`)
-        if (!notes) return channel.send(embed.setDescription("Henüz hiç not almamışsın"))
-        channel.send(embed.setDescription(`${notes.map((data, n) => `**${n + 1}.** ${data}`).join("\n")}`).setTitle("Kullanıcı notların"))
+        if (!notes) return channel.send(embed.setDescription("Veri tabanında not verin bulunmamakta!"))
+        channel.send(embed.setDescription(`${notes.map((data, n) => `**${n + 1}.** ${data}`).join("\n")}`).setTitle("Kullanıcının veri tabanındaki notları:"))
     }
 }

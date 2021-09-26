@@ -6,7 +6,7 @@ module.exports = {
   name: "sicil",
   aliases: [],
   execute: async (client, message, args, embed, author, channel, guild) => {
-    if (!message.member.roles.cache.has(config.penals.ban.staff) && !message.member.hasPermission("BAN_MEMBERS")) return channel.error(message, "Bu komut için yetkin bulunmuyor!")
+    if (!message.member.roles.cache.has(config.penals.ban.staff) && !message.member.hasPermission("BAN_MEMBERS")) return channel.error(message, "Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!")
     let member = message.mentions.members.first() || guild.members.cache.get(args[0]);
     const points = db.fetch(`points_${member}`) || 0
     if (!member) return channel.error(message, "Öncelikle siciline bakacağın kullanıcıyı belirtmelisin.")
@@ -14,7 +14,7 @@ module.exports = {
     if (!penals) return channel.send(`${member} kullanıcısının sicil verisi bulunmamaktadır!`)
     channel.send(embed
       .setColor("RED")
-      .setTitle(`Kullanıcı sicili`)
+      .setTitle(`Kullanıcısının veri tabanındaki sicil verileri:`)
       .setDescription(penals.map((data) => `${data}`).join("\n"))
       .addField("Toplam ceza puanı:", points))
   }

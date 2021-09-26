@@ -27,7 +27,7 @@ module.exports = {
         Mesajın silinme tarihi: \`${moment.duration(Date.now() - mesaj.silinmeTarihi).format("D [gün], H [saat], m [dakika], s [saniye]")}\` önce 
         
         Mesaj İçeriği: \`${mesaj.dosya ? "Atılan mesaj bir dosya içeriyor." : mesaj.icerik}\`
-        `).setFooter(`Jahky. ❤️ ${config.Guild.GuilDName}`))
+        `).setFooter(`Developed by Matthe`))
         }
     }
 }

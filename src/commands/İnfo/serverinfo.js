@@ -3,7 +3,7 @@ const config = require("../../../config.json");
 
 module.exports = {
     name: "info",
-    aliases: ["servers", "serverinfo"],
+    aliases: ["servers", "serverinfo", "serverbilgi"],
     execute: async (client, message, args, embed, author, channel, guild) => {
         channel.send(new Discord.MessageEmbed()
             .setTitle(`Sunucu sayısal istatistikleri:`)
@@ -15,7 +15,7 @@ module.exports = {
     \`•\` Son 1 Haftada Giren Üyeler **${guild.members.cache.filter(a => (new Date().getTime() - a.joinedTimestamp) < 604800000).size}**
     \`•\` Son 1 Ayda Giren Üyeler **${guild.members.cache.filter(a => (new Date().getTime() - a.joinedTimestamp) < 2629800000).size}**`)
             .setThumbnail(guild.iconURL)
-            .setFooter(`Jahky. ❤️ ${config.Guild.GuilDName}`)
+            .setFooter(`Developed by Matthe`)
             .setTimestamp())
     }
 };

@@ -84,7 +84,7 @@ module.exports = async (message) => {
     const afkembed = new MessageEmbed()
         .setColor(message.member.displayHexColor)
         .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true, size: 2048 }))
-        .setFooter((config.bot.footer), message.guild.iconURL())
+        .setFooter("Developed by Matthe", owner.avatarURL({ dynamic: true }))
         .setTimestamp()
     const etiket = message.mentions.users.first()
     const uye = db.fetch(`user_${message.author.id}_${message.guild.id}`)

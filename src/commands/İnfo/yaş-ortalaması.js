@@ -4,7 +4,7 @@ module.exports = {
     name: "yaş-ortalaması",
     aliases: ["yaşortalaması", "yas-ortalamasi", "yasortalamasi"],
     execute: async (client, message, args, embed, author, channel, guild) => {
-        if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(embed.setDescription("Bu komutu kullanabilmek için **Yönetici** iznine sahip olmalısın!")).then(x => x.delete({timeout: 5000}));
+        if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(embed.setDescription("Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!")).then(x => x.delete({timeout: 5000}));
         function ortalama(array) {
           if(array.length <= 0) return 0;
           const average = list => list.reduce((prev, curr) => prev + curr) / list.length;
