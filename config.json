@@ -9,19 +9,19 @@
     "penals": {
         "ban": {
             "staff": "849594829104480296",
-            "log": "",
+            "log": "873136096152784946",
             "limit": 3
         },
         "jail": {
             "staff": "849594827708301312",
             "roles": "849594827196989460",
-            "log": "",
+            "log": "873136111948533770",
             "limit": 5
         },
         "mute": {
             "staff": "849594828345311242",
             "roles": "849594821172789308",
-            "log": "",
+            "log": "873136120915976233",
             "limit": 5
         },
         "warn": {
@@ -36,9 +36,9 @@
         }
     },
     "logs": {
-        "messagelog": "",
-        "voicelog": "",
-        "taglog": ""
+        "messagelog": "873136140859887617",
+        "voicelog": "873136131489796147",
+        "taglog": "873153901958942760"
     },
     "roles": {
         "boosterrole": "873150317682888725",
@@ -54,13 +54,13 @@
         "meetingchannel": ""
     },
     "channels": {
-        "chat": "",
-        "voicechannel": "",
-        "welcomechannel": "",
-        "rules": ""
+        "chat": "873135865377980416",
+        "voicechannel": "873135769668182037",
+        "welcomechannel": "882543112101167144",
+        "rules": "873135633999220756"
     },
     "parents": {
-        "publicparents": ""
+        "publicparents": "873135900622725190"
     },
     "registration": {
         "unregistered": "888697848751874078",
@@ -79,9 +79,9 @@
         "purchase": false
     },
     "Guild": {
-        "GuildID": "",
-        "GuilDName": "",
-        "GuildOwnerRole": [""]
+        "GuildID": "849594771461898280",
+        "GuilDName": "Matthe Video",
+        "GuildOwnerRole": ["888697975445016606"]
     },
     "emojis": {
         "mark": "",
@@ -89,6 +89,6 @@
     },
     "buttons": {
         "giveaway": "886962108066050048",
-        "activity": ""
+        "activity": "886962115041165372"
     }
 }
