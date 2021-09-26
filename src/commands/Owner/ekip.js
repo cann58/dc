@@ -84,7 +84,7 @@ module.exports = {
         }
 
         if (secim === "bilgi") {
-            if (!tag) return channel.send(embed.setDescription("Bir tag belirtmelisin."))
+            if (!tag) return channel.send(embed.setDescription("Öncelikle geçerli bir tag belirtmelisin."))
             let ekipler = db.fetch(`ekipler.${tag}.${guild.id}`)
             if (!ekipler) return channel.send(embed.setDescription("Geçerli bir ekip belirtmelisin."))
             channel.send(embed.setDescription(`

@@ -16,14 +16,16 @@ module.exports = {
             })
             const info = new Discord.MessageEmbed()
                 .setAuthor(" " + author.username + " ", author.avatarURL())
-                .setColor("2F3136")
-                .setDescription(`**❯** Sunucuda rolü olmayan " **` + user.size + `** " kişiye sunucu üyesi rolü verildi!`)
+                .setColor("RANDOM")
+                .setFooter("Developed by Matthe", message.guild.iconURL())
+                .setDescription(`Sunucumuzda rolü olmayan " **` + user.size + `** " kişiye kayıtsız rolü verildi!`)
             return channel.send(info)
         } else {
             const use = new Discord.MessageEmbed()
                 .setAuthor("" + author.username + " ", author.avatarURL())
-                .setColor("2F3136")
-                .setDescription("**❯** Sunucumuzda rolü olmayan \`" + user.size + "\` kişi var. Bu kişilere üye rolü vermek için \`.rolsüz ver\` komutunu uygulayın!")
+                .setColor("RANDOM")
+                .setFooter("Developed by Matthe", message.guild.iconURL())
+                .setDescription("Sunucumuzda rolü olmayan \`" + user.size + "\` kişi var. Bu kişilere üye rolü vermek için \`.rolsüz ver\` komutunu uygulayın!")
             return channel.send(use)
         }
     }

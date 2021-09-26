@@ -12,7 +12,7 @@ module.exports = {
     let member = message.mentions.users.first();
     if (!member) return message.reply("Öncelikle banlanacak kullanıcıyı belirtmelisin.")
     let süre = args[1]
-    if (!süre) return message.reply("Lütfen Bir Süre belirtin.")
+    if (!süre) return message.reply("Öncelikle geçerli bir süre belirtin.")
     message.guild.members.ban(member, 2)
     message.channel.send(`${member} kullanıcısı başarıyla süreli olarak banlandı!`)
     db.add(`ceza_${message.guild.id}`, 1)

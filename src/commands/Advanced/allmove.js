@@ -3,7 +3,7 @@ module.exports = {
     aliases: [],
     execute: async (client, message, args, embed, author, channel, guild) => {
         if (!message.member.hasPermission("MOVE_MEMBERS")) return 
-        if (!args[0]) return channel.error(message, "Üyelerin taşınacağı bir kanal ID'si girmelisin!");
+        if (!args[0]) return channel.error(message, "Öncelikle üyelerin taşınacağı geçerli bir kanal ID'si girmelisin!");
         if (message.member.voice.channelID) {
             const channels = message.member.voice.channel;
             channels.members.forEach((x, index) => {

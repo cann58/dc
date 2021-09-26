@@ -5,13 +5,13 @@ module.exports = {
     aliases: [],
     owner: true,
     execute: async (client, message, args, embed, author, channel, guild) => {
-        if (!args[0]) return channel.send(embed.setDescription("Kod Belirt!"))
+        if (!args[0]) return channel.send(embed.setDescription("Öncelikle geçerli bir kod belirtmelisin!"))
         let code = args.join(" ");
 
         try {
             var result = clean(await eval(code));
             if (result.includes(client.token))
-                return channel.send("Kancık seni .d");
+                return channel.send("Token alamazsın oc.");
             channel.send(result, { code: "js", split: true });
         } catch (err) {
             channel.send(err, { code: "js", split: true });

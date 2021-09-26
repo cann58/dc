@@ -38,7 +38,7 @@ readdir("./src/events", (err, files) => {
         let prop = require(`./src/events/${file}`);
         if (!prop.conf) return;
         client.on(prop.conf.name, prop)
-        console.log(`[EVENT] ${prop.conf.name} loaded!`);
+        console.log(`[MATTHE-EVENT] ${prop.conf.name} loaded!`);
     });
 });
 

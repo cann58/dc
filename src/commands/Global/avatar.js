@@ -7,20 +7,20 @@ module.exports = {
         let user = message.mentions.users.first() || message.author;
   if (user) {
     const embed = new Discord.MessageEmbed()
-      .setAuthor(`${user.tag}  Buyur avatarın:`)
+      .setAuthor(`${user.tag} Buyur avatarın:`)
       .setImage(user.displayAvatarURL({ dynamic: true }))
       .setTimestamp()
-      .setFooter(`Jahky ❤️ ${config.Guild.GuilDName}`);
+      .setFooter("Developed by Matthe", message.guild.iconURL())
     message.channel.send(embed);
   } else {
     const embed = new Discord.MessageEmbed()
       .setAuthor(
-        `${message.author.tag}  Buyur avatarın:`,
+        `${message.author.tag} Buyur avatarın:`,
         message.author.avatarURL
       )
       .setImage(message.author.avatarURL({ dynamic: true }))
       .setTimestamp()
-      .setFooter("Jahky ❤️ " + config.Guild.GuilDName);
+      .setFooter("Developed by Matthe", message.guild.iconURL())
     message.channel.send(embed);
 
   }

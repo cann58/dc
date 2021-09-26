@@ -15,6 +15,6 @@ module.exports = {
         db.set(`nick_${author.id}_${guild.id}`, nick);
         let sebep = db.fetch(`sebep_${author.id}_${guild.id}`);
         message.member.setNickname(`[AFK] ` + nick).catch(err => console.log(" "))
-        channel.send(embed.setDescription(`${author} başarıyla **${sebep}** sebebiyle afk moduna giriş yaptınız.`))
+        channel.send(embed.setDescription(`${author} başarıyla **${sebep}** sebebiyle afk moduna giriş yaptınız!`))
     }
 }
