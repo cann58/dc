@@ -8,19 +8,19 @@
     },
     "penals": {
         "ban": {
-            "staff": "",
+            "staff": "849594829104480296",
             "log": "",
             "limit": 3
         },
         "jail": {
-            "staff": "",
-            "roles": "",
+            "staff": "849594827708301312",
+            "roles": "849594827196989460",
             "log": "",
             "limit": 5
         },
         "mute": {
-            "staff": "",
-            "roles": "",
+            "staff": "849594828345311242",
+            "roles": "849594821172789308",
             "log": "",
             "limit": 5
         },
@@ -41,11 +41,11 @@
         "taglog": ""
     },
     "roles": {
-        "boosterrole": "",
-        "viprole": "",
-        "designerrole": "",
-        "musiciansrole": "",
-        "team": "",
+        "boosterrole": "873150317682888725",
+        "viprole": "873150315992588329",
+        "designerrole": "873150316344930324",
+        "musiciansrole": "873150316458156043",
+        "team": "873153796916776970",
         "sponsored": ""
     },
     "meeting": {
@@ -63,18 +63,18 @@
         "publicparents": ""
     },
     "registration": {
-        "unregistered": "",
-        "man": [""],
-        "woman": [""],
-        "staff": "",
+        "unregistered": "888697848751874078",
+        "man": ["888698312658673724", "891580800846413854"],
+        "woman": ["891580801517510686", "891580810476544050"],
+        "staff": "891581307862269953",
         "GuilDTag": "!",
         "autonickname": "İsim | Yaş",
         "symbol": "|",
-        "suspecios": "",
-        "susoeciosnickname": "Şüpheli | Hesap",
-        "oneman": "",
-        "EtiketTag": "",
-        "onewoman": "",
+        "suspecios": "891581446815359037",
+        "susoeciosnickname": "Şüpheli Hesap",
+        "oneman": "888698312658673724",
+        "onewoman": "891580801517510686",
+        "EtiketTag": "0001",
         "minage": 13,
         "purchase": false
     },
@@ -88,7 +88,7 @@
         "cross": ""
     },
     "buttons": {
-        "giveaway": "",
+        "giveaway": "886962108066050048",
         "activity": ""
     }
 }
