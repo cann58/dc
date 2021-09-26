@@ -19,5 +19,7 @@ module.exports = {
     \`❯\` Seste **${Voice}** kullanıcı bulunmaktadır.
     \`❯\` Sunucuya toplam **${Boost}** takviye yapılmıştır. 
     `))
+      
+      .setFooter("Developed by Matthe")
     }
 }
