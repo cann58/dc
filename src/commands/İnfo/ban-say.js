@@ -3,7 +3,7 @@ module.exports = {
   aliases: [],
   execute: async (client, message, args, embed, author, channel, guild) => {
     guild.fetchBans()
-      .then(bans => channel.send(embed.setDescription(` > 🔐 Sunucunuzda **${bans.size}** banlanmış üye bulunmaktadır!   `)))
+      .then(bans => channel.send(embed.setDescription(`Sunucuda **${bans.size}** banlanmış kullanıcı bulunmakta!`)))
       .catch(console.error);
   }
 }

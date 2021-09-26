@@ -11,13 +11,13 @@ module.exports = {
         if (!message.member.roles.cache.has(config.penals.warn.staff) && !message.member.hasPermission("ADMİNİSTRATOR")) return channel.send(embed.setDescription("Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!"));
         const member =  message.mentions.users.first() || message.guild.members.cache.get(args[0]);
         const reason = args.splice(1).join(" ")
-        if (!member) return channel.send(embed.setDescription("Lütfen bir kullanıcıyı etiketleyip tekrar dene!"));
-        if (!reason) return channel.send(embed.setDescription("Lütfen geçerli bir sebeb girin!"))
+        if (!member) return channel.send(embed.setDescription("Öncelikle geçerli bir kullanıcı belirtmelisin!!"));
+        if (!reason) return channel.send(embed.setDescription("Öncelikle geçerli bir sebep belirtmelisin!!"))
         if (!message.member.hasPermission(8) && member && member.roles.highest.position >= message.member.roles.highest.position) return channel.send("Kendinle aynı yetkide ya da daha yetkili olan birini banlayamazsın!");
-        db.push(`warns_${member.id}`, `${author} tarafından ${moment(Date.now()).format("LLL")} tarihinde ${reason} sebebiyle uyarılmış.`)
-        db.push(`sicil_${member.id}`, `${author} tarafından ${moment(Date.now()).format("LLL")} tarihinde ${reason} sebebiyle uyarılmış.`)
+        db.push(`warns_${member.id}`, `${author} tarafından ${moment(Date.now()).format("LLL")} tarihinde ${reason} sebebiyle uyarılmış!`)
+        db.push(`sicil_${member.id}`, `${author} tarafından ${moment(Date.now()).format("LLL")} tarihinde ${reason} sebebiyle uyarılmış!`)
         db.add(`ceza_${guild.id}`, 1)
-        channel.send(embed.setDescription(`${member} kişisi **${reason}** sebebiyle uyarıldı`))
+        channel.send(embed.setDescription(`${member} kişisi **${reason}** sebebiyle uyarıldı!`))
         const user = client.users.cache.get(member)
         const log = new MessageEmbed()
         .addField("Ceza ID", `#${db.fetch(`ceza_${guild.id}`)}`)

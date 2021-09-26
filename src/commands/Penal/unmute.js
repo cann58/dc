@@ -19,7 +19,7 @@ module.exports = {
       .setColor("GREEN")
       .setTimestamp()
       .setDescription(`
-      ${member ? member.toString(): member.username} Kullanıcısının susturması kaldırıldı!
+      ${member ? member.toString(): member.username} kullanıcısının susturması kaldırıldı!
 
       Yetkili: ${author} - ${author.id}
       Tarih: ${moment(Date.now()).format("LLL")}
