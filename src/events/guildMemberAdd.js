@@ -11,7 +11,7 @@ const { MessageEmbed } = require("discord.js")
 module.exports = async member => {
     if (member.user.bot) return;
     db.add(`girişçıkış.${member.id}`, 1);
-    if (db.get(`girişçıkış.${member.id}`) >= 3) {//3 defa çık gir yaparsa
+    if (db.get(`girişçıkış.${member.id}`) >= 5) {//3 defa çık gir yaparsa
         member.guild.members.ban(member.id, { reason: `Sunucudan kısa sürede çok fazla gir çık yapmak.` })
         member.guild.channels.cache.get(config.penals.ban.log).send(`${member} adlı kullanıcı sunucuya kısa süre içinde defalarca çık gir yaptığı için sunucudan banlandı!`)
         member.send("Sunucuya kısa süre içinde defalarca çık gir yaptığın için sunucudan banlandın!")
@@ -19,7 +19,7 @@ module.exports = async member => {
     const role = db.fetch(`roles_${member.id}`)
     const name = db.fetch(`isim_${member.id}`)
     var kurulus = (Date.now() - member.user.createdTimestamp);
-    var zaman = moment.duration(kurulus).format("Y [Yıl], M [Ay]");
+    var zaman = moment.duration(kurulus).format("Y [yıl], M [ay]");
     var zaman2 = moment.duration(kurulus).format("DD [Gün], HH [saat], mm [dakika], ss [saniye]");
     const date = moment(member.user.createdAt)
     const startedAt = Date.parse(date);
@@ -54,16 +54,17 @@ module.exports = async member => {
     const saat = moment(new Date(endAt).toISOString()).format('HH:mm')
     const kuruluş = `${gün} ${ay} ${yıl} ${saat}`;
     if (kurulus > 604800000) {
-        member.setNickname(config.registration.autonickname);
+        member.setNickname(config.registration.autonickname)
+        member.roles.add(config.registration.unregistered);
         member.roles.add(config.registration.unregistered);
         member.guild.channels.cache.get(config.channels.welcomechannel).send(`:tada: **${config.Guild.GuilDName}** sunucumuza hoş geldin ${member}!
       
-      Hesabın **${kuruluş}** tarihinde **${zaman}** önce oluşturulmuş.
+Hesabın **${kuruluş}** tarihinde ( **${zaman}** ) önce oluşturulmuş.
   
-      Sunucu kurallarımız <#${config.channels.rules}> kanalında belirtilmiştir, kuralları okumayı ihmal etme!
+Sunucu kurallarımız <#${config.channels.rules}> kanalında belirtilmiştir, kuralları okumayı ihmal etme!
   
-      <@&${config.registration.staff}> rolündeki yetkililerimiz seninle ilgilenecektir. 
-      Seninle birlikte **${member.guild.memberCount}** kişiye ulaştık!`);
+<@&${config.registration.staff}> rolündeki yetkililerimiz seninle ilgilenecektir. 
+Seninle birlikte **${member.guild.memberCount}** kişiye ulaştık!`);
     } else {
         member.setNickname(config.registration.susoeciosnickname);
         member.roles.add(config.registration.suspecios);

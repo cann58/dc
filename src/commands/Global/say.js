@@ -11,7 +11,7 @@ module.exports = {
         var Voice = message.guild.members.cache.filter(s => s.voice.channel).size;
         var Boost = message.guild.premiumSubscriptionCount;
 
-        message.channel.send(new MessageEmbed().setDescription(`
+        message.channel.send(new MessageEmbed().setFooter("Developed by Matthe").setDescription(`
     \`❯\` Sunucumuzda toplam **${TotalMember}** kullanıcı bulunmaktadır.
     \`❯\` Sunucumuzda toplam **${Online}** aktif kullanıcı bulunmaktadır.
     \`❯\` Toplam **${Taglı}** \`${config.registration.GuilDTag}\` kişi tagımızda bulunuyor.
@@ -20,6 +20,5 @@ module.exports = {
     \`❯\` Sunucuya toplam **${Boost}** takviye yapılmıştır. 
     `))
       
-      .setFooter("Developed by Matthe")
     }
 }
