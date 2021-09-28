@@ -33,19 +33,6 @@ module.exports = async function(oldUser, newUser) {
     }
 }
 
-client.on("userUpdate", async (oldUser, newUser) => {
-if (oldUser.username !== newUser.username) {
-let tag = (config.registration.GuilDTag) ///////tag girin
-let sunucu = (config.registration.GuilDTag)///////sunucunuzun id
-let kanal = (config.registration.GuilDTag) ///////log tutulcak kanal id
-let rol = (config.registration.GuilDTag)/////tag aldımı verilmesini istediğiniz rol id
-if (newUser.username.includes(tag) && !client.guilds.get(sunucu).members.get(newUser.id).roles.has(rol)) {
-client.channels.get(kanal).send(`**${newUser} adlı kişi ${tag} tagımızı aldığı için <@&${rol}> rolü verildi !**`)
-client.guilds.get(sunucu).members.get(newUser.id).addRole(rol) }
-if (!newUser.username.includes(tag) && client.guilds.get(sunucu).members.get(newUser.id).roles.has(rol)) {
-client.guilds.get(sunucu).members.get(newUser.id).removeRole(rol)
-client.channels.get(kanal).send(`**${newUser} adlı kişi ${tag} tagımızı çıkardığı için <@&${rol}> rolü alındı !**`) } } })
-
 module.exports.conf = {
     name: "userUpdate"
 }

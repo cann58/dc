@@ -59,7 +59,7 @@ module.exports = async member => {
         member.roles.add(config.registration.unregistered);
         member.guild.channels.cache.get(config.channels.welcomechannel).send(`:tada: **${config.Guild.GuilDName}** sunucumuza hoş geldin ${member}!
       
-Hesabın **${kuruluş}** tarihinde ( **${zaman}** ) önce oluşturulmuş.
+Hesabın **${kuruluş}** tarihinde (**${zaman}**) önce oluşturulmuş.
   
 Sunucu kurallarımız <#${config.channels.rules}> kanalında belirtilmiştir, kuralları okumayı ihmal etme!
   
