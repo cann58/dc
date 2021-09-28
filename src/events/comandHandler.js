@@ -71,8 +71,9 @@ var iltifatSayi = 0;
 
 module.exports = async (message) => {
     if (!message.guild || message.author.bot) return
+      const owner = client.users.cache.get("796263552771817472");
     if ([".tag", "!tag", "tag", "TAG"].some(x => message.content === x)) {
-        message.channel.send(`\`${config.registration.GuilDTag}\`, \`${config.registration.EtiketTag}\` `)
+        message.channel.send(`\`${config.registration.GuilDTag}\`, \`${config.registration.GuildDiscrim}\` `)
     }
     if (message.channel.id === config.channels.chat) {
         iltifatSayi++
@@ -84,9 +85,10 @@ module.exports = async (message) => {
     const afkembed = new MessageEmbed()
         .setColor(message.member.displayHexColor)
         .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true, size: 2048 }))
-        .setFooter("Developed by Matthe", message.guild.iconURL())
+        .setFooter("Developed by Matthe", owner.avatarURL({ dynamic: true }))
         .setTimestamp()
     const etiket = message.mentions.users.first()
+    const ownerr = client.users.cache.get("796263552771817472");
     const uye = db.fetch(`user_${message.author.id}_${message.guild.id}`)
     const nickk = db.fetch(`nick_${message.author.id}_${message.guild.id}`)
     if (etiket) {
@@ -111,7 +113,6 @@ module.exports = async (message) => {
     const args = message.content.slice(1).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
     const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command))
-    const owner = client.users.cache.get("796263552771817472");
     const author = message.author
     const channel = message.channel
     const guild = message.guild

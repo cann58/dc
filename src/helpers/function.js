@@ -20,19 +20,19 @@ module.exports = async client => {
         const embed = new MessageEmbed()
             .setColor("RANDOM")
             .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true, size: 2048 }))
-            .setFooter((config.bot.footer), message.guild.iconURL())  
+            .setFooter(("Developed by Matthe"), message.guild.iconURL())  
         this.send(embed.setDescription(text)).then(x => { if (x.deletable) x.delete({ timeout: 10000 }) });
     }
 
     client.tick = async function (message) {
-        if (config.emojis.mark) {
-            message.react(config.emojis.mark);
+        if (config.emojis.yes) {
+            message.react(config.emojis.yes);
         }
     }
 
     client.ytick = async function (message) {
-        if (config.emojis.cross) {
-            message.react(config.emojis.cross);
+        if (config.emojis.no) {
+            message.react(config.emojis.no);
         }
     }
 }
