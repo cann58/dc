@@ -13,7 +13,7 @@ module.exports = {
             return !x.user.username.includes(config.registration.GuildTag) && x.voice.channel
         }).size
         let yetkili = message.guild.members.cache.filter(x => {
-            return x.user.username.includes(config.registration.GuildTag) && x.voice.channel && x.roles.cache.has(config.meeting.yetkili)
+            return x.user.username.includes(config.registration.GuildTag) && x.voice.channel && x.roles.cache.has(config.registration.staff)
         }).size
         const mesaj = new Discord.MessageEmbed()
             .setDescription(`Sesli kanallarda toplam **${ses}** kullanıcı bulunmaktadır!

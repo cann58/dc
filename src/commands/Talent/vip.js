@@ -8,6 +8,6 @@ module.exports = {
         if (!message.member.hasPermission("ADMINISTRATOR")) return channel.send(embed.setDescription("Ne yazık ki komutu kullanan kişide yetki yok"))
         if (!member) return channel.send(embed.setDescription("Öncelikle geçerli bir kullanıcı belirtmelisin!"))
         member.roles.add(config.roles.viprole)
-        channel.send(embed.setDescription(`${member} kullancısına başarıyla ${config.roles.viprole} rolü verildi!`))
+        channel.send(embed.setDescription(`${member} kullancısına başarıyla <@&${config.roles.viprole}> rolü verildi!`))
     }
 }
