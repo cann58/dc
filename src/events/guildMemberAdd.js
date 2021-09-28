@@ -54,13 +54,11 @@ module.exports = async member => {
     const saat = moment(new Date(endAt).toISOString()).format('HH:mm')
     const kuruluş = `${gün} ${ay} ${yıl} ${saat}`;
     if (kurulus > 604800000) {
-        member.setNickname(config.registration.autonickname)
         member.roles.add(config.registration.unregistered);
         member.roles.add(config.registration.unregistered);
         member.guild.channels.cache.get(config.channels.welcomechannel).send(`:tada: **${config.Guild.GuilDName}** sunucumuza hoş geldin ${member}!
       
 Hesabın **${kuruluş}** tarihinde (**${zaman}**) önce oluşturulmuş.
-  
 Sunucu kurallarımız <#${config.channels.rules}> kanalında belirtilmiştir, kuralları okumayı ihmal etme!
   
 <@&${config.registration.staff}> rolündeki yetkililerimiz seninle ilgilenecektir. 

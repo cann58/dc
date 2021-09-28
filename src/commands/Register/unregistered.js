@@ -3,7 +3,7 @@ const config = require("../../../config.json")
 
 module.exports = {
     name: 'kayıtsız',
-    aliases: ["unregistered", "kayitsiz", "unreg", "unregister", "ks"],
+    aliases: ["unregistered", "kayitsiz", "unreg", "unregister", "ks", "kayıtsız"],
     execute: async (client, message, args, embed, author, channel, guild) => {
         const member = message.mentions.members.first() ||guild.members.cache.get(args[0]);
         if (message.member.roles.cache.get(config.registration.staff) && !message.member.hasPermission("ADMINISTRATOR")) return channel.send(embed.setDescription("Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!"));
