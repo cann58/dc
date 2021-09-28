@@ -11,13 +11,13 @@ module.exports = {
         var Voice = message.guild.members.cache.filter(s => s.voice.channel).size;
         var Boost = message.guild.premiumSubscriptionCount;
 
-        message.channel.send(new MessageEmbed().setFooter("Developed by Matthe").setDescription(`
-    \`❯\` Sunucumuzda toplam **${TotalMember}** kullanıcı bulunmaktadır.
-    \`❯\` Sunucumuzda toplam **${Online}** aktif kullanıcı bulunmaktadır.
-    \`❯\` Toplam **${Taglı}** \`${config.registration.GuilDTag}\` kişi tagımızda bulunuyor.
-    \`❯\` Toplam **${Etiket}** \`${config.registration.GuildDiscrim}\` kişi etiket tagımızda bulunuyor.
-    \`❯\` Seste **${Voice}** kullanıcı bulunmaktadır.
-    \`❯\` Sunucuya toplam **${Boost}** takviye yapılmıştır. 
+        message.channel.send(new MessageEmbed().setFooter("Developed by Matthe").setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true })).setDescription(`
+    \`•\` Sunucumuzda toplam **${TotalMember}** kullanıcı bulunmaktadır.
+    \`•\` Sunucumuzda toplam **${Online}** aktif kullanıcı bulunmaktadır.
+    \`•\` Seste **${Voice}** kullanıcı bulunmaktadır.
+    
+    \`•\` Toplam **${Taglı}** \`${config.registration.GuilDTag}\` kişi tagımızda bulunuyor.
+    \`•\` Toplam **${Etiket}** \`#${config.registration.GuildDiscrim}\` kişi etiket tagımızda bulunuyor.
     `))
       
     }

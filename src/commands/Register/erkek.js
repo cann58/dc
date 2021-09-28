@@ -19,14 +19,14 @@ module.exports = {
         if (isNaN(age)) return channel.send(embed.setDescription("Öncelikle yaş geçerli rakamlardan oluşsun!"))
         if (age < config.registration.minage) return channel.send(embed.setDescription("Kullanıcı için belirtilen yaş minimum yaştan küçük!"))
         if (config.registration.purchase) {
-            if (!member.username.includes(config.registration.GuilDTag) && !member.roles.cache.has(config.roles.viprole && config.roles.boosterrole && config.roles.musiciansrole && config.roles.designerrole)) {
-                return channel.send(embed.setDescription(`Kullanıcının kayıt olabilmesi için boost basmalı veya tag almalı! (${config.registration.GuilDTag})`))
+            if (!member.username.includes(config.registration.GuilDTag) && !member.roles.cache.has(config.roles.viprole && config.roles.boosterrole && config.roles.musiciansrole && config.roles.designerrole && config.roles.team)) {
+                return channel.send(embed.setDescription(`Kullanıcının kayıt olabilmesi için boost basmalı veya tag almalı! (${config.registration.Symbol})`))
             }
         }
-        await guild.members.cache.get(member.id).setNickname(`${config.registration.GuilDTag} ${name} ${config.registration.symbol} ${age}`);
+        await guild.members.cache.get(member.id).setNickname(`${config.registration.Symbol} ${name} ${config.registration.symbol} ${age}`);
         db.add(`erkek_${author.id}`, 1)
         db.add(`toplam_${author.id}`, 1)
-        db.push(`isimler_${member.id}`, ` \`${config.registration.GuilDTag} ${name} ${config.registration.symbol} ${age}\` (<@&${config.registration.oneman}>)`);
+        db.push(`isimler_${member.id}`, ` \`${config.registration.Symbol} ${name} ${config.registration.symbol} ${age}\` (<@&${config.registration.oneman}>)`);
         db.push(`kke_${member.id}`, `${author} \`${moment(Date.now()).format("LLL")}\` (<@&${config.registration.oneman}>)`)
         await guild.members.cache.get(member.id).roles.add(config.registration.man);
         await guild.members.cache.get(member.id).roles.remove(config.registration.unregistered)
@@ -35,7 +35,7 @@ module.exports = {
         } else {
             channel.send(embed.setDescription(`${member} kullanıcısı başarıyla \" Erkek \" olarak kayıt edildi!\n\Kullanıcının toplamda " ${names.length} " isim kayıtı görüntülendi.\n${names.map((data) => `${data}`).join("\n")}`)).then(m => m.delete({timeout: 9000}))
         }
-        db.push(`isimler_${member.id}`, ` \`${config.registration.GuilDTag} ${name} ${config.registration.symbol} ${age}\` (<@&${config.registration.oneman}>)`);
+        db.push(`isimler_${member.id}`, ` \`${config.registration.Symbol} ${name} ${config.registration.symbol} ${age}\` (<@&${config.registration.oneman}>)`);
       
         message.react(config.emojis.yes)
         client.channels.cache.get(config.channels.chat).send(`${member} aramıza katıldı, ona selam verin!`);

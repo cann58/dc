@@ -3,7 +3,7 @@ const db = require("quick.db");
 const client = global.client;
 
 module.exports = () => {
-    client.user.setPresence({ activity: { name: (config.bot.BotStatus), type: "LISTENING" }, status: "dnd" });
+    client.user.setPresence({ activity: { name: (config.bot.BotStatus), type: "PLAYING" }, status: "online" });
     if (config.channels.voicechannel) client.channels.cache.get(config.channels.voicechannel).join();
     const tag = db.get(`bannedtag_${config.Guild.GuildID}`)
     if (tag) {

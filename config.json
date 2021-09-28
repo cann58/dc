@@ -69,19 +69,20 @@
         "staff": "892381351343427633",
         "GuilDTag": "Sau",
         "GuilDTag2": "sau",
+        "Symbol": "",
         "autonickname": "İsim | Yaş",
         "symbol": "|",
         "suspecios": "892381351318257707",
         "susoeciosnickname": "Şüpheli Hesap",
         "oneman": "892381351297294372",
         "onewoman": "892381351297294374",
-        "GuildDiscrim": "1331",
+        "GuildDiscrim": "1771",
         "minage": 14,
         "purchase": false
     },
     "Guild": {
         "GuildID": "892381351280525372",
-        "GuilDName": "Sau #1331",
+        "GuilDName": "Sau #1771",
         "GuildOwnerRole": ["892381351964209214"]
     },
     "emojis": {
