@@ -11,7 +11,7 @@ module.exports = {
         const member = message.mentions.users.first() || guild.members.cache.get(args[0]);
         const name = args[1]
         const age = args[2]
-        const names = db.get(`isimler_${member.id}`)
+        
         if (!message.member.roles.cache.has(config.registration.staff) && !message.member.hasPermission("ADMINISTRATOR")) return channel.send(embed.setDescription("Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!"));
         if (!member) return channel.send(embed.setDescription("Öncelikle geçerli bir kullanıcı belirtmelisin!"));
         if (!name) return channel.send(embed.setDescription("Öncelikle geçerli bir isim belirtmelisin!"));
@@ -26,6 +26,7 @@ module.exports = {
         await guild.members.cache.get(member.id).setNickname(`${config.registration.Symbol} ${name} ${config.registration.symbol} ${age}`);
         db.add(`erkek_${author.id}`, 1)
         db.add(`toplam_${author.id}`, 1)
+              const names = db.get(`isimler_${member.id}`)
         db.push(`isimler_${member.id}`, ` \`${config.registration.Symbol} ${name} ${config.registration.symbol} ${age}\` (<@&${config.registration.oneman}>)`);
         db.push(`kke_${member.id}`, `${author} \`${moment(Date.now()).format("LLL")}\` (<@&${config.registration.oneman}>)`)
         await guild.members.cache.get(member.id).roles.add(config.registration.man);
