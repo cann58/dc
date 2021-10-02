@@ -45,7 +45,7 @@ readdir("./src/events", (err, files) => {
 client.on("message", async message => {
     if (message.content === "!buttons-role" && message.author.id === config.bot.owner) {
         const Giveaway = new buttons.MessageButton()
-            .setStyle("red")
+            .setStyle("green")
             .setLabel("Çekiliş Katılımcısı")
             .setID("Giveaway");
         const Activity = new buttons.MessageButton()
@@ -53,7 +53,8 @@ client.on("message", async message => {
             .setLabel("Etkinlik Katılımcısı")
             .setID("Activity");
 
-        message.channel.send(`${config.emojis.hello} **Merhaba!** \n\n Rollerimizi alarak sunucumuzda bir sürü şeyden **haberdar olabilirsiniz.**\n\n Aşağıda bulunan butonlardan rollerinizi alarak **Çekilişlerimizden, ve Etkinliklerimizden** faydalanabilirsiniz.\n\n \`NOT:\` Hepiniz bu kanalı görebilmektesiniz. Bu sunucumuzda everyone here atılmayacağından dolayı kesinlikle rollerinizi almayı unutmayın.`,
+        message.channel.send(`Selamlar sunucumuzun güzel üyeleri. Sunucumuzda sürekli \`@everyone\` ve \`@here\` atarak sizleri rahatsız etmek istemiyoruz, bu yüzden aşağıdaki belirtmiş olduğumuz rolleri o isimdeki kutucuğa (butona) tıklayarak alabilirsiniz! \n\n \`•\` <@&${config.buttons.activity}> rolünü almak için **Etkinlik Katılımcısı** butonuna tıklayınız. \n \`•\` <@&${config.buttons.giveaway}> rolünü almak için **Çekiliş Katılımcısı** butonuna tıklayınız.
+`,
             {
                 buttons: [Giveaway, Activity]
             });
@@ -85,7 +86,7 @@ client.on("message", async message => {
             .setStyle("gray")
             .setLabel("5")
             .setID("five");
-        message.channel.send("**Merhaba!** \n\n Aşşağıdaki butonlarla etkileşime girerek **sunucumuzdaki durumunuz hakkında bilgi edinebilirsiniz.** \n\n **1 -** `Sunucumuza daha önceden hangi isimlerle kayıt olduğunuzu kontrol edersiniz.` \n **2 -** `Sunucumuza daha önceden kayıt olup olmadığınızı kontrol edersiniz.` \n **3 -** `Sunucumuzda daha önceden ceza alıp almadığınızı kontrol edersiniz.` \n **4 -** `Sunucumuzdaki rollerinizi kontrol edersiniz.` \n **5 -** `Sunucumuza ne zaman katıldığınızı kontrol edersiniz.` \n\n Matthe iyi eğlenceler diler :)", { buttons: [one, two, three, four, five] })
+        message.channel.send("${config.emojis.hello} **Merhaba!** \n\n Aşşağıdaki butonlarla etkileşime girerek **sunucumuzdaki durumunuz hakkında bilgi edinebilirsiniz.** \n\n **1 -** `Sunucumuza daha önceden hangi isimlerle kayıt olduğunuzu kontrol edersiniz.` \n **2 -** `Sunucumuza daha önceden kayıt olup olmadığınızı kontrol edersiniz.` \n **3 -** `Sunucumuzda daha önceden ceza alıp almadığınızı kontrol edersiniz.` \n **4 -** `Sunucumuzdaki rollerinizi kontrol edersiniz.` \n **5 -** `Sunucumuza ne zaman katıldığınızı kontrol edersiniz.` \n\n Matthe iyi eğlenceler diler :)", { buttons: [one, two, three, four, five] })
     }
 });
 
