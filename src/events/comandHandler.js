@@ -102,11 +102,11 @@ module.exports = async (message) => {
     }
     if (message.author.id === uye) {
         message.member.setNickname(nickk).catch(err => console.log(" "))
-        db.deconste(`sebep_${message.author.id}_${message.guild.id}`)
-        db.deconste(`user_${message.author.id}_${message.guild.id}`)
-        db.deconste(`nick_${message.author.id}_${message.guild.id}`)
-        db.deconste(`user_${message.author.id}_${message.guild.id}`);
-        db.deconste(`afktime_${message.guild.id}`)
+        db.delete(`sebep_${message.author.id}_${message.guild.id}`)
+        db.delete(`user_${message.author.id}_${message.guild.id}`)
+        db.delete(`nick_${message.author.id}_${message.guild.id}`)
+        db.delete(`user_${message.author.id}_${message.guild.id}`);
+        db.delete(`afktime_${message.guild.id}`)
         message.channel.send(afkembed.setDescription(`Başarıyla \`AFK\` modundan çıkış yaptınız!`))
     }
     if (!message.content.startsWith(config.bot.prefix)) return;
