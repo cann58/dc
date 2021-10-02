@@ -16,7 +16,7 @@ module.exports = {
         let digerroller = [];
         member.roles.cache.filter(r => r.id).map(r => {digerroller.push(r.id)})
         await member.roles.remove(digerroller)
-        await member.roles.set(config.registration.unregistered)
+        await member.roles.add(config.registration.unregistered)
 
         channel.send(embed.setDescription(`${member} kullanıcısı başarıyla kayıtsıza atıldı!`))
     }

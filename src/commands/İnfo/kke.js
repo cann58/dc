@@ -8,6 +8,6 @@ module.exports = {
         if (!member) return channel.error(message, "Öncelikle geçerli bir kullanıcı belirtmelisin!")
         let kke = db.get(`kke_${member.id}`);
         if (!kke) return channel.error(message, "Bu kullanıcının veri tabanında kayıt verisi bulunmamakta!")
-    .channel.send(embed.setTitle("Kullanıcının veri tabanındaki kayıt görevlisi:").setDescription(`${kke.join("\n")}`))
+    channel.send(embed.setTitle("Belirttiğiniz kullanıcının veri tabanındaki kayıt görevlisi:").setDescription(`${kke.join("\n")}`))
     }
 }

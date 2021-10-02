@@ -7,7 +7,8 @@ module.exports = {
     execute: async (client, message, args, embed, author, channel, guild) => {
         channel.send(new Discord.MessageEmbed()
             .setTitle(`Sunucu sayısal istatistikleri:`)
-            .setColor("#36393f")
+            .setColor("RAMDOM")
+            .setFooter("Developed by Matthe")
             .setDescription(`
     \`•\` Sunucuda toplam **${guild.memberCount}** kişi bulunmakta.
     \`•\` Son 1 Saatte Giren Üyeler  **${guild.members.cache.filter(a => (new Date().getTime() - a.joinedTimestamp) < 3600000).size}**
