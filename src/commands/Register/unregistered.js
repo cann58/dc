@@ -12,7 +12,12 @@ module.exports = {
             return channel.send(embed.setDescription("Belirttiğin kullanıcı seninle aynı yetkide veya senden üstün!"))
         }
         if (member.roles.cache.has(config.roles.boosterrole) && !member.roles.cache.has(config.roles.viprole)) return channel.send(embed.setDescription("Booster ve vip kullanıcıları kayıtsıza atamazsın!"));
-        member.roles.add(config.registration.unregistered)
+      
+        let digerroller = [];
+        member.roles.cache.filter(r => r.id).map(r => {digerroller.push(r.id)})
+        await member.roles.remove(digerroller)
+        await member.roles.set(config.registration.unregistered)
+
         channel.send(embed.setDescription(`${member} kullanıcısı başarıyla kayıtsıza atıldı!`))
     }
 }
