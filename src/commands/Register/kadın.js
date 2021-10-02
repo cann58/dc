@@ -29,9 +29,9 @@ module.exports = {
         await guild.members.cache.get(member.id).roles.add(config.registration.woman);
         await guild.members.cache.get(member.id).roles.remove(config.registration.unregistered)
         if (!names) {
-            message.channel.send(embed.setDescription(`${member} kullanıcısı başarıyla \`Kadın\` rolleri verilerek kayıt edildi!`))
+            message.channel.send(embed.setDescription(`${member} kullanıcısı başarıyla <@&${config.registration.onewoman}> rolleri verilerek kayıt edildi!`))
         } else {
-            channel.send(embed.setDescription(`${member} kullanıcısı başarıyla \`Kadın\` olarak kayıt edildi!\n\Kullanıcının toplamda " ${names.length} " isim kayıtı görüntülendi.\n${names.map((data) => `${data}`).join("\n")}`)).then(m => m.delete({timeout: 20000}))
+            channel.send(embed.setDescription(`${member} kullanıcısı başarıyla <@&${config.registration.onewoman}> olarak kayıt edildi!\n\nKullanıcının toplamda " ${names.length} " isim kayıtı görüntülendi.\n${names.map((data) => `${data}`).join("\n")}`)).then(m => m.delete({timeout: 20000}))
         }
         message.react(config.emojis.yes)
         client.channels.cache.get(config.channels.chat).send(`${member} aramıza katıldı!`);
