@@ -1,7 +1,7 @@
 const config = require("../../../config.json");
 
 module.exports = {
-    name: "kayıtsızlar",
+    name: "yetkililer",
     aliases: [],
     execute: async (client, message, args, embed, author, channel, guild) => {
         if (message.member.roles.cache.has(config.ban.staff) && message.member.hasPermission("ADMİNİSTRATOR")) return
