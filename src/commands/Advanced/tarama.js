@@ -9,6 +9,6 @@ module.exports = {
         const memberss = guild.members.cache.filter(member => member.user.username.includes(tag));
         const membersss = guild.members.cache.filter(member => member.user.username.includes(tag2));
         memberss.map(member => member.roles.add(config.roles.team))
-        channel.send(embed.setDescription(`${memberss.size} kullanıcıya taglı rolü verildi!`))
+        channel.send(embed.setDescription(`Sunucu tagımızda olan **${memberss.size}** kullanıcıya taglı rolü verildi!`))
     }
 }

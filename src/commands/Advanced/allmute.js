@@ -7,7 +7,7 @@ module.exports = {
         if (!channels) return channel.error(message, "Öncelikle geçerli bir kanal ID girmeli ya da bir sesli kanalda bulunmalısın!");
         channels.members.filter((x) => !x.hasPermission("ADMINISTRATOR"))
           .forEach((x, index) => {
-            client.wait(index * 1000);
+         const wait = require("util").promisify(setTimeout);
             x.voice.setMute(true);
           });
         channel.send(embed.setDescription(`\`${channels.name}\` kanalındaki tüm üyeler susturuldu!`));
