@@ -26,7 +26,7 @@ module.exports = {
     if (config.penals.mute.limit > 0 && limit.has(author.id) && limit.get(author.id) == config.penals.mute.limit) return channel.send("Saatlik mute sınırına ulaştın!");
     if (!message.member.hasPermission(8) && member && member.roles.highest.position >= message.member.roles.highest.position) return channel.send("Kendinle aynı yetkide ya da daha yetkili olan birini muteleyemezsin!");
 
-    channel.send(embed.setDescription(`**${member}** kullanıcısı ${author} tarafından başarıyla susturuldu!`))
+    channel.send(embed.setDescription(`**${member}** kullanıcısı ${author} tarafından başarıyla **${reason}** sebebi ile **${sure}** boyunca susturuldu!`))
     member.roles.add(config.penals.mute.roles)
     db.add(`ceza_${guild.id}`, 1)
 
@@ -42,7 +42,7 @@ module.exports = {
       Ceza ID: \`${db.fetch(`ceza_${guild.id}`)}\`
       Kullanıcı: ${member ? member.toString(): member.username} - ${member.id}
       Yetkili: ${author} - ${author.id}
-      Sebeb: ${reason}
+      Sebep: ${reason}
       Tarih: ${moment(Date.now()).format("LLL")}
       `);
     client.channels.cache.get(config.penals.mute.log).send(log);
@@ -50,9 +50,9 @@ module.exports = {
     db.add(`points_${member.id}`, config.penals.points.mutepoints);
     db.set(`mute_${member.id}`, true);
     setTimeout(() => {
-      if (!db.get(`mute_${member.id}`))
+      if (db.get(`mute_${member.id}`)) {
       member.roles.remove(config.penals.mute.roles)
-      client.channels.cache.get(new Discord.MessageEmbed().setColor("GREEN").setTimestamp().setDescription(`${member} kişisiin susturması süresi bittiği için kaldırıldı`))
+      client.channels.cache.get(config.penals.mute.log).send(new Discord.MessageEmbed().setColor("GREEN").setTimestamp().setDescription(`${member} kişisiin susturması süresi bittiği için kaldırıldı`))}
     }, ms(sure));
     if (config.penals.mute.limit > 0) {
       if (!limit.has(author.id)) limit.set(author.id, 1);

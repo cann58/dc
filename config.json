@@ -87,11 +87,7 @@
     },
     "emojis": {
         "yes": "<:matthe_haraketsizonay:892391879591751731>",
-        "no": "<:matthe_haraketsizred:892391879604330508>",
-        "spotify": "<:spotify:893803389413130250>",
-        "netflix": "<:netflix:893803409591906334>",
-        "hello": "<a:matthe_selam2:863677714409979914>",
-        "nitro": "<:discord_nitro:893803365031624714>"
+        "no": "<:matthe_haraketsizred:892391879604330508>"
     },
     "buttons": {
         "giveaway": "892381351280525375",

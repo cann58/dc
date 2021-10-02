@@ -46,11 +46,11 @@ client.on("message", async message => {
     if (message.content === "!buttons-role" && message.author.id === config.bot.owner) {
         const Giveaway = new buttons.MessageButton()
             .setStyle("green")
-            .setLabel("Çekiliş Katılımcısı")
+            .setLabel("🎁 Çekiliş Katılımcısı")
             .setID("Giveaway");
         const Activity = new buttons.MessageButton()
             .setStyle("green")
-            .setLabel("Etkinlik Katılımcısı")
+            .setLabel("🎉 Etkinlik Katılımcısı")
             .setID("Activity");
 
         message.channel.send(`Selamlar sunucumuzun güzel üyeleri. Sunucumuzda sürekli \`@everyone\` ve \`@here\` atarak sizleri rahatsız etmek istemiyoruz, bu yüzden aşağıdaki belirtmiş olduğumuz rolleri o isimdeki kutucuğa (butona) tıklayarak alabilirsiniz! \n\n \`•\` <@&${config.buttons.activity}> rolünü almak için **Etkinlik Katılımcısı** butonuna tıklayınız. \n \`•\` <@&${config.buttons.giveaway}> rolünü almak için **Çekiliş Katılımcısı** butonuna tıklayınız.

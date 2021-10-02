@@ -1,6 +1,6 @@
 module.exports = {
     name: "allunmute",
-    aliases: ["sustur-kaldır"],
+    aliases: ["herkesi-aç"],
     execute: async (client, message, args, embed, author, channel, guild) => {
         if (!message.member.hasPermission("MOVE_MEMBERS")) return;
         let channels = guild.channels.cache.get(args[0]) || message.member.voice.channel;
