@@ -6,7 +6,7 @@ moment.locale("tr");
 
 module.exports = {
     name: "warn",
-    aliases: ["uyarı", "uyar"],
+    aliases: ["uyarı", "uyar", "uyari"],
     execute: async (client, message, args, embed, author, channel, guild) => {
         if (!message.member.roles.cache.has(config.penals.warn.staff) && !message.member.hasPermission("ADMİNİSTRATOR")) return channel.send(embed.setDescription("Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!"));
         const member =  message.mentions.users.first() || message.guild.members.cache.get(args[0]);
