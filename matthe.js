@@ -53,7 +53,7 @@ client.on("message", async message => {
             .setLabel("Etkinlik Katılımcısı")
             .setID("Activity");
 
-        message.channel.send(`${config.emojis.hello**Merhaba!** \n\n Rollerimizi alarak sunucumuzda bir sürü şeyden **haberdar olabilirsiniz.**\n\n Aşağıda bulunan butonlardan rollerinizi alarak **Çekilişlerimizden, ve Etkinliklerimizden** faydalanabilirsiniz.\n\n \`NOT:\` Hepiniz bu kanalı görebilmektesiniz. Bu sunucumuzda everyone here atılmayacağından dolayı kesinlikle rollerinizi almayı unutmayın.`,
+        message.channel.send(`${config.emojis.hello} **Merhaba!** \n\n Rollerimizi alarak sunucumuzda bir sürü şeyden **haberdar olabilirsiniz.**\n\n Aşağıda bulunan butonlardan rollerinizi alarak **Çekilişlerimizden, ve Etkinliklerimizden** faydalanabilirsiniz.\n\n \`NOT:\` Hepiniz bu kanalı görebilmektesiniz. Bu sunucumuzda everyone here atılmayacağından dolayı kesinlikle rollerinizi almayı unutmayın.`,
             {
                 buttons: [Giveaway, Activity]
             });
