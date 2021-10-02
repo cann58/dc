@@ -3,7 +3,7 @@ const config = require("../../../config.json");
 
 module.exports = {
     name: "rolsüz",
-    aliases: ["r"],
+    aliases: ["rolsuz"],
     execute: async (client, message, args, embed, author, channel, guild) => {
         if(!message.member.hasPermission("ADMINISTRATOR")) return 
 

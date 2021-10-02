@@ -4,14 +4,16 @@ const moment = require("moment")
 
 module.exports = {
     name: "sürelirol",
-    aliases: [],
+    aliases: ["süreli-rol", "surelirol", "sureli-rol"],
     execute: async (client, message, args, embed, author, channel, guild) => {
         const embed1 = new Discord.MessageEmbed()
-            .setAuthor(client.user.username, client.user.avatarURL())
-            .setTimestamp()
+      .setTimestamp()
+      .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true }))
+      .setFooter("Developed by Matthe")
         const embed2 = new Discord.MessageEmbed()
-            .setAuthor(client.user.username, client.user.avatarURL())
-            .setTimestamp()
+      .setTimestamp()
+      .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true }))
+      .setFooter("Developed by Matthe")
         if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(embed1.setDescripton(`Bu Komutu Kullanabilmek İçin Mesajları Yönet Yetkisine Sahip Olmalısın!`))
         let user = message.mentions.users.first()
         let roles = message.mentions.roles.first()
