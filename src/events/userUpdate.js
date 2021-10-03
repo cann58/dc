@@ -16,19 +16,19 @@ module.exports = async function(oldUser, newUser) {
             client.channels.cache.get(config.logs.taglog).send(embed.setDescription(`${newUser} isminden \`${config.registration.GuilDTag}\` çıkartarak ailemizden ayrıldı!`))
         } else if (!oldUser.username.includes(config.registration.GuilDTag) && newUser.username.includes(config.registration.GuilDTag)) {
             member.roles.add(config.roles.team)
-            client.channels.cache.get(config.channels.chat).send(`Tebrikler, ${newUser} \`${config.registration.GuilDTag}\` tag alarak ailemize katıldı!`)
-            client.channels.cache.get(config.logs.taglog).send(embed.setDescription(`${newUser} ismine \`${config.registration.GuilDTag}\` alarak ailemize katıldı`))
+            client.channels.cache.get(config.channels.chat).send(`${config.emojis.tada} Tebrikler, ${newUser} \`${config.registration.GuilDTag}\` tag alarak ailemize katıldı!`)
+            client.channels.cache.get(config.logs.taglog).send(embed.setDescription(`${newUser} ismine \`${config.registration.GuilDTag}\` alarak ailemize katıldı!`))
         }
     }
   
       if (newUser.username !== oldUser.username) {
-        if (oldUser.username.includes(config.registration.GuilDTag) && !newUser.username.includes(config.registration.GuilDTag)) {
+        if (oldUser.username.includes(config.registration.GuilDTag2) && !newUser.username.includes(config.registration.GuilDTag2)) {
             member.roles.remove(config.roles.team)
-            client.channels.cache.get(config.logs.taglog).send(embed.setDescription(`${newUser} isminden \`${config.registration.GuilDTag}\` çıkartarak ailemizden ayrıldı!`))
-        } else if (!oldUser.username.includes(config.registration.GuilDTag) && newUser.username.includes(config.registration.GuilDTag)) {
+            client.channels.cache.get(config.logs.taglog).send(embed.setDescription(`${newUser} isminden \`${config.registration.GuilDTag2}\` çıkartarak ailemizden ayrıldı!`))
+        } else if (!oldUser.username.includes(config.registration.GuilDTag2) && newUser.username.includes(config.registration.GuilDTag2)) {
             member.roles.add(config.roles.team)
-            client.channels.cache.get(config.channels.chat).send(`Tebrikler, ${newUser} \`${config.registration.GuilDTag}\` tag alarak ailemize katıldı!`)
-            client.channels.cache.get(config.logs.taglog).send(embed.setDescription(`${newUser} ismine \`${config.registration.GuilDTag}\` alarak ailemize katıldı`))
+            client.channels.cache.get(config.channels.chat).send(`${config.emojis.tada} Tebrikler, ${newUser} \`${config.registration.GuilDTag2}\` tag alarak ailemize katıldı!`)
+            client.channels.cache.get(config.logs.taglog).send(embed.setDescription(`${newUser} ismine \`${config.registration.GuilDTag2}\` alarak ailemize katıldı!`))
         }
     }
   
@@ -39,7 +39,7 @@ module.exports = async function(oldUser, newUser) {
         } else if (oldUser.discriminator !== config.registration.GuildDiscrim && newUser.discriminator == config.registration.GuildDiscrim) {
             member.roles.add(role)
             client.channels.cache.get(config.logs.taglog).send(embed.setDescription(`${newUser} etiketine tagımızı alarak ailemize katıldı!`))
-            client.channels.cache.get(config.channels.chat).send(`Tebrikler, ${newUser} etiket tagımızı alarak ailemize katıldı! `)
+            client.channels.cache.get(config.channels.chat).send(`${config.emojis.tada} Tebrikler, ${newUser} etiket tagımızı alarak ailemize katıldı! `)
         }
     }
 }
