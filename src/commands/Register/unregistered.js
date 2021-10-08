@@ -17,6 +17,7 @@ module.exports = {
         member.roles.cache.filter(r => r.id).map(r => {digerroller.push(r.id)})
         await member.roles.remove(digerroller)
         await member.roles.add(config.registration.unregistered)
+        member.setNickname(config.registration.autonickname);
 
         channel.send(embed.setDescription(`${member} kullanıcısı başarıyla kayıtsıza atıldı!`))
     }

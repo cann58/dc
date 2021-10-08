@@ -56,6 +56,7 @@ module.exports = async member => {
     } else {
         member.setNickname(config.registration.susoeciosnickname);
         member.roles.add(config.registration.suspecios);
+        member.setNickname(config.registration.autonickname);
         member.guild.channels.cache.get(config.channels.welcomechannel).send(
             new MessageEmbed()
                 .setAuthor(member.user.username, member.user.avatarURL({ dynamic: true }))
