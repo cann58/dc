@@ -5,7 +5,7 @@ const db = require("quick.db");
 const ms = require('ms');
 
 const iltifatlar = [
-    'Gözlerindeki saklı cenneti benden başkası fark etsin istemiyorum.',
+    'Matthe seni cok sevio canim.',
     'Mavi gözlerin, gökyüzü oldu dünyamın.',
     'Parlayan gözlerin ile karanlık gecelerime ay gibi doğuyorsun.',
     'Huzur kokuyor geçtiğin her yer.',
@@ -24,7 +24,7 @@ const iltifatlar = [
     'Hayatıma gelerek hayatımdaki bütün önemli şeylerin önemsiz olmasını sağladın. Artık sensin tek önem verdiğim şu hayatta.',
     'Sen benim bu hayattaki en büyük duamsın.  Gözlerin adeta bir ay parçası. Işık oluyorsun karanlık gecelerime.',
     'Aynı zaman diliminde yaşamak benim için büyük ödüldür.',
-    'Biraz Çevrendeki İnsanları Takarmısın ?',
+    'Mattheye cıkma teklifi eder misin ?',
     'İğrenç İnsansın!',
     'Kalbime giden yolu aydınlatıyor gözlerin.  Sadece sen görebilirsin kalbimi. Ve sadece ben hissedebilirim bana karşı olan hislerini.',
     'Onu Bunu Boşver de bize gel 2 bira içelim.',
