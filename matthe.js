@@ -92,3 +92,8 @@ client.on("message", async message => {
 
 client.login(process.env.token).then(x => console.log(`Bot ${client.user.username} olarak giriş yaptı`)).catch(err => console.log(`Bot Giriş yapamadı sebep: ${err}`));
 
+client.on('message', async message => {
+if (message.content === 'fakekatıl') { 
+  client.emit('guildMemberAdd', message.member || await message.guild.fetchMember(message.author));
+    }
+});

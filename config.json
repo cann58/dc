@@ -2,31 +2,31 @@
     "bot": {
         "owner": "796263552771817472",
         "prefix": ".",
-        "BotStatus": "Matthe ❤️ Well",
+        "BotStatus": "Matthe ❤️ Server",
         "cooldown": 8,
-        "iltifatsize": 100
+        "iltifatsize": 90
     },
     "penals": {
         "ban": {
-            "staff": "891411667177590854",
-            "log": "893151923333652540",
+            "staff": "892381351368618037",
+            "log": "892381353767739392",
             "limit": 3
         },
         "jail": {
-            "staff": "891411668112932935",
-            "roles": "891411682168045629",
-            "log": "893150306882453585",
+            "staff": "892381351368618036",
+            "roles": "892381351318257707",
+            "log": "892381353767739392",
             "limit": 5
         },
         "mute": {
-            "staff": "891411668670742589",
-            "roles": "891411683266920458",
-            "log": "893150245666570250",
+            "staff": "892381351368618034",
+            "roles": "892381351318257705",
+            "log": "892381353553838169",
             "limit": 5
         },
         "warn": {
-            "staff": "891411669887107092",
-            "log": "894186821733474335"
+            "staff": "892381351343427634",
+            "log": "892389945677840384"
         },
         "points": {
             "mutepoints": "10",
@@ -36,17 +36,17 @@
         }
     },
     "logs": {
-        "messagelog": "893150155631624193",
-        "voicelog": "893150183905447936",
-        "taglog": "891679207132901378"
+        "messagelog": "892381353553838166",
+        "voicelog": "892381353553838163",
+        "taglog": "892381353553838162"
     },
     "roles": {
-        "boosterrole": "844133518245232641",
-        "viprole": "891411675419394108",
+        "boosterrole": "892390997336657970",
+        "viprole": "892381351318257710",
         "designerrole": "873150316344930324",
         "musiciansrole": "873150316458156043",
-        "team": "891411673745874996",
-        "sponsored": "891411674614095892"
+        "team": "892381351318257709",
+        "sponsored": "892381351318257711"
     },
     "meeting": {
         "katıldı": "",
@@ -54,45 +54,47 @@
         "meetingchannel": "892381352593358888"
     },
     "channels": {
-        "chat": "891411707434528849",
-        "voicechannel": "891411707434528849",
-        "welcomechannel": "891411704179748884",
-        "rules": "891411711595278346"
+        "chat": "892381352593358890",
+        "voicechannel": "892381352308129841",
+        "welcomechannel": "893817604551082015",
+        "rules": "892381351964209219"
     },
     "parents": {
-        "publicparents": "891411694369275954"
+        "publicparents": "892381353046310942"
     },
     "registration": {
-        "unregistered": "891411677696913481",
-        "man": ["891411676874805299"],
-        "woman": ["891411676111441981"],
-        "staff": "891411670763716618",
-        "GuilDTag": "Well",
-        "GuilDTag2": "well",
-        "GuilDTag3": "1993",
-        "Symbol": "•",
+        "unregistered": "892381351297294369",
+        "man": ["892381351297294371", "892381351297294372"],
+        "woman": ["892381351297294373", "892381351297294374"],
+        "staff": "892381351343427633",
+        "yetkistaff": "894221006611296297",
+        "lowstaff": "894172407785472010",
+        "GuilDTag": "Schwesta",
+        "GuilDTag2": "schwesta",
+        "GuilDTag3": "schwesta",
+        "TagSymbol": "",
         "autonickname": "",
         "symbol": "|",
-        "suspecios": "891411682168045629",
+        "suspecios": "892381351318257707",
         "susoeciosnickname": "Şüpheli Hesap",
-        "oneman": "891411676874805299",
-        "onewoman": "891411676111441981",
-        "GuildDiscrim": "1993",
+        "oneman": "892381351297294372",
+        "onewoman": "892381351297294374",
+        "GuildDiscrim": "1771",
         "minage": 14,
         "purchase": false
     },
     "Guild": {
-        "GuildID": "843140862371692614",
-        "GuilDName": "Well #1993",
-        "GuildOwnerRole": ["893583837609754654"]
+        "GuildID": "892381351280525372",
+        "GuilDName": "Schwesta #1771",
+        "GuildOwnerRole": ["892381351964209214"]
     },
     "emojis": {
-        "tada": "<a:matthe_cekiliske:894185854317252648>",
-        "yes": "<:matthe_haraketsizonay:894185690303189012>",
-        "no": "<:matthe_haraketsizred:894185690378670101>"
+        "tada": "3131",
+        "yes": "3131",
+        "no": "3131"
     },
     "buttons": {
-        "giveaway": "891411680247050340",
-        "activity": "891411679534010398"
+        "giveaway": "892381351280525375",
+        "activity": "892381351280525374"
     }
 }
