@@ -8,13 +8,12 @@ moment.locale("tr")
 module.exports = async message => {
     if (message.channel.type === "dm" || !message.guild || message.author.bot) return;
     const snipe = {
-        mesaj: message.content,
-        mesajyazan: message.author.id,
-        ytarihi: message.createdTimestamp,
-        starihi: Date.now(),
-        kanal: message.channel.id
+        icerik: message.content,
+        yazar: message.author.id,
+        yazilmaTarihi: message.createdTimestamp,
+        silinmeTarihi: Date.now(),
     }
-    await db.set(`snipe.${message.guild.id}`, snipe)
+    await db.set(`snipe.${message.guild.id}.${message.channel.id}`, snipe)
     const channel = message.guild.channels.cache.get(config.logs.messagelog);
     if (!channel) return;
     const embed = new MessageEmbed()
