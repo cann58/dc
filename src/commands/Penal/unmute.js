@@ -11,10 +11,9 @@ module.exports = {
     if (!message.member.roles.cache.has(config.penals.mute.staff) && !message.member.hasPermission("ADMİNİSTRATOR")) return channel.send(embed.setDescription("Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!"))
     let member = message.member
     let user = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
-    if (!user) return channel.send(emded.setDescription('Öncelikle susturulması kaldırılacak kullanıcıyı belirtmelisin!'));
-    if (member.roles.highest.position >= message.member.roles.highest.position) return channel.send("Kendinle aynı yetkide ya da daha yetkili olan birini banlayamazsın!");
+    if (!user) return channel.send(embed.setDescription('Öncelikle susturulması kaldırılacak kullanıcıyı belirtmelisin!'));
     user.roles.remove(config.penals.mute.roles);
-    channel.send(embed.setDescription(`${member} kullanıcısının susturulması başarıyla ${author} tarafından kaldırıldı!`))
+    channel.send(embed.setDescription(`Belirtilen kullanıcının susturulması başarıyla ${author} tarafından kaldırıldı!`))
     const log = new Discord.MessageEmbed()
       .setColor("GREEN")
       .setTimestamp()
