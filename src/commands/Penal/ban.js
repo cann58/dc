@@ -7,7 +7,7 @@ moment.locale("tr");
 
 module.exports = {
   name: "ban",
-  aliases: ["yargı"],
+  aliases: ["yargı", "yarra"],
   execute: async (client, message, args, embed, author, channel, guild) => {
     if (!message.member.roles.cache.has(config.penals.ban.staff) && !message.member.hasPermission("BAN_MEMBERS")) return channel.send(embed.setDescription("Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!"));
     let member = message.member
@@ -18,7 +18,7 @@ module.exports = {
     if (config.penals.ban.limit > 0 && limit.has(author.id) && limit.get(author.id) == config.penals.ban.limit) return channel.send(embed.setDescription("Saatlik ban sınırına ulaştın!"));
     if (!message.member.hasPermission(8) && member && member.roles.highest.position >= message.member.roles.highest.position) return channel.send("Kendinle aynı yetkide ya da daha yetkili olan birini banlayamazsın!");
     guild.members.ban(user, { reason: reason });
-    channel.send(embed.setDescription(`**${user.tag}** kullanıcısı ${author} tarafından **${reason}** sebebiyle sunucudan banlandı!`))
+    message.channel.send((`**${user}** **(${user.id})** kullanıcısı ${author} tarafından **"${reason}"** sebebiyle sunucudan kalıcı olarak banlandı! (Ceza Numarası: \`#${db.fetch(`ceza_${guild.id}`)}\`)`))
     db.add(`ceza_${guild.id}`, 1)
 
     const log = new Discord.MessageEmbed()
@@ -33,11 +33,12 @@ module.exports = {
       Ceza ID: \`${db.fetch(`ceza_${guild.id}`)}\`
       Kullanıcı: ${user ? user.toString() : ""} - ${user.id}
       Yetkili: ${author} - ${author.id}
-      Sebeb: **${reason}**
+      Sebep: **${reason}**
       Tarih: ${moment(Date.now()).format("LLL")}
       `)
+            message.react(config.emojis.accept)
     client.channels.cache.get(config.penals.ban.log).send(log);
-    db.push(`sicil_${user.id}`, `${author} Tarafından ${moment(Date.now()).format("LLL")} tarihinde ${reason} sebebiyle **[BAN]** cezası almış.`)
+    db.push(`sicil_${user.id}`, `${author} Tarafından ${moment(Date.now()).format("LLL")} tarihinde **${reason}** sebebiyle **[ BAN ]** cezası almış.`)
     db.add(`points_${member}`, config.penals.points.banpoints);
     if (config.penals.ban.limit > 0) {
       if (!limit.has(author.id)) limit.set(author.id, 1);

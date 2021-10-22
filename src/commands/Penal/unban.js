@@ -35,7 +35,7 @@ module.exports = {
       .setTitle('Hata')
           .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true }))
       .setFooter("Developed by Matthe")
-      .setDescription('Sizinle aynı veya daha yüksek bir role sahip bir üyenin yasağını kaldırmazsınız')
+      .setDescription('Sizinle aynı veya daha yüksek bir role sahip bir üyenin yasağını kaldırmazsınız!')
     if (!message.member.hasPermission("BAN_MEMBERS")) return channel.send
       (permError)
     let user = args[0];
@@ -50,10 +50,13 @@ module.exports = {
       (userError3)
 
     guild.members.unban(user);
-    channel.send(`<@!${user}> kullanıcısının yasağı ${author} tarafından başarıyla kaldırıldı!`)
+    channel.send(`<@!${user}> **(${user})** kullanıcısının yasağı ${author} tarafından başarıyla kaldırıldı!`)
+                message.react(config.emojis.accept)
     const log = new Discord.MessageEmbed()
       .setColor("GREEN")
       .setTimestamp()
+      .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true }))
+      .setFooter("Developed by Matthe")
       .setDescription(`
       ${banList.user} üyesinin yasağı kaldırıldı!
 

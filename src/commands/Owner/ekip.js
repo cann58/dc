@@ -19,12 +19,15 @@ module.exports = {
 
         let secim = args[0];
         if (!secim) return channel.send(embed.setDescription(`
-        **ekip** \`-\` Yardım menüsünü gösterir.
-        **ekip ekle** \`-\` Yeni bir ekip eklersiniz.
-        **ekip liste** \`-\` Ekipleri listelersiniz.
-        **ekip bilgi** \`-\` Ekip bilgileri.
-        **ekip kontrol** \`-\` Ekip kontrol.
-        **ekip sil** \`-\` Mevcut bir ekibi silersiniz.
+        MATTHE ADMİN SYSTEM.
+        
+        **ekip ekle**      
+        **ekip liste**
+        
+        **ekip bilgi**
+        
+        **ekip kontrol**      
+        **ekip sil** 
         `))
         let tag = args[1];
         let sayitagi = args[2];

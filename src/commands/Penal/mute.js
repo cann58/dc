@@ -26,10 +26,10 @@ module.exports = {
     if (config.penals.mute.limit > 0 && limit.has(author.id) && limit.get(author.id) == config.penals.mute.limit) return channel.send("Saatlik mute sınırına ulaştın!");
     if (!message.member.hasPermission(8) && member && member.roles.highest.position >= message.member.roles.highest.position) return channel.send("Kendinle aynı yetkide ya da daha yetkili olan birini muteleyemezsin!");
 
-    channel.send(embed.setDescription(`**${member}** kullanıcısı ${author} tarafından başarıyla **${reason}** sebebi ile **${sure}** boyunca susturuldu!`))
+    message.channel.send((`**${member}** **(${member.id})** kullanıcısı ${author} tarafından başarıyla **"${reason}"** sebebiyle **${sure}** boyunca geçici olarak susturuldu! (Ceza Numarası: \`#${db.fetch(`ceza_${guild.id}`)}\`)`))
     member.roles.add(config.penals.mute.roles)
     db.add(`ceza_${guild.id}`, 1)
-
+    message.react(config.emojis.accept)
     const log = new Discord.MessageEmbed()
       .setColor("RED")
       .setTimestamp()
@@ -46,7 +46,7 @@ module.exports = {
       Tarih: ${moment(Date.now()).format("LLL")}
       `);
     client.channels.cache.get(config.penals.mute.log).send(log);
-    db.push(`sicil_${member.id}`, `${author} tarafından ${moment(Date.now()).format("LLL")} tarihinde ${reason} sebebiyle **[MUTE]** cezası almış.`)
+    db.push(`sicil_${member.id}`, `${author} tarafından ${moment(Date.now()).format("LLL")} tarihinde **${reason}** sebebiyle **[MUTE]** cezası almış.`)
     db.add(`points_${member.id}`, config.penals.points.mutepoints);
     db.set(`mute_${member.id}`, true);
     setTimeout(() => {

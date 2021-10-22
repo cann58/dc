@@ -15,7 +15,7 @@ module.exports = {
     let nick = await db.get(`isim.${member.id}`)
     member.roles.set(rol).catch(e => { });
     member.setNickname(nick)
-    channel.send(embed.setDescription(`${member} kullanıcısı başarıyla ${author} tarafından jailden çıkartıldı!`))
+    channel.send(embed.setDescription(`**${member}** **(${member.id})** kullanıcısı başarıyla ${author} tarafından jailden çıkartıldı!`))
     const log = new Discord.MessageEmbed()
     .setColor("GREEN")
     .setTimestamp()

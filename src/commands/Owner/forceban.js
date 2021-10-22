@@ -12,7 +12,7 @@ module.exports = {
         if (!reason) return channel.send(embed.setDescription(`Öncelikle geçerli bir sebep belirtmelisin!`))
         guild.members.ban(member.id, { reason: reason })
         db.add(`ceza_${guild.id}`, 1)
-        channel.send(embed.setDescription(`${member} - \`${member.id}\` kullanıcısı ${author} tarafından **${reason}** sebebiyle sunucudan banlandı!`))
+        message.channel.send((`**${member}** **(${member.id})** kullanıcısı ${author} tarafından **"${reason}"** sebebiyle sunucudan kalıcı olarak banlandı! (Ceza Numarası: \`#${db.fetch(`ceza_${guild.id}`)}\`)`))
         client.channels.cache.get(config.penals.ban.log).send(embed.setImage("https://i.pinimg.com/originals/b2/84/33/b28433c392959f923ff0d736cd89dcbd.gif").setDescription(`${member} - \`${member.id}\` adlı kullanıcı ${message.author} tarafından **${reason}** sebebiyle sunucudan banlandı!`).addField("Ceza ID", `#${db.fetch(`ceza_${message.guild.id}`)}`));
         db.set(`ban.${member.id}`, true)
     }

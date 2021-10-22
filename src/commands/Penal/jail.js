@@ -18,7 +18,7 @@ module.exports = {
         db.set(`isim.${member.id}`, member.displayName)
         member.setNickname(`[JAIL] ${member.displayName}`)
         member.roles.set([config.penals.jail.roles])
-        channel.send(embed.setDescription(`**${member}** kullanıcısı ${author} tarafından \`${sebep}\` sebebi ile jaile atıldı!`))
+        message.channel.send((`**${member}** **(${member.id})**kullanıcısı ${author} tarafından "**${sebep}**" sebebiyle kalıcı olarak jail'e atıldı! (Ceza Numarası: \`#${db.fetch(`ceza_${guild.id}`)}\`)`))
         db.add(`ceza_${guild.id}`, 1)
         const log = new Discord.MessageEmbed()
             .setColor("RED")
@@ -32,11 +32,12 @@ module.exports = {
             Ceza ID: \`${db.fetch(`ceza_${guild.id}`)}\`
             Kullanıcı: ${member ? member.toString() : ""} - ${member.id}
             Yetkili: ${author} - ${author.id}
-            Sebeb: ${sebep}
+            Sebep: ${sebep}
             Tarih: ${moment(Date.now()).format("LLL")}
             `);
+                  message.react(config.emojis.accept)
         client.channels.cache.get(config.penals.jail.log).send(log);
-        db.push(`sicil_${member.id}`, `${message.author} Tarafından ${moment(Date.now()).format("LLL")} tarihinde ${sebep} sebebiyle **[ JAIL ]** cezası almış.`)
+        db.push(`sicil_${member.id}`, `${message.author} Tarafından ${moment(Date.now()).format("LLL")} tarihinde **${sebep}** sebebiyle **[ JAIL ]** cezası almış.`)
         db.add(`points_${member}`, config.penals.points.jailpoints);
         if (config.penals.jail.limit > 0) {
             if (!limit.has(message.author.id)) limit.set(message.author.id, 1);
