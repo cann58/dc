@@ -23,11 +23,10 @@ module.exports = {
         if (mesaj.icerik) {
             return message.channel.send(embed.setDescription(`
         Mesaj sahibi: ${mesajYazari ? mesajYazari : mesajYazari.tag} ( \`${mesajYazari.id}\` )
-        Mesajın yazılma tarihi: \`${moment.duration(Date.now() - mesaj.yazilmaTarihi).format("D [gün], H [saat], m [dakika], s [saniye]")}\` önce
         Mesajın silinme tarihi: \`${moment.duration(Date.now() - mesaj.silinmeTarihi).format("D [gün], H [saat], m [dakika], s [saniye]")}\` önce 
         
-        Mesaj İçeriği: \`${mesaj.dosya ? "Atılan mesaj bir dosya içeriyor." : mesaj.icerik}\`
-        `).setFooter(`Developed by Matthe`))
+        Silinen Mesaj: \`${mesaj.dosya ? "Atılan mesaj bir dosya içeriyor." : mesaj.icerik}\`
+        `).setFooter(`Developed by Matthe`)).catch(err => console.log(err), client.ytick(message)).then(m => m.delete({timeout: 10000}));
         }
     }
 }

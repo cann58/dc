@@ -13,7 +13,7 @@ module.exports = {
                 'SEND_MESSAGES': null,
 
             })
-            return channel.send(embed.setDescription("Kanal kilidi açıldı!"));
+            return channel.send(embed.setDescription("Kanal kilidi açıldı!")).catch(err => console.log(err), client.ytick(message)).then(m => m.delete({timeout: 10000}));
         }
 
         if (content === "kapat") {
@@ -21,7 +21,7 @@ module.exports = {
             channel.createOverwrite(every, {
                 SEND_MESSAGES: false
             });
-            return channel.send(embed.setDescription("Kanal kilitlendi!"));
+            return channel.send(embed.setDescription("Kanal kilitlendi!")).catch(err => console.log(err), client.ytick(message)).then(m => m.delete({timeout: 10000}));
         }
     }
 

@@ -15,7 +15,7 @@ module.exports = {
 
                 if (!bans.has(kullanici)) {
 
-                    return channel.error(message, `Belirttiğiniz kullanıcı banlanmamış.`)
+                    return channel.error(message, `Belirttiğiniz kullanıcı banlanmamış.`).catch(err => console.log(err), client.ytick(message)).then(m => m.delete({timeout: 10000}));
 
                 }
 
@@ -23,7 +23,7 @@ module.exports = {
 
         guild.fetchBan(kullanici).then(({ user, reason }) => {
 
-            channel.send(embed.setDescription(`${user.tag} kullanıcısının ban sebebi: **${reason}**`))
+            channel.send(embed.setDescription(`${user.tag} kullanıcısının ban sebebi: **${reason}**`)).catch(err => console.log(err), client.ytick(message)).then(m => m.delete({timeout: 10000}));
 
 
 
