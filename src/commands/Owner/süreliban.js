@@ -6,15 +6,17 @@ const moment = require("moment")
 
 module.exports = {
   name: "süreliban",
-  aliases: [],
+  aliases: ["süreli-ban"],
   owner: true,
   execute: async (client, message, args, embed, author, channel, guild) => {
     let member = message.mentions.users.first();
-    if (!member) return message.reply("Öncelikle banlanacak kullanıcıyı belirtmelisin.")
+    let reason = args.slice(1).join(' ');
+    if (!member) return message.reply("Öncelikle banlanacak kullanıcıyı belirtmelisin.").catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+    if (reason.length < 1) return channel.send(embed.setDescription('Öncelikle geçerli bir sebep belirtmelisin.')).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
     let süre = args[1]
-    if (!süre) return message.reply("Öncelikle geçerli bir süre belirtin.")
+    if (!süre) return message.reply("Öncelikle geçerli bir süre belirtin.").catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
     message.guild.members.ban(member, 2)
-    message.channel.send(`${member} kullanıcısı başarıyla süreli olarak banlandı!`)
+    message.channel.send((`**${member}** **(${member.id})** kullanıcısı ${author} tarafından **"${reason}"** sebebiyle sunucudan kalıcı olarak banlandı! (Ceza Numarası: \`#${db.fetch(`ceza_${guild.id}`)}\`)`))
     db.add(`ceza_${message.guild.id}`, 1)
     const log = new Discord.MessageEmbed()
       .setColor("0x00AE86")

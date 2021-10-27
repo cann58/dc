@@ -4,8 +4,8 @@ const moment = require("moment");
 moment.locale("tr")
 
 module.exports = {
-    name: "ekip",
-    aliases: ["team"],
+    name: "bakımda-ekip",
+    aliases: ["qteam"],
     execute: async (client, message, args, embed, author, channel, guild) => {
         if (config.Guild.GuildOwnerRole.some(x => message.member.roles.cache.has(x)) || author.id !== config.bot.owner) return
         let crews = db.get(`crews.${guild.id}`) || [];

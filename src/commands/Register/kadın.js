@@ -10,12 +10,12 @@ module.exports = {
         var name = args[1];
         var age = args[2];
         const names = db.get(`isimler_${member.id}`)
-        if (!message.member.roles.cache.has(config.registration.staff) && !message.member.hasPermission("ADMINISTRATOR")) return channel.send(embed.setDescription("Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!"));
-        if (!member) return channel.send(embed.setDescription("Öncelikle geçerli bir kullanıcı belirtmelisin!"));
-        if (!name) return channel.send(embed.setDescription("Öncelikle geçerli bir isim belirtmelisin!"));
-        if (!age) return channel.send(embed.setDescription("Öncelikle geçerli bir yaş belirtmelisin!"));
-        if (isNaN(age)) return channel.send(embed.setDescription("Öncelikle yaş geçerli rakamlardan oluşsun!"))
-        if (age < config.registration.minage) return channel.send(embed.setDescription("Kullanıcı için belirtilen yaş minimum yaştan küçük!"))
+        if (!message.member.roles.cache.has(config.registration.staff) && !message.member.hasPermission("ADMINISTRATOR")) return channel.send(embed.setDescription("Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!")).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+        if (!member) return channel.send(embed.setDescription("Öncelikle geçerli bir kullanıcı belirtmelisin!")).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+        if (!name) return channel.send(embed.setDescription("Öncelikle geçerli bir isim belirtmelisin!")).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+        if (!age) return channel.send(embed.setDescription("Öncelikle geçerli bir yaş belirtmelisin!")).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+        if (isNaN(age)) return channel.send(embed.setDescription("Öncelikle yaş geçerli rakamlardan oluşsun!")).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+        if (age < config.registration.minage) return channel.send(embed.setDescription("Kullanıcı için belirtilen yaş minimum yaştan küçük!")).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
         if (config.registration.purchase) {
             if (!member.username.includes(config.registration.GuilDTag) && !member.roles.cache.has(config.roles.viprole && config.roles.boosterrole && config.roles.musiciansrole && config.roles.designerrole && config.roles.team)) {
                 return message.channel.send(embed.setDescription(`Kullanıcının kayıt olabilmesi için boost basmalı veya tag almalı! (${config.registration.Symbol})`))
@@ -29,9 +29,9 @@ module.exports = {
         await guild.members.cache.get(member.id).roles.add(config.registration.woman);
         await guild.members.cache.get(member.id).roles.remove(config.registration.unregistered)
         if (!names) {
-            message.channel.send(embed.setDescription(`${member} kullanıcısı başarıyla <@&${config.registration.onewoman}> rolleri verilerek kayıt edildi!`))
+            message.channel.send(embed.setDescription(`${member} kullanıcısı başarıyla <@&${config.registration.onewoman}> rolleri verilerek kayıt edildi!`)).catch(err => console.log(err), client.ytick(message)).then(m => m.delete({timeout: 10000}));
         } else {
-            channel.send(embed.setDescription(`${member} kullanıcısı başarıyla <@&${config.registration.onewoman}> olarak kayıt edildi!\n\nKullanıcının toplamda " ${names.length} " isim kayıtı görüntülendi.\n${names.map((data) => `${data}`).join("\n")}`)).then(m => m.delete({timeout: 20000}))
+            channel.send(embed.setDescription(`${member} kullanıcısı başarıyla <@&${config.registration.onewoman}> olarak kayıt edildi!\n\nKullanıcının toplamda " ${names.length} " isim kayıtı görüntülendi.\n${names.map((data) => `${data}`).join("\n")}`)).catch(err => console.log(err), client.ytick(message)).then(m => m.delete({timeout: 10000}));
         }
         message.react(config.emojis.yes)
         client.channels.cache.get(config.channels.chat).send(`${member} aramıza katıldı!`);

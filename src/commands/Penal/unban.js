@@ -11,31 +11,31 @@ module.exports = {
       .setTitle('Hata')
           .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true }))
       .setFooter("Developed by Matthe")
-      .setDescription('Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!')
+      .setDescription('Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!').catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
     const userError = new Discord.MessageEmbed()
       .setColor('#ed455a')
       .setTitle('Hata')
           .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true }))
       .setFooter("Developed by Matthe")
-      .setDescription('Öncelikle bir ID belirtmelisiniz!')
+      .setDescription('Öncelikle bir ID belirtmelisiniz!').catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
     const userError2 = new Discord.MessageEmbed()
       .setColor('#ed455a')
       .setTitle('Hata')
           .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true }))
       .setFooter("Developed by Matthe")
-      .setDescription("Herhangi bir ID'de harf kullanılamaz")
+      .setDescription("Herhangi bir ID'de harf kullanılamaz!").catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
     const userError3 = new Discord.MessageEmbed()
       .setColor('#ed455a')
       .setTitle('Hata')
           .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true }))
       .setFooter("Developed by Matthe")
-      .setDescription('Belirttiğiniz kullanıcı yasaklanmamış!')
+      .setDescription('Belirttiğiniz kullanıcı yasaklanmamış!').catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
     const levelError = new Discord.MessageEmbed()
       .setColor('#ed455a')
       .setTitle('Hata')
           .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true }))
       .setFooter("Developed by Matthe")
-      .setDescription('Sizinle aynı veya daha yüksek bir role sahip bir üyenin yasağını kaldırmazsınız!')
+      .setDescription('Sizinle aynı veya daha yüksek bir role sahip bir üyenin yasağını kaldırmazsınız!').catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
     if (!message.member.hasPermission("BAN_MEMBERS")) return channel.send
       (permError)
     let user = args[0];

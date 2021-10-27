@@ -6,16 +6,16 @@ const config = require("../../../config.json")
 
 module.exports = {
   name: "unjail",
-  aliases: [],
+  aliases: ["unjail"],
   execute: async (client, message, args, embed, author, channel, guild) => {
-    if (message.member.roles.has(config.penals.jail.staff) && message.member.hasPermission("ADMİNİSTRATOR")) return channel.send(embed.setDescription(`Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!`))
+    if (message.member.roles.has(config.penals.jail.staff) && message.member.hasPermission("ADMİNİSTRATOR")) return channel.send(embed.setDescription(`Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!`)).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
     let member = message.mentions.members.first()
-    if (!member) return message.channel.send(embed.setDescription(`Öncelikle geçerli bir kullanıcı belirtmelisin!`))
+    if (!member) return message.channel.send(embed.setDescription(`Öncelikle geçerli bir kullanıcı belirtmelisin!`)).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
     let rol = await db.get(`roles.${member.id}`);
     let nick = await db.get(`isim.${member.id}`)
     member.roles.set(rol).catch(e => { });
     member.setNickname(nick)
-    channel.send(embed.setDescription(`**${member}** **(${member.id})** kullanıcısı başarıyla ${author} tarafından jailden çıkartıldı!`))
+    message.channel.send((`**${member}** **(${member.id})** kullanıcısı başarıyla ${author} tarafından jailden çıkartıldı!`))
     const log = new Discord.MessageEmbed()
     .setColor("GREEN")
     .setTimestamp()

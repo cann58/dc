@@ -6,12 +6,12 @@ module.exports = {
   name: "sicil",
   aliases: [],
   execute: async (client, message, args, embed, author, channel, guild) => {
-    if (!message.member.roles.cache.has(config.penals.ban.staff) && !message.member.hasPermission("BAN_MEMBERS")) return channel.error(message, "Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!")
+    if (!message.member.roles.cache.has(config.penals.ban.staff) && !message.member.hasPermission("BAN_MEMBERS")) return channel.error(message, "Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!").catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
     let member = message.mentions.members.first() || guild.members.cache.get(args[0]);
     const points = db.fetch(`points_${member.id}`) || 0
-    if (!member) return channel.error(message, "Öncelikle siciline bakacağın kullanıcıyı belirtmelisin.")
+    if (!member) return channel.error(message, "Öncelikle siciline bakacağın kullanıcıyı belirtmelisin.").catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
     let penals = db.get(`sicil_${member.user.id}`);
-    if (!penals) return channel.send(`${member} kullanıcısının sicil verisi bulunmamaktadır!`)
+    if (!penals) return channel.send(`${member} kullanıcısının sicil verisi bulunmamaktadır!`).catch(err => console.log(err), client.ytick(message)).then(m => m.delete({timeout: 10000}));
     channel.send(embed
       .setColor("RED")
       .setTitle(`Belirttiğiniz kullanıcının veri tabanındaki sicil verileri:`)

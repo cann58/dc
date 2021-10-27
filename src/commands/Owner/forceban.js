@@ -7,9 +7,9 @@ module.exports = {
     guildowner: true,
     execute: async (client, message, args, embed, author, channel, guild) => {
         let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
-        if (!member) return channel.send(embed.setDescription(`Öncelikle kalıcı banlanacak kullanıcıyı belirtmelisin!`))
+        if (!member) return channel.send(embed.setDescription(`Öncelikle kalıcı banlanacak kullanıcıyı belirtmelisin!`)).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
         let reason = args.slice(1).join(' ')
-        if (!reason) return channel.send(embed.setDescription(`Öncelikle geçerli bir sebep belirtmelisin!`))
+        if (!reason) return channel.send(embed.setDescription(`Öncelikle geçerli bir sebep belirtmelisin!`)).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
         guild.members.ban(member.id, { reason: reason })
         db.add(`ceza_${guild.id}`, 1)
         message.channel.send((`**${member}** **(${member.id})** kullanıcısı ${author} tarafından **"${reason}"** sebebiyle sunucudan kalıcı olarak banlandı! (Ceza Numarası: \`#${db.fetch(`ceza_${guild.id}`)}\`)`))

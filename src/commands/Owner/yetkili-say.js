@@ -12,6 +12,6 @@ module.exports = {
 
     ${sesdedeğil.map(s => `${s} \`${s.user.tag}\``).join('\n')}`)
     } else
-      return message.channel.send(`Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!`)
+      return message.channel.send(`Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!`).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
   }
 }

@@ -14,14 +14,14 @@ module.exports = {
       .setTimestamp()
       .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true }))
       .setFooter("Developed by Matthe")
-        if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(embed1.setDescripton(`Bu Komutu Kullanabilmek İçin Mesajları Yönet Yetkisine Sahip Olmalısın!`))
+        if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(embed1.setDescripton(`Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!`)).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
         let user = message.mentions.users.first()
         let roles = message.mentions.roles.first()
-        if (!args[0]) return message.channel.send(embed1.setDescription(`Öncelikle bir kullanıcı belirtmelisin!`))
-        if (!user) return message.channel.send(embed1.setDescription(`**${args[0]}**, kişisi sunucuda bulunmamakta!`))
-        if (!args[1]) return message.channel.send(embed1.setDescription(`Öncelikle geçerli bir rol etiketlemelisin!`))
-        if (!roles) return message.channel.send(embed1.setDescription(`**${args[1]}**, rolü sunucuda bulunmamakta!`))
-        if (!args[2]) return message.channel.send(embed1.setDescription(`Rolün ne kadar süre içerisinde kullanıcıda kalacağını belirtmelisin.`))
+        if (!args[0]) return message.channel.send(embed1.setDescription(`Öncelikle bir kullanıcı belirtmelisin!`)).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+        if (!user) return message.channel.send(embed1.setDescription(`**${args[0]}**, kişisi sunucuda bulunmamakta!`)).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+        if (!args[1]) return message.channel.send(embed1.setDescription(`Öncelikle geçerli bir rol etiketlemelisin!`)).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+        if (!roles) return message.channel.send(embed1.setDescription(`**${args[1]}**, rolü sunucuda bulunmamakta!`)).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+        if (!args[2]) return message.channel.send(embed1.setDescription(`Rolün ne kadar süre içerisinde kullanıcıda kalacağını belirtmelisin.`)).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
         let süre = args[2];
         message.guild.members.cache.get(user.id).roles.add(roles.id)
         message.channel.send(embed2.setDescription(`${user} isimli kişiye ${message.author.username} tarafından ${süre.replace(/d/, ' gün').replace(/s/, ' saniye').replace(/m/, ' dakika').replace(/h/, ' saat')} boyunca ${roles} rolü verildi!`)).then(mesaj => {

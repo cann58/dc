@@ -9,14 +9,14 @@ module.exports = {
     name: "jail",
     aliases: ["temp-jail", "tjail", "karantina"],
     execute: async (client, message, args, embed, author, channel, guild) => {
-        if (!message.member.roles.cache.has(config.penals.jail.staff) && !message.member.hasPermission("BAN_MEMBERS")) return channel.send("Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!")
+        if (!message.member.roles.cache.has(config.penals.jail.staff) && !message.member.hasPermission("BAN_MEMBERS")) return channel.send("Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!").catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
         let member = message.mentions.members.first() || guild.members.cache.get(args[0]);
-        if (!member) return channel.send("Öncelikle cezalandırılacak kullanıcıyı belirtmelisin!")
-        if (!message.member.hasPermission(8) && member && member.roles.highest.position >= message.member.roles.highest.position) return channel.send("Kendinle aynı yetkide ya da daha yetkili olan birini jailleyemezsin!");
+        if (!member) return channel.send("Öncelikle cezalandırılacak kullanıcıyı belirtmelisin!").catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+        if (!message.member.hasPermission(8) && member && member.roles.highest.position >= message.member.roles.highest.position) return channel.send("Kendinle aynı yetkide ya da daha yetkili olan birini jailleyemezsin!").catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
         let sebep = args.slice(1).join(' ') || `Sebep girilmemiş.`
         db.set(`roles.${member.id}`, member.roles.cache.map(x => x.id))
         db.set(`isim.${member.id}`, member.displayName)
-        member.setNickname(`[JAIL] ${member.displayName}`)
+        member.setNickname(`[Jail] ${member.displayName}`)
         member.roles.set([config.penals.jail.roles])
         message.channel.send((`**${member}** **(${member.id})**kullanıcısı ${author} tarafından "**${sebep}**" sebebiyle kalıcı olarak jail'e atıldı! (Ceza Numarası: \`#${db.fetch(`ceza_${guild.id}`)}\`)`))
         db.add(`ceza_${guild.id}`, 1)
