@@ -20,14 +20,14 @@ module.exports = {
         if (age < config.registration.minage) return channel.send(embed.setDescription("Kullanıcı için belirtilen yaş minimum yaştan küçük!")).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
         if (config.registration.purchase) {
             if (!member.username.includes(config.registration.GuilDTag) && !member.roles.cache.has(config.roles.viprole && config.roles.boosterrole && config.roles.musiciansrole && config.roles.designerrole && config.roles.team)) {
-                return channel.send(embed.setDescription(`Kullanıcının kayıt olabilmesi için boost basmalı veya tag almalı! (${config.registration.Symbol})`))
+                return channel.send(embed.setDescription(`Kullanıcının kayıt olabilmesi için boost basmalı veya tag almalı! (${config.registration.TagSymbol})`))
             }
         }
-        await guild.members.cache.get(member.id).setNickname(`${config.registration.Symbol} ${name} ${config.registration.symbol} ${age}`);
+        await guild.members.cache.get(member.id).setNickname(`${config.registration.TagSymbol} ${name} ${config.registration.symbol} ${age}`);
         db.add(`erkek_${author.id}`, 1)
         db.add(`toplam_${author.id}`, 1)
               const names = db.get(`isimler_${member.id}`)
-        db.push(`isimler_${member.id}`, ` \`${config.registration.Symbol} ${name} ${config.registration.symbol} ${age}\` (<@&${config.registration.oneman}>)`);
+        db.push(`isimler_${member.id}`, ` \`${config.registration.TagSymbol} ${name} ${config.registration.symbol} ${age}\` (<@&${config.registration.oneman}>)`);
         db.push(`kke_${member.id}`, `${author} \`${moment(Date.now()).format("LLL")}\` (<@&${config.registration.oneman}>)`)
         await guild.members.cache.get(member.id).roles.add(config.registration.man);
         await guild.members.cache.get(member.id).roles.remove(config.registration.unregistered)

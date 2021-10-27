@@ -13,8 +13,8 @@ module.exports = {
         if (!name) return channel.send(embed.setDescription("Öncelikle geçerli bir isim belirtmelisin!")).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
         if (!age) return channel.send(embed.setDescription("Öncelikle geçerli bir yaş belirtmelisin!")).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
         if (isNaN(age)) return channel.send(embed.setDescription("Öncelikle yaş geçerli rakamlardan oluşsun!")).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
-        db.push(`isimler_${member.id}`, ` \`${config.registration.Symbol} ${name} ${config.registration.symbol} ${age}\` ( İsim Değiştirme )`);
-        await guild.members.cache.get(member.id).setNickname(`${config.registration.Symbol} ${name} ${config.registration.symbol} ${age}`);
-        channel.send(embed.setDescription(`${member} kullanıcısının ismi başarıyla " \`${config.registration.Symbol} ${name} ${config.registration.symbol} ${age}\` " olarak değiştirildi!`)).catch(err => console.log(err), client.ytick(message)).then(m => m.delete({timeout: 10000}));
+        db.push(`isimler_${member.id}`, ` \`${config.registration.TagSymbol} ${name} ${config.registration.symbol} ${age}\` ( İsim Değiştirme )`);
+        await guild.members.cache.get(member.id).setNickname(`${config.registration.TagSymbol} ${name} ${config.registration.symbol} ${age}`);
+        channel.send(embed.setDescription(`${member} kullanıcısının ismi başarıyla " \`${config.registration.TagSymbol} ${name} ${config.registration.symbol} ${age}\` " olarak değiştirildi!`)).catch(err => console.log(err), client.ytick(message)).then(m => m.delete({timeout: 10000}));
     }
 }

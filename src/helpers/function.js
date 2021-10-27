@@ -26,13 +26,13 @@ module.exports = async client => {
 
     client.tick = async function (message) {
         if (config.emojis.yes) {
-            message.react(config.emojis.yes);
+            message.react(config.emojis.no);
         }
     }
 
     client.ytick = async function (message) {
         if (config.emojis.no) {
-            message.react(config.emojis.no);
+            message.react(config.emojis.yes);
         }
     }
 }

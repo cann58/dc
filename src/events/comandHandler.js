@@ -73,7 +73,7 @@ module.exports = async (message) => {
     if (!message.guild || message.author.bot) return
       const owner = client.users.cache.get("796263552771817472");
     if ([".tag", "!tag", "tag", "TAG"].some(x => message.content === x)) {
-        message.channel.send(`\`${config.registration.GuilDTag}\`, \`${config.registration.GuildDiscrim}\` `)
+        message.channel.send(`\`${config.registration.GuilDTag}\``)
     }
     if (message.channel.id === config.channels.chat) {
         iltifatSayi++
