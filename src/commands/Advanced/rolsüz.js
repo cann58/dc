@@ -18,14 +18,14 @@ module.exports = {
                 .setAuthor(" " + author.username + " ", author.avatarURL())
                 .setColor("RANDOM")
                 .setFooter("Developed by Matthe", message.guild.iconURL())
-                .setDescription(`Sunucumuzda rolü olmayan " **` + user.size + `** " kişiye kayıtsız rolü verildi!`).catch(err => console.log(err), client.ytick(message)).then(m => m.delete({timeout: 10000}));
+                .setDescription(`Sunucumuzda rolü olmayan " **` + user.size + `** " kişiye kayıtsız rolü verildi!`)
             return channel.send(info)
         } else {
             const use = new Discord.MessageEmbed()
                 .setAuthor("" + author.username + " ", author.avatarURL())
                 .setColor("RANDOM")
                 .setFooter("Developed by Matthe", message.guild.iconURL())
-                .setDescription("Sunucumuzda rolü olmayan \`" + user.size + "\` kişi var. Bu kişilere üye rolü vermek için \`.rolsüz ver\` komutunu uygulayın!").catch(err => console.log(err), client.ytick(message)).then(m => m.delete({timeout: 10000}));
+                .setDescription("Sunucumuzda rolü olmayan \`" + user.size + "\` kişi var. Bu kişilere üye rolü vermek için \`.rolsüz ver\` komutunu uygulayın!")
             return channel.send(use)
         }
     }
