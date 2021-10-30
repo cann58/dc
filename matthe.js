@@ -97,3 +97,33 @@ if (message.content === 'fakekatıl') {
   client.emit('guildMemberAdd', message.member || await message.guild.fetchMember(message.author));
     }
 });
+
+//----------------------------REKLAM ENGEL----------------------------------------------------||
+
+client.on('message', async message => {
+
+    let reklamlar = ["discord.app", "discord.gg", "discordapp", "discordgg", ".com", ".net", ".xyz", ".tk", ".pw", ".io", ".me", ".gg", "www.", "https", "http", ".gl", ".org", ".com.tr", ".biz", ".party", ".rf.gd", ".az", ".cf", ".me", ".in"]
+    let kelimeler = message.content.slice(" ").split(/ +/g)
+
+    if (reklamlar.some(word => message.content.toLowerCase().includes(word))) {
+
+        if (message.member.hasPermission("ADMINISTRATOR")) return; message.delete()
+
+        message.reply('reklam içerikli mesajlar yasak.').then(x => x.delete({timeout: 5000}));
+    }
+});
+
+client.on("messageUpdate", async (oldMsg, newMsg) => {
+
+    let reklamlar = ["discord.app", "discord.gg", "discordapp", "discordgg", ".com", ".net", ".xyz", ".tk", ".pw", ".io", ".me", ".gg", "www.", "https", "http", ".gl", ".org", ".com.tr", ".biz", ".party", ".rf.gd", ".az", ".cf", ".me", ".in"]
+    let kelimeler = newMsg.content.slice(" ").split(/ +/g)
+
+    if (reklamlar.some(word => newMsg.content.toLowerCase().includes(word))) {
+
+        if (newMsg.member.hasPermission("ADMINISTRATOR")) return; newMsg.delete()
+
+        oldMsg.reply('reklam içerikli mesajlar yasak.').then(x => x.delete({timeout: 5000}));
+    }
+});
+
+//----------------------------REKLAM ENGEL----------------------------------------------------||
