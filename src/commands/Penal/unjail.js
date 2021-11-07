@@ -1,21 +1,24 @@
 const Discord = require("discord.js");
-const db = require("quick.db")
-const moment = require("moment");
-
+const db = require("quick.db");
 const config = require("../../../config.json")
-
+const moment = require("moment");
 module.exports = {
-  name: "unjail",
-  aliases: ["unjail"],
-  execute: async (client, message, args, embed, author, channel, guild) => {
-    if (message.member.roles.has(config.penals.jail.staff) && message.member.hasPermission("ADMİNİSTRATOR")) return channel.send(embed.setDescription(`Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!`)).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
-    let member = message.mentions.members.first()
-    if (!member) return message.channel.send(embed.setDescription(`Öncelikle geçerli bir kullanıcı belirtmelisin!`)).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
-    let rol = await db.get(`roles.${member.id}`);
-    let nick = await db.get(`isim.${member.id}`)
-    member.roles.set(rol).catch(e => { });
-    member.setNickname(nick)
-    message.channel.send((`**${member}** **(${member.id})** kullanıcısı başarıyla ${author} tarafından jailden çıkartıldı!`))
+    name: "unjail",
+    aliases: ["unjail", "karantina-çıkart", "uj"],
+    execute: async (client, message, args, embed, author, channel, guild) => {
+    if (!message.member.roles.cache.has(config.registration.staff) && !message.member.hasPermission("ADMINISTRATOR")) return channel.send(embed.setDescription("Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!")).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+ let kullanıcı = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
+  if (!kullanıcı) return message.channel.send(embed.setDescription(`Öncelikle geçerli bir kullanıcı belirtmelisin!`)).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+  let user = message.mentions.users.first();
+  let rol = message.mentions.roles.first()
+  let member = message.guild.member(kullanıcı)
+  message.guild.members.cache.get(member.id).roles.cache.forEach(r => {
+message.guild.members.cache.get(member.id).roles.remove(r)
+
+})
+  member.roles.add((config.registration.unregistered))
+  member.setNickname(config.registration.autonickname);
+  message.channel.send(embed.setDescription(`${kullanıcı} - \`${kullanıcı.id}\` kullanıcısı başarıyla ${message.author} tarafından karantinadan çıkarıldı!`)).catch(err => console.log(err), client.ytick(message)).then(m => m.delete({timeout: 10000}));
     const log = new Discord.MessageEmbed()
     .setColor("GREEN")
     .setTimestamp()
@@ -29,9 +32,7 @@ module.exports = {
     Yetkili: ${author} - ${author.id}
     Tarih: ${moment(Date.now).format("LLL")}
     `)
-    db.set(`jail_${member.id}`, false)
-    client.channels.cache.get(config.penals.jail.log).send(log)
-    db.delete(`roles.${member.id}`);
-    db.delete(`isim.${member.id}`);
-  }
 }
+
+
+  }
