@@ -19,7 +19,7 @@ module.exports = async message => {
     const embed = new MessageEmbed()
         .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true }))
         .setColor("RED")
-        .setTitle(`${message.channel.name} kanalında bir mesaj silindi!`)
+        .setTitle(`${message.channel.name} kanalında bir mesaj silindi.`)
         .setDescription(message.content)
         .setFooter(`ID: ${message.author.id} • ${moment().calendar()}`);
 

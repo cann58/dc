@@ -34,7 +34,7 @@ module.exports = {
       .setColor("RED")
       .setTimestamp()
       .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true }))
-      .setFooter("Developed by Matthe")
+      .setFooter("YOUTUBE MATTHE")
       .setDescription(`
       ${member ? member.toString() : member.username} kişisi susturuldu!
       `);

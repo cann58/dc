@@ -15,7 +15,7 @@ module.exports = {
     channel.send(embed
       .setColor("RANDOM")
       .setTitle(`Kullanıcının sicil verileri:`)
-      .setFooter("Developed by Matthe")
+      .setFooter("YOUTUBE MATTHE")
       .setDescription(penals.map((data) => `${data}`).join("\n"))
       .addField("Toplam ceza puanı:", points))
   }

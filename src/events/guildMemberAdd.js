@@ -47,12 +47,13 @@ module.exports = async member => {
     if (kurulus > 604800000) {
         member.roles.add(config.registration.unregistered);
         member.roles.add(config.registration.unregistered);
-        member.guild.channels.cache.get(config.channels.welcomechannel).send(`:tada: **${config.Guild.GuilDName}** sunucumuza hoş geldin ${member}!
-\`•\` Hesabın ${kuruluş} tarihinde (**${zaman}**) önce oluşturulmuş.
+        member.guild.channels.cache.get(config.channels.welcomechannel).send(`:tada: Sunucumuza hoş geldin ${member}!
+Hesabın ${kuruluş} tarihinde (**${zaman}**) önce oluşturulmuş.
 
-\`•\` Eğer kayıt olmak istersen " **V. Confirmed** " odalarına geçmelisin, <@&${config.registration.staff}> rolündeki yetkililerimiz seninle ilgilenecektir.
+Sunucumuza kayıt olmak için soldaki ses kanallarından birine girmelisin!
+<@&${config.registration.staff}> rolündeki yetkililerimiz seninle ilgilenecektir.
 
-\`•\` Seninle birlikte **${member.guild.memberCount}** kişiye ulaştık! `);
+Seninle birlikte **${member.guild.memberCount}** üyeye ulaştık!`);
     } else {
         member.setNickname(config.registration.susoeciosnickname);
         member.roles.add(config.registration.suspecios);
@@ -62,7 +63,7 @@ module.exports = async member => {
                 .setAuthor(member.user.username, member.user.avatarURL({ dynamic: true }))
                 .setColor("RED")
                 .setDescription(`${member}, kullanıcısı sunucuya katıldı hesabı **${zaman2}** önce açıldığı için şüpheli!`)
-                .setFooter(`Developed by Matthe`)
+                .setFooter(`YOUTUBE MATTHE`)
                 .setTimestamp());
     }
 }

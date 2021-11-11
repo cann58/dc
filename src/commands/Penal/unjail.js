@@ -23,7 +23,7 @@ message.guild.members.cache.get(member.id).roles.remove(r)
     .setColor("GREEN")
     .setTimestamp()
     .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true }))
-    .setFooter("Developed by Matthe")
+    .setFooter("YOUTUBE MATTHE")
     .setDescription(`
     ${member ? member.toString: member.username} kullanıcısı karantinadan çıkarıldı!
     
