@@ -8,7 +8,7 @@ module.exports = {
     execute: async (client, message, args, embed, author, channel, guild) => {
     if (!message.member.roles.cache.has(config.registration.staff) && !message.member.hasPermission("ADMINISTRATOR")) return channel.send(embed.setDescription("Komutu kullanabilmek için geçerli yetkin olmalı."));
  let kullanıcı = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
-  if (!kullanıcı) return message.channel.send(embed.setDescription(`Öncelikle geçerli bir kullanıcı belirtmelisin!`)).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+  if (!kullanıcı) return message.channel.send(embed.setDescription(`Geçerli bir kullanıcı belirtmelisin!`)).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
   let user = message.mentions.users.first();
   let rol = message.mentions.roles.first()
   let member = message.guild.member(kullanıcı)
@@ -18,7 +18,7 @@ message.guild.members.cache.get(member.id).roles.remove(r)
 })
   member.roles.add((config.registration.unregistered))
   member.setNickname(config.registration.autonickname);
-  message.channel.send(embed.setDescription(`${kullanıcı} - \`${kullanıcı.id}\` kullanıcısı başarıyla ${message.author} tarafından karantinadan çıkarıldı!`)).catch(err => console.log(err), client.ytick(message)).then(m => m.delete({timeout: 10000}));
+  message.channel.send(embed.setDescription(`${kullanıcı} kullanıcısı karantinadan çıkarıldı!`)).catch(err => console.log(err), client.ytick(message)).then(m => m.delete({timeout: 10000}));
     const log = new Discord.MessageEmbed()
     .setColor("GREEN")
     .setTimestamp()
@@ -26,7 +26,6 @@ message.guild.members.cache.get(member.id).roles.remove(r)
     .setFooter("Developed by Matthe")
     .setDescription(`
     ${member ? member.toString: member.username} kullanıcısı karantinadan çıkarıldı!
-    
     
     Kullanıcı: ${member ? member.toString: member.username} - ${member.id}
     Yetkili: ${author} - ${author.id}

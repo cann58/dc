@@ -8,12 +8,12 @@ module.exports = {
   name: "unmute",
   aliases: [],
   execute: async (client, message, args, embed, author, channel, guild) => {
-    if (!message.member.roles.cache.has(config.penals.mute.staff) && !message.member.hasPermission("ADMİNİSTRATOR")) return channel.send(embed.setDescription("Komutu kullanabilmek için geçerli yetkin olmalı.")).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+    if (!message.member.roles.cache.has(config.penals.mute.staff) && !message.member.hasPermission("ADMİNİSTRATOR")) return channel.send(embed.setDescription("Komutu kullanabilmek için geçerli yetkin olmalı."))
     let member = message.member
     let user = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
-    if (!user) return channel.send(embed.setDescription('Öncelikle susturulması kaldırılacak kullanıcıyı belirtmelisin!')).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+    if (!user) return channel.send(embed.setDescription('Geçerli bir kullanıcı belirtmelisin!'))
     user.roles.remove(config.penals.mute.roles);
-    message.channel.send((`Belirttiğiniz kullanıcının susturulması başarıyla ${author} tarafından kaldırıldı!`)).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+    message.channel.send((`${user} üyesinin susturulması başarıyla kaldırıldı!`))
     const log = new Discord.MessageEmbed()
       .setColor("GREEN")
       .setTimestamp()

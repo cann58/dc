@@ -11,12 +11,12 @@ if (!message.member.roles.cache.has(config.penals.ban.staff) && !message.member.
   
 const kanal = message.member.voiceChannel
 const member = message.guild.member(message.mentions.members.first() || message.guild.members.cache.get(args[0]));
-if (!member) return channel.send(embed.setDescription(`Öncelikle geçerli bir kullanıcı belirtmelisin!`)).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
-if(!member.voice.channel) return channel.send(embed.setDescription(`Bağlantısını kesmek istediğiniz kullanıcı sesli odalarda bulunmuyor!`)).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
-if(message.member.roles.highest.position <= member.roles.highest.position) return channel.send(embed.setDescription(`Belirtilen kullanıcı sizden üst/aynı pozisyonda!`)).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+if (!member) return channel.send(embed.setDescription(`Geçerli bir kullanıcı belirtmelisin!`))
+if(!member.voice.channel) return channel.send(embed.setDescription(`Kullanıcı sesli kanallarda bulunmamakta!`))
+if(message.member.roles.highest.position <= member.roles.highest.position) return channel.send(embed.setDescription(`Aynı veya yüksek yetki!`))
 message.guild.member(member.id).voice.setChannel(null)
  
-   channel.send(embed.setDescription(`${member} - \`${member.id}\` kullanıcısının bağlantısı ${message.author} tarafından kesildi!`)).catch(err => console.log(err), client.ytick(message)).then(m => m.delete({timeout: 10000}));
+   channel.send(embed.setDescription(`${member} kullanıcısının bağlantısı kesildi.`))
 }
 
  }

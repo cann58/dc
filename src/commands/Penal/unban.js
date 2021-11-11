@@ -11,31 +11,31 @@ module.exports = {
       .setTitle('Hata')
           .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true }))
       .setFooter("Developed by Matthe")
-      .setDescription('Komutu kullanabilmek için geçerli yetkin olmalı.').catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+      .setDescription('Komutu kullanabilmek için geçerli yetkin olmalı.')
     const userError = new Discord.MessageEmbed()
       .setColor('#ed455a')
       .setTitle('Hata')
           .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true }))
       .setFooter("Developed by Matthe")
-      .setDescription('Öncelikle bir ID belirtmelisiniz!').catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+      .setDescription('Geçerli bir ID belirtmelisiniz!')
     const userError2 = new Discord.MessageEmbed()
       .setColor('#ed455a')
       .setTitle('Hata')
           .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true }))
       .setFooter("Developed by Matthe")
-      .setDescription("Herhangi bir ID'de harf kullanılamaz!").catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+      .setDescription("Harf koyma!")
     const userError3 = new Discord.MessageEmbed()
       .setColor('#ed455a')
       .setTitle('Hata')
           .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true }))
       .setFooter("Developed by Matthe")
-      .setDescription('Belirttiğiniz kullanıcı yasaklanmamış!').catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+      .setDescription('Kullanıcı yasaklanmamış!')
     const levelError = new Discord.MessageEmbed()
       .setColor('#ed455a')
       .setTitle('Hata')
           .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true }))
       .setFooter("Developed by Matthe")
-      .setDescription('Sizinle aynı veya daha yüksek bir role sahip bir üyenin yasağını kaldırmazsınız!').catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+      .setDescription('Aynı veya yüksek yetki!')
     if (!message.member.hasPermission("BAN_MEMBERS")) return channel.send
       (permError)
     let user = args[0];
@@ -59,11 +59,10 @@ module.exports = {
       .setFooter("Developed by Matthe")
       .setDescription(`
       ${banList.user} üyesinin yasağı kaldırıldı!
-
-
-      Kullanıcı: ${banList.user} - ${user.id}
-      Yetkili: ${author} - ${author.id}
-      Tarih: ${moment(Date.now()).format("LLL")}
+      
+    Kullanıcı: ${user ? user.toString: user.username} - ${user.id}
+    Yetkili: ${author} - ${author.id}
+    Tarih: ${moment(Date.now).format("LLL")}
       `)
     client.channels.cache.get(config.penals.ban.log).send(log);
   }

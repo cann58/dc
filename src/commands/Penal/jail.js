@@ -11,14 +11,14 @@ module.exports = {
     execute: async (client, message, args, embed, author, channel, guild) => {
         if (!message.member.roles.cache.has(config.penals.jail.staff) && !message.member.hasPermission("BAN_MEMBERS")) return channel.send("Komutu kullanabilmek için geçerli yetkin olmalı.");
         let member = message.mentions.members.first() || guild.members.cache.get(args[0]);
-        if (!member) return channel.send("Öncelikle cezalandırılacak kullanıcıyı belirtmelisin!").catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
-        if (!message.member.hasPermission(8) && member && member.roles.highest.position >= message.member.roles.highest.position) return channel.send("Kendinle aynı yetkide ya da daha yetkili olan birini jailleyemezsin!").catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+        if (!member) return channel.send("Geçerli bir kullanıcı belirtmelisin!")
+        if (!message.member.hasPermission(8) && member && member.roles.highest.position >= message.member.roles.highest.position) return channel.send("Aynı veya yüksek yetki!")
         let sebep = args.slice(1).join(' ') || `Sebep girilmemiş.`
         db.set(`roles.${member.id}`, member.roles.cache.map(x => x.id))
         db.set(`isim.${member.id}`, member.displayName)
         member.setNickname(`[JAILED] ${member.displayName}`)
         member.roles.set([config.penals.jail.roles])
-        message.channel.send((`**${member}** **(${member.id})**kullanıcısı ${author} tarafından "**${sebep}**" sebebiyle kalıcı olarak jail'e atıldı! (Ceza Numarası: \`#${db.fetch(`ceza_${guild.id}`)}\`)`))
+        message.channel.send((`**${member}** **(${member.id})**kullanıcısı "**${sebep}**" sebebiyle jail'e atıldı! (Ceza Numarası: \`#${db.fetch(`ceza_${guild.id}`)}\`)`))
         db.add(`ceza_${guild.id}`, 1)
         const log = new Discord.MessageEmbed()
             .setColor("RED")
@@ -27,17 +27,14 @@ module.exports = {
             .setFooter("Developed by Matthe")
             .setDescription(`
             ${member ? member.toString(): member.username} kullanıcısı karantinaya atıldı!
-
-
-            Ceza ID: \`${db.fetch(`ceza_${guild.id}`)}\`
-            Kullanıcı: ${member ? member.toString() : ""} - ${member.id}
-            Yetkili: ${author} - ${author.id}
-            Sebep: ${sebep}
-            Tarih: ${moment(Date.now()).format("LLL")}
+            
+    Kullanıcı: ${member ? member.toString: member.username} - ${member.id}
+    Yetkili: ${author} - ${author.id}
+    Tarih: ${moment(Date.now).format("LLL")}
             `);
                   message.react(config.emojis.accept)
         client.channels.cache.get(config.penals.jail.log).send(log);
-        db.push(`sicil_${member.id}`, `${message.author} Tarafından ${moment(Date.now()).format("LLL")} tarihinde **${sebep}** sebebiyle **[ JAIL ]** cezası almış.`)
+        db.push(`sicil_${member.id}`, `${message.author} Tarafından ${moment(Date.now()).format("LLL")} tarihinde **${sebep}** sebebiyle **JAIL** cezası almış.`)
         db.add(`points_${member}`, config.penals.points.jailpoints);
         if (config.penals.jail.limit > 0) {
             if (!limit.has(message.author.id)) limit.set(message.author.id, 1);
