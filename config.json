@@ -2,31 +2,31 @@
     "bot": {
         "owner": "796263552771817472",
         "prefix": ".",
-        "BotStatus": "Developed by Matthe",
+        "BotStatus": "YOUTUBE MATTHE",
         "cooldown": 8,
         "iltifatsize": 100
     },
     "penals": {
         "ban": {
-            "staff": "900452777971568660",
-            "log": "902873943336157235",
+            "staff": "907230566888398859",
+            "log": "907232365594689558",
             "limit": 3
         },
         "jail": {
-            "staff": "902875820937318440",
-            "roles": "902312192790130738",
-            "log": "902873943336157235",
+            "staff": "899250432042496000",
+            "roles": "907230567437856838",
+            "log": "907232365594689558",
             "limit": 5
         },
         "mute": {
-            "staff": "900452769989791814",
-            "roles": "900452958808997898",
-            "log": "902873943336157235",
+            "staff": "899250431631437874",
+            "roles": "907230979570163792",
+            "log": "907232365594689558",
             "limit": 5
         },
         "warn": {
-            "staff": "902875820937318440",
-            "log": "902873943336157235"
+            "staff": "908344670705287188",
+            "log": "907232365594689558"
         },
         "points": {
             "mutepoints": "10",
@@ -36,42 +36,35 @@
         }
     },
     "logs": {
-        "messagelog": "902874975562764288",
-        "voicelog": "902874953135833129",
-        "taglog": "902873934138073088"
+        "messagelog": "907232274347622440",
+        "voicelog": "907232282249658378",
+        "taglog": "899250379232002078"
     },
     "roles": {
-        "boosterrole": "902231535963471924",
-        "viprole": "900452785278029916",
-        "designerrole": "",
-        "musiciansrole": "",
-        "team": "900452789224869898",
+        "boosterrole": "899254537796341761",
+        "viprole": "899250433321762836",
+        "designerrole": "907231224630771752",
+        "musiciansrole": "907231224152608799",
+        "team": "899250432776499240",
         "sponsored": ""
     },
-    "meeting": {
-        "katıldı": "",
-        "yetkili": "",
-        "meetingchannel": "892381352593358888"
-    },
     "channels": {
-        "chat": "900453196659564555",
-        "voicechannel": "902878982138114058",
-        "welcomechannel": "900453166456385576",
-        "rules": "900099803877367879"
+        "chat": "899246505075023942",
+        "voicechannel": "904276446376230912",
+        "welcomechannel": "904276478085189663",
+        "rules": "899246452876922890"
     },
     "parents": {
-        "publicparents": "900453074634678303"
+        "publicparents": "907231815629172736"
     },
     "registration": {
         "unregistered": "900452965813477387",
         "man": ["900452796690735156"],
         "woman": ["900452792928460810"],
         "staff": "900452765996818532",
-        "yetkistaff": "900452758384173106",
-        "lowstaff": "900452743137882122",
         "GuilDTag": "᯽",
         "TagSymbol": "᯽",
-        "autonickname": "᯽ İsim | Yaş",
+        "autonickname": "- İsim | Yaş",
         "symbol": "|",
         "suspecios": "902312192790130738",
         "susoeciosnickname": "Şüpheli Hesap",
