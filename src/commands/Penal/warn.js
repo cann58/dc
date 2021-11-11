@@ -8,12 +8,12 @@ module.exports = {
     name: "warn",
     aliases: ["uyarı", "uyar"],
     execute: async (client, message, args, embed, author, channel, guild) => {
-        if (!message.member.roles.cache.has(config.penals.warn.staff) && !message.member.hasPermission("ADMİNİSTRATOR")) return channel.send(embed.setDescription("Komutu kullanabilmek için geçerli yetkin olmalı.")).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+        if (!message.member.roles.cache.has(config.penals.warn.staff) && !message.member.hasPermission("ADMİNİSTRATOR")) return channel.send(embed.setDescription("Komutu kullanabilmek için geçerli yetkin olmalı."))
         const member =  message.mentions.users.first() || message.guild.members.cache.get(args[0]);
         const reason = args.splice(1).join(" ")
-        if (!member) return channel.send(embed.setDescription("Geçerli bir kullanıcı belirtmelisin!")).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
-        if (!reason) return channel.send(embed.setDescription("Geçerli bir sebep belirtmelisin!")).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
-        if (!message.member.hasPermission(8) && member && member.roles.highest.position >= message.member.roles.highest.position) return channel.send("Kendinle aynı yetkide ya da daha yetkili olan birini uyaramazsın!").catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+        if (!member) return channel.send(embed.setDescription("Geçerli bir kullanıcı belirtmelisin!"))
+        if (!reason) return channel.send(embed.setDescription("Geçerli bir sebep belirtmelisin!"))
+        if (!message.member.hasPermission(8) && member && member.roles.highest.position >= message.member.roles.highest.position) return channel.send("Aynı veya yüksek yetki!")
         db.push(`warns_${member.id}`, `${author} tarafından ${moment(Date.now()).format("LLL")} tarihinde **${reason}** sebebiyle uyarılmış!`)
         db.push(`sicil_${member.id}`, `${author} tarafından ${moment(Date.now()).format("LLL")} tarihinde **${reason}** sebebiyle uyarılmış!`)
         db.add(`ceza_${guild.id}`, 1)
