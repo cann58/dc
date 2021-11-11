@@ -8,7 +8,7 @@ module.exports = {
     name: "warn",
     aliases: ["uyarı", "uyar"],
     execute: async (client, message, args, embed, author, channel, guild) => {
-        if (!message.member.roles.cache.has(config.penals.warn.staff) && !message.member.hasPermission("ADMİNİSTRATOR")) return channel.send(embed.setDescription("Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!")).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+        if (!message.member.roles.cache.has(config.penals.warn.staff) && !message.member.hasPermission("ADMİNİSTRATOR")) return channel.send(embed.setDescription("Komutu kullanabilmek için geçerli yetkin olmalı.")).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
         const member =  message.mentions.users.first() || message.guild.members.cache.get(args[0]);
         const reason = args.splice(1).join(" ")
         if (!member) return channel.send(embed.setDescription("Öncelikle geçerli bir kullanıcı belirtmelisin!")).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));

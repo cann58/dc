@@ -5,9 +5,9 @@ module.exports = {
     aliases: ["kayıt-yetkilisi"],
     execute: async (client, message, args, embed, author, channel, guild) => {
         var member = message.mentions.users.first() || guild.members.cache.get(args[0])
-        if (!member) return channel.error(message, "Öncelikle geçerli bir kullanıcı belirtmelisin!").catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+        if (!member) return channel.error(message, "Geçerli bir kullanıcı belirtmelisin!")
         let kke = db.get(`kke_${member.id}`);
-        if (!kke) return channel.error(message, "Bu kullanıcının veri tabanında kayıt verisi bulunmamakta!").catch(err => console.log(err), client.ytick(message)).then(m => m.delete({timeout: 10000}));
-    channel.send(embed.setTitle("Belirttiğiniz kullanıcının veri tabanındaki kayıt görevlisi:").setDescription(`${kke.join("\n")}`))
+        if (!kke) return channel.error(message, "Bu kullanıcının kayıt geçmişi bulunmamakta!")
+    channel.send(embed.setTitle("Belirttiğiniz kullanıcının kayıt görevlisi:").setDescription(`${kke.join("\n")}`))
     }
 }

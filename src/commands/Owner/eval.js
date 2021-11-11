@@ -5,7 +5,7 @@ module.exports = {
     aliases: [],
     owner: true,
     execute: async (client, message, args, embed, author, channel, guild) => {
-        if (!args[0]) return channel.send(embed.setDescription("Kod belirtmelisin!")).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+        if (!args[0]) return channel.send(embed.setDescription("Kod belirtmelisin!"))
         let code = args.join(" ");
 
         try {

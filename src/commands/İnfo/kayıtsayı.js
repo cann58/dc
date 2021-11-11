@@ -7,6 +7,10 @@ module.exports = {
         let erkek = db.get(`erkek_${member.id}`) || 0;
         let kadın = db.get(`kadın_${member.id}`) || 0;
         let toplam = db.get(`toplam_${member.id}`) || 0;
-        channel.send(embed.setDescription(`Toplam: **${toplam}**, erkek: **${erkek}**, kadın: **${kadın}** kaydı bulunmakta!`)).catch(err => console.log(err), client.ytick(message)).then(m => m.delete({timeout: 10000}));
+        channel.send(embed.setDescription(`
+ Toplam Kayıt: **${toplam}**
+ 
+ Erkek Kayıt: **${erkek}**
+ Kadın Kayıt: **${kadın}**`))
     }
 }

@@ -9,7 +9,7 @@ module.exports = {
     name: "jail",
     aliases: ["temp-jail", "tjail", "karantina"],
     execute: async (client, message, args, embed, author, channel, guild) => {
-        if (!message.member.roles.cache.has(config.penals.jail.staff) && !message.member.hasPermission("BAN_MEMBERS")) return channel.send("Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!").catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+        if (!message.member.roles.cache.has(config.penals.jail.staff) && !message.member.hasPermission("BAN_MEMBERS")) return channel.send("Komutu kullanabilmek için geçerli yetkin olmalı.");
         let member = message.mentions.members.first() || guild.members.cache.get(args[0]);
         if (!member) return channel.send("Öncelikle cezalandırılacak kullanıcıyı belirtmelisin!").catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
         if (!message.member.hasPermission(8) && member && member.roles.highest.position >= message.member.roles.highest.position) return channel.send("Kendinle aynı yetkide ya da daha yetkili olan birini jailleyemezsin!").catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));

@@ -3,7 +3,7 @@ module.exports = {
     name: "ban-bilgi",
     aliases: ["bansor"],
     execute: async (client, message, args, embed, author, channel, guild) => {
-        if (!message.member.hasPermission("BAN_MEMBERS") && message.member.roles.cache.has(config.penals.ban.staff)) return channel.error(message, "Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!")
+        if (!message.member.hasPermission("BAN_MEMBERS") && message.member.roles.cache.has(config.penals.ban.staff)) return channel.error(message, "Komutu kullanabilmek için geçerli yetkin olmalı.")
 
         let kullanici = args[0];
 

@@ -11,7 +11,7 @@ module.exports = {
       .setTitle('Hata')
           .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true }))
       .setFooter("Developed by Matthe")
-      .setDescription('Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!').catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+      .setDescription('Komutu kullanabilmek için geçerli yetkin olmalı.').catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
     const userError = new Discord.MessageEmbed()
       .setColor('#ed455a')
       .setTitle('Hata')

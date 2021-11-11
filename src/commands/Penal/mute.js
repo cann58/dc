@@ -10,7 +10,7 @@ module.exports = {
   name: "mute",
   aliases: ["mute", "sustur"],
   execute: async (client, message, args, embed, author, channel, guild) => {
-    if (!message.member.roles.cache.has(config.penals.mute.staff) && !message.member.hasPermission("ADMİNİSTRATOR")) return channel.send(embed.setDescription("Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!")).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+    if (!message.member.roles.cache.has(config.penals.mute.staff) && !message.member.hasPermission("ADMİNİSTRATOR")) return channel.send(embed.setDescription("Komutu kullanabilmek için geçerli yetkin olmalı."));
     let member = message.mentions.members.first() || guild.members.cache.get(args[0]) 
     let reason = args.splice(2).join(" ")
     let sure = args[1]
