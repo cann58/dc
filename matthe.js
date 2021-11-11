@@ -53,7 +53,13 @@ client.on("message", async message => {
             .setLabel("🎉 Etkinlik Katılımcısı")
             .setID("Activity");
 
-        message.channel.send(`Selamlar sunucumuzun güzel üyeleri. Sunucumuzda sürekli \`@everyone\` ve \`@here\` atarak sizleri rahatsız etmek istemiyoruz, bu yüzden aşağıdaki belirtmiş olduğumuz rolleri o isimdeki kutucuğa (butona) tıklayarak alabilirsiniz! \n\n \`•\` <@&${config.buttons.activity}> rolünü almak için **Etkinlik Katılımcısı** butonuna tıklayınız. \n \`•\` <@&${config.buttons.giveaway}> rolünü almak için **Çekiliş Katılımcısı** butonuna tıklayınız.
+        message.channel.send(`Merhaba!
+ 
+Çekiliş Katılımcısı alarak **nitro, spotify, netflix ve benzeri çekilişlere katılıp ödül sahibi** olabilirsiniz.
+
+Aşağıda bulunan butonlardan **Etkinlik Katılımcısı alarak konserlerimizden, oyunlarımızdan, ve etkinliklerimizden** faydalanabilirsiniz.
+
+\`NOT:\` Kayıtlı , kayıtsız olarak hepiniz bu kanalı görebilmektesiniz. Bu sunucumuzda everyone here atılmayacağından dolayı kesinlikle rollerinizi almayı unutmayın.
 `,
             {
                 buttons: [Giveaway, Activity]
@@ -64,29 +70,29 @@ client.on("message", async message => {
 
         const one = new buttons.MessageButton()
             .setStyle("gray")
-            .setLabel("1")
+            .setLabel("I")
             .setID("one");
 
         const two = new buttons.MessageButton()
             .setStyle("gray")
-            .setLabel("2")
+            .setLabel("II")
             .setID("two");
 
         const three = new buttons.MessageButton()
             .setStyle("gray")
-            .setLabel("3")
+            .setLabel("III")
             .setID("three");
 
         const four = new buttons.MessageButton()
             .setStyle("gray")
-            .setLabel("4")
+            .setLabel("IV")
             .setID("four");
 
         const five = new buttons.MessageButton()
             .setStyle("gray")
-            .setLabel("5")
+            .setLabel("V")
             .setID("five");
-        message.channel.send("**Merhaba!** \n\n Aşşağıdaki butonlarla etkileşime girerek **sunucumuzdaki durumunuz hakkında bilgi edinebilirsiniz.** \n\n **1 -** `Sunucumuza daha önceden hangi isimlerle kayıt olduğunuzu kontrol edersiniz.` \n **2 -** `Sunucumuza daha önceden kayıt olup olmadığınızı kontrol edersiniz.` \n **3 -** `Sunucumuzda daha önceden ceza alıp almadığınızı kontrol edersiniz.` \n **4 -** `Sunucumuzdaki rollerinizi kontrol edersiniz.` \n **5 -** `Sunucumuza ne zaman katıldığınızı kontrol edersiniz.` \n\n Matthe & Sunucu Yönetim Ekibi iyi eğlenceler diler :)", { buttons: [one, two, three, four, five] })
+        message.channel.send("**Merhaba!** \n\n Aşşağıdaki butonlarla etkileşime girerek **sunucumuzdaki durumunuz hakkında bilgi edinebilirsiniz.** \n\n **1 -** `Sunucumuza daha önceden hangi isimlerle kayıt olduğunuzu kontrol edersiniz.` \n **2 -** `Sunucumuza daha önceden kayıt olup olmadığınızı kontrol edersiniz.` \n **3 -** `Sunucumuzda daha önceden ceza alıp almadığınızı kontrol edersiniz.` \n **4 -** `Sunucumuzdaki rollerinizi kontrol edersiniz.` \n **5 -** `Sunucumuza ne zaman katıldığınızı kontrol edersiniz.`", { buttons: [one, two, three, four, five] })
     }
 });
 
