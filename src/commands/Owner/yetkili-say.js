@@ -9,9 +9,8 @@ module.exports = {
       let sesdedeğil = message.guild.members.cache.filter(x => x.roles.cache.has(config.registration.staff)).filter(y => !y.voice.channel && y.presence.status != "offline")
       message.channel.send(`
         Aktif olup seste olmayan yetkililer:
-
     ${sesdedeğil.map(s => `${s} \`${s.user.tag}\``).join('\n')}`)
     } else
-      return message.channel.send(`Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!`).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+      return message.channel.send(`Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı!`)
   }
 }

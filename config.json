@@ -58,33 +58,33 @@
         "publicparents": "907231815629172736"
     },
     "registration": {
-        "unregistered": "900452965813477387",
-        "man": ["900452796690735156"],
-        "woman": ["900452792928460810"],
+        "unregistered": "899250429081296946",
+        "man": ["899250426669580288", "899250427038670849"],
+        "woman": ["899250427953049620", "899250428477329408"],
         "staff": "900452765996818532",
-        "GuilDTag": "᯽",
-        "TagSymbol": "᯽",
-        "autonickname": "- İsim | Yaş",
+        "GuilDTag": "$",
+        "TagSymbol": "$",
+        "autonickname": "$ İsim | Yaş",
         "symbol": "|",
-        "suspecios": "902312192790130738",
-        "susoeciosnickname": "Şüpheli Hesap",
-        "oneman": "900452796690735156",
-        "onewoman": "900452792928460810",
+        "suspecios": "899250431052636190",
+        "susoeciosnickname": "$ Şüpheli Hesap",
+        "oneman": "899250426669580288",
+        "onewoman": "899250427953049620",
         "minage": 13,
         "purchase": false
     },
     "Guild": {
-        "GuildID": "899314444679643197",
-        "GuilDName": "᯽ ALLIANCE",
-        "GuildOwnerRole": ["900452670609981530"]
+        "GuildID": "899246075540545536",
+        "GuilDName": "Matthe Video Server",
+        "GuildOwnerRole": ["907230568444461067"]
     },
     "emojis": {
-        "tada": "<a:matthe_cekiliske:902873889162539039>",
-        "yes": "<:matthe_haraketsizonay:902873872444039168>",
-        "no": "<:matthe_haraketsizred:902873880237072414>"
+        "tada": "<a:matthe_cekiliske:908346333759418388>",
+        "yes": "<:matthe_haraketsizonay:908346312183939082>",
+        "no": "<:matthe_haraketsizred:908346312225873981>"
     },
     "buttons": {
-        "giveaway": "902874573668773888",
-        "activity": "902874567192752178"
+        "giveaway": "908346144223002625",
+        "activity": "908346143568719933"
     }
 }

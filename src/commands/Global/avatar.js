@@ -7,7 +7,7 @@ module.exports = {
         let user = message.mentions.users.first() || message.author;
   if (user) {
     const embed = new Discord.MessageEmbed()
-      .setAuthor(`${user.tag} Buyur avatarın:`)
+      .setAuthor(`${user.tag} Avatar:`)
       .setImage(user.displayAvatarURL({ dynamic: true }))
       .setTimestamp()
       .setFooter("Developed by Matthe", message.guild.iconURL())
@@ -15,7 +15,7 @@ module.exports = {
   } else {
     const embed = new Discord.MessageEmbed()
       .setAuthor(
-        `${message.author.tag} Buyur avatarın:`,
+        `${message.author.tag} Avatar:`,
         message.author.avatarURL
       )
       .setImage(message.author.avatarURL({ dynamic: true }))

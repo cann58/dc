@@ -17,12 +17,12 @@ module.exports = {
         }).size
         const mesaj = new Discord.MessageEmbed()
             .setDescription(`Sesli kanallarda toplam **${ses}** kullanıcı bulunmaktadır!
-───────────────
-\`❯\` Public odalarda **${pub}** kullanıcı bulunmaktadır!
-\`❯\` Ses kanallarında **${notag}** normal kullanıcı bulunmaktadır!
-\`❯\` Ses kanallarında **${tagges}** taglı kullanıcı bulunmaktadır!
-\`❯\` Ses kanallarında toplam **${yetkili}** yetkili bulunmaktadır!
-───────────────`)
+
+\`-\` Public odalarda **${pub}** kullanıcı bulunmaktadır!
+\`-\` Ses kanallarında **${notag}** normal kullanıcı bulunmaktadır!
+\`-\` Ses kanallarında **${tagges}** taglı kullanıcı bulunmaktadır!
+\`-\` Ses kanallarında toplam **${yetkili}** yetkili bulunmaktadır!
+`)
         return message.channel.send(mesaj)
     }
 }

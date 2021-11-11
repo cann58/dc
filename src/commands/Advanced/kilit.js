@@ -2,10 +2,10 @@ module.exports = {
     name: "kilit",
     aliases: [],
     execute: async (client, message, args, embed, author, channel, guild) => {
-        if (!message.member.permissions.has("MANAGE_MESSAGES")) return channel.error(message, "Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı.").catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+        if (!message.member.permissions.has("MANAGE_MESSAGES")) return channel.error(message, "Bu komutu kullanabilmek için öncelikle gerekli yetkin olmalı.")
         const content = args[0];
 
-        if (!content) return channel.error(message, "Öncelikle geçerli bir seçenek belirtin! `.kilit aç/kapat`").catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+        if (!content) return channel.error(message, "Geçerli bir veri belirtin! `.kilit aç/kapat`")
 
         if (content === "aç") {
             let every = guild.roles.cache.find(r => r.name === '@everyone');
@@ -13,7 +13,7 @@ module.exports = {
                 'SEND_MESSAGES': null,
 
             })
-            return channel.send(embed.setDescription("Kanal kilidi açıldı!")).catch(err => console.log(err), client.ytick(message)).then(m => m.delete({timeout: 10000}));
+            return channel.send(embed.setDescription("Kilit açıldı!"))
         }
 
         if (content === "kapat") {
@@ -21,7 +21,7 @@ module.exports = {
             channel.createOverwrite(every, {
                 SEND_MESSAGES: false
             });
-            return channel.send(embed.setDescription("Kanal kilitlendi!")).catch(err => console.log(err), client.ytick(message)).then(m => m.delete({timeout: 10000}));
+            return channel.send(embed.setDescription("Kanal kilitlendi!"))
         }
     }
 
