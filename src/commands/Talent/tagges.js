@@ -8,6 +8,6 @@ module.exports = {
         if (!message.member.hasPermission("ADMINISTRATOR")) return channel.send(embed.setDescription("Komutu kullanabilmek için geçerli yetkin olmalı."))
         if (!member) return channel.send(embed.setDescription("Geçerli bir kullanıcı belirtmelisin!"))
         member.roles.add(config.roles.team)
-        channel.send(embed.setDescription(`${member} kullancısına başarıyla <@&${config.roles.team}> rolü verildi!`))
+        channel.send(embed.setDescription(`${member} kullancısına <@&${config.roles.team}> rolü verildi.`))
     }
 }

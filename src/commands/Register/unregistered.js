@@ -7,7 +7,7 @@ module.exports = {
     execute: async (client, message, args, embed, author, channel, guild) => {
     if (!message.member.roles.cache.has(config.registration.staff) && !message.member.hasPermission("ADMINISTRATOR")) return channel.send(embed.setDescription("Komutu kullanabilmek için geçerli yetkin olmalı"));
  let kullanıcı = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
-  if (!kullanıcı) return message.channel.send(embed.setDescription(`Öncelikle geçerli bir kullanıcı belirtmelisin!`)).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+  if (!kullanıcı) return message.channel.send(embed.setDescription(`Geçerli bir kullanıcı belirtmelisin!`))
   let user = message.mentions.users.first();
   let rol = message.mentions.roles.first()
   let member = message.guild.member(kullanıcı)
@@ -18,7 +18,7 @@ message.guild.members.cache.get(member.id).roles.remove(r)
   member.roles.add((config.registration.unregistered))
   member.roles.add((config.registration.unregistered))
   member.setNickname(config.registration.autonickname);
-  message.channel.send(embed.setDescription(`${kullanıcı} - \`${kullanıcı.id}\` kullanıcısı başarıyla ${message.author} tarafından kayıtsıza fırlatıldı!`)).catch(err => console.log(err), client.ytick(message)).then(m => m.delete({timeout: 10000}));
+  message.channel.send(embed.setDescription(`Kullanıcı başarıyla kayıtsıza (${config.registration.unregistered}) atıldı!`))
 
 }
 

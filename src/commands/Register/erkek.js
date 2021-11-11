@@ -13,11 +13,11 @@ module.exports = {
         const age = args[2]
         
         if (!message.member.roles.cache.has(config.registration.staff) && !message.member.hasPermission("ADMINISTRATOR")) return channel.send(embed.setDescription("Komutu kullanabilmek için geçerli yetkin olmalı"));
-        if (!member) return channel.send(embed.setDescription("Geçerli bir kullanıcı belirtmelisin!")).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
-        if (!name) return channel.send(embed.setDescription("Geçerli bir isim belirtmelisin!")).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
-        if (!age) return channel.send(embed.setDescription("Geçerli bir yaş belirtmelisin!")).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
-        if (isNaN(age)) return channel.send(embed.setDescription("Geçerli rakamlardan oluşsun!")).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
-        if (age < config.registration.minage) return channel.send(embed.setDescription("Kullanıcı için belirtilen yaş minimum yaştan küçük!")).catch(err => console.log(err), client.tick(message)).then(m => m.delete({timeout: 10000}));
+        if (!member) return channel.send(embed.setDescription("Geçerli bir kullanıcı belirtmelisin!"))
+        if (!name) return channel.send(embed.setDescription("Geçerli bir isim belirtmelisin!"))
+        if (!age) return channel.send(embed.setDescription("Geçerli bir yaş belirtmelisin!"))
+        if (isNaN(age)) return channel.send(embed.setDescription("Yaş geçerli rakamlardan oluşsun!"))
+        if (age < config.registration.minage) return channel.send(embed.setDescription("Kullanıcı için belirtilen yaş minimum yaştan küçük!"))
         if (config.registration.purchase) {
             if (!member.username.includes(config.registration.GuilDTag) && !member.roles.cache.has(config.roles.viprole && config.roles.boosterrole && config.roles.musiciansrole && config.roles.designerrole && config.roles.team)) {
                 return channel.send(embed.setDescription(`Taglı alımdayız! (${config.registration.TagSymbol})`))
@@ -32,11 +32,11 @@ module.exports = {
         await guild.members.cache.get(member.id).roles.add(config.registration.man);
         await guild.members.cache.get(member.id).roles.remove(config.registration.unregistered)
         if (!names) {
-            channel.send(embed.setDescription(`${member} kullanıcısı başarıyla <@&${config.registration.oneman}> rolleri verilerek kayıt edildi!`)).catch(err => console.log(err), client.ytick(message)).then(m => m.delete({timeout: 10000}));
+            channel.send(embed.setDescription(`Kullanıcının ismi ${name} ${config.registration.symbol} ${age} olarak değiştirildi ve <@&${config.registration.oneman}> rolü verilerek kayıt edildi!`))
         } else {
-            channel.send(embed.setDescription(`${member} kullanıcısı başarıyla <@&${config.registration.oneman}> olarak kayıt edildi!\n\n  Kullanıcının toplamda " ${names.length} " isim kayıtı görüntülendi.\n${names.map((data) => `${data}`).join("\n")}`)).catch(err => console.log(err), client.ytick(message)).then(m => m.delete({timeout: 10000}));
+            channel.send(embed.setDescription(`Kullanıcı başarıyla <@&${config.registration.oneman}> olarak kayıt edildi!\n\n Kullanıcının toplamda " ${names.length} " isim kayıtı görüntülendi.\n${names.map((data) => `${data}`).join("\n")}`))
         }
 
-        client.channels.cache.get(config.channels.chat).send(`${member} aramıza katıldı!`);
+        client.channels.cache.get(config.channels.chat).send(`${member} sunucuya kayıt oldu. Aramıza hoş geldin!`);
     }
 }

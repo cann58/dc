@@ -31,14 +31,14 @@ module.exports = async button => {
     if (button.id === "one") {
         const names = db.get(`isimler_${button.clicker.id}`)
         await button.reply.think(true);
-        if (!names) return button.reply.edit("Sunucumuza daha önce kayıt olmamışsınız confirmation odalarına girerek kayıt olabilirsiniz")
+        if (!names) return button.reply.edit("Sunucumuza daha önce kayıt olmamışsınız.")
         await button.reply.edit(`Sunucumuza daha önceden kayıt olduğunuz isimler:\n${names.map((data, n) => `**${n + 1}.** ${data}`).join("\n")}`);
     };
 
     if (button.id === "two") {
         const kke = db.get(`kke_${button.clicker.id}`)
         await button.reply.think(true)
-        if (!kke) return button.reply.edit("Sunucumuza daha önce kayıt olmamışsınız confirmation odalarına girerek kayıt olabilirsiniz!")
+        if (!kke) return button.reply.edit("Sunucumuza daha önce kayıt olmamışsınız.")
         await button.reply.edit(`Sunucumuza daha önceden kayıt olurken sizi kayıt eden yetkililerimiz:\n${kke.map(data => `${data}`).join("\n")}!`)
     };
 
@@ -46,8 +46,8 @@ module.exports = async button => {
         const sicil = db.get(`sicil_${button.clicker.id}`);
         const points = db.get(`points_${button.clicker.id}`) || 0
         await button.reply.think(true);
-        if (!sicil) return button.reply.edit("Veri tabanında herhangi bir sicil veriniz bulunmamakta!");
-        await button.reply.edit(`Şuanki toplam ceza puanınız: ${points}, aldığınız cezalar: ${sicil.map(data => `${data}`).join("\n")}!`)
+        if (!sicil) return button.reply.edit("Herhangi bir sicil geçmişiniz bulunmamakta!");
+        await button.reply.edit(`Toplam ceza puanınız: ${points}, aldığınız cezalar: ${sicil.map(data => `${data}`).join("\n")}!`)
     };
 
     if (button.id === "four") {
@@ -58,7 +58,7 @@ module.exports = async button => {
     if (button.id === "five") {
         const guild = button.guild.joinedAt
         await button.reply.think(true);
-        await button.reply.edit(`Sunucumuza ${moment(guild).format("LLL")} tarihinde katılmışsınız!`)
+        await button.reply.edit(`Sunucumuza ${moment(guild).format("LLL")} tarihinde katılmışsınız.`)
     }
 
 }
