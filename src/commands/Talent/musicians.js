@@ -11,7 +11,7 @@ module.exports = {
         var member = message.mentions.users.first() || guild.members.cache.get(args[0]);
         if (!member) return channel.error(message, "Geçerli bir kullanıcı belirtmelisin!")
         if (member.id === author.id) return channel.error(message, "Kendine rol veremezsin!")
-        guild.members.cache.get(member.id).roles.add(config.roles.musicianrole)
-        channel.send(embed.setDescription(`${member} kullancısına <@&${config.roles.musicianrole}> rolü verildi.`));
+        guild.members.cache.get(member.id).roles.add(config.roles.musiciansrole)
+        channel.send(embed.setDescription(`${member} kullancısına <@&${config.roles.musiciansrole}> rolü verildi.`));
     }
 }
