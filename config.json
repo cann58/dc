@@ -8,25 +8,25 @@
     },
     "penals": {
         "ban": {
-            "staff": "907230566888398859",
-            "log": "907232365594689558",
+            "staff": "BAN YETKİLİSİ ID",
+            "log": "BAN LOG ID",
             "limit": 3
         },
         "jail": {
-            "staff": "899250432042496000",
-            "roles": "907230567437856838",
-            "log": "907232365594689558",
+            "staff": "JAİL YETKİLİSİ ID",
+            "roles": "CEZALI ROLÜ ID",
+            "log": "JAİL LOG ID",
             "limit": 5
         },
         "mute": {
-            "staff": "899250431631437874",
-            "roles": "907230979570163792",
-            "log": "907232365594689558",
+            "staff": "MUTE YETKİLİSİ ID",
+            "roles": "MUTELİ ROLÜ ID",
+            "log": "MUTE LOG ID",
             "limit": 5
         },
         "warn": {
-            "staff": "908344670705287188",
-            "log": "907232365594689558"
+            "staff": "WARN YETKİLİSİ ID",
+            "log": "WARN LOG ID"
         },
         "points": {
             "mutepoints": "10",
@@ -36,55 +36,55 @@
         }
     },
     "logs": {
-        "messagelog": "907232274347622440",
-        "voicelog": "907232282249658378",
-        "taglog": "899250379232002078"
+        "messagelog": "MESAJ LOG KANALI ID",
+        "voicelog": "SES LOG KANALI ID",
+        "taglog": "TAG LOG KANALI ID"
     },
     "roles": {
-        "boosterrole": "899254537796341761",
-        "viprole": "899250433321762836",
-        "designerrole": "907231224630771752",
-        "musiciansrole": "907231224152608799",
-        "team": "899250432776499240",
-        "sponsored": ""
+        "boosterrole": "BOOSTER ROLÜ ID",
+        "viprole": "VIP ROLÜ ID",
+        "designerrole": "TASARIMCI ROLÜ ID",
+        "musiciansrole": "MÜZİSYEN ROLÜ ID",
+        "team": "TAGLI ROLÜ ID",
+        "sponsored": "SPONSOR ROLÜ ID"
     },
     "channels": {
-        "chat": "899246505075023942",
-        "voicechannel": "904276446376230912",
-        "welcomechannel": "908666054430040115",
-        "rules": "899246452876922890"
+        "chat": "CHAT KANALI ID",
+        "voicechannel": "SES KANALI ID",
+        "welcomechannel": "HOŞ GELDİN KANALI ID",
+        "rules": "KURALLAR KANALI ID"
     },
     "parents": {
-        "publicparents": "907231815629172736"
+        "publicparents": "PUBLİC KATEGORİSİ ID"
     },
     "registration": {
-        "unregistered": "899250429081296946",
-        "man": ["899250426669580288", "899250427038670849"],
-        "woman": ["899250427953049620", "899250428477329408"],
-        "staff": "899250426266931220",
-        "GuilDTag": "$",
-        "TagSymbol": "$",
-        "autonickname": "$ İsim | Yaş",
+        "unregistered": "KAYITSIZ ROLÜ ID",
+        "man": ["ERKEK ROLÜ ID", "2. ERKEK ROLÜ ID YOKSA SİL"],
+        "woman": ["KADIN ROLÜ ID", "2. KADIN ROLÜ ID YOKSA SİL"],
+        "staff": "REGİSTER ROLÜ ID",
+        "GuilDTag": "TAGINIZ",
+        "TagSymbol": "Kayıt Olunca İsim Yaşın Önüne Koyacağı Sembol",
+        "autonickname": "İsim | Yaş",
         "symbol": "|",
-        "suspecios": "899250431052636190",
+        "suspecios": "ŞÜPHELİ HESAP ROLÜ ID",
         "susoeciosnickname": "$ Şüpheli Hesap",
-        "oneman": "899250426669580288",
-        "onewoman": "899250427953049620",
-        "minage": 13,
+        "oneman": "ERKEK ROLÜ ID",
+        "onewoman": "KADIN ROLÜ ID",
+        "minage": 13, 
         "purchase": false
     },
     "Guild": {
-        "GuildID": "899246075540545536",
-        "GuilDName": "Matthe Video Server",
-        "GuildOwnerRole": ["907230568444461067"]
+        "GuildID": "SUNUCU ID",
+        "GuilDName": "SUNUCU İSMİ",
+        "GuildOwnerRole": ["OWNER ROLÜ ID"]
     },
     "emojis": {
-        "tada": "<a:matthe_cekiliske:908346333759418388>",
-        "yes": "<:matthe_haraketsizonay:908346312183939082>",
-        "no": "<:matthe_haraketsizred:908346312225873981>"
+        "tada": "TADA EMOJİSİ ID",
+        "yes": "ONAY EMOJİSİ ID",
+        "no": "RED EMOJİSİ ID"
     },
     "buttons": {
-        "giveaway": "908346144223002625",
-        "activity": "908346143568719933"
+        "giveaway": "ÇEKİLİŞ KATILIMCISI ROLÜ ID",
+        "activity": "ETKİNLİK KATILIMCISI ROLÜ ID"
     }
 }
