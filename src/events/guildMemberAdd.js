@@ -47,12 +47,12 @@ module.exports = async member => {
     if (kurulus > 604800000) {
         member.roles.add(config.registration.unregistered);
         member.roles.add(config.registration.unregistered);
+        member.setNickname(config.registration.autonickname);
         member.guild.channels.cache.get(config.channels.welcomechannel).send(`:tada: Sunucumuza hoş geldin ${member}!
 Hesabın ${kuruluş} tarihinde (**${zaman}**) önce oluşturulmuş.
-
 Sunucumuza kayıt olmak için soldaki ses kanallarından birine girmelisin!
-<@&${config.registration.staff}> rolündeki yetkililerimiz seninle ilgilenecektir.
 
+<@&${config.registration.staff}> rolündeki yetkililerimiz seninle ilgilenecektir.
 Seninle birlikte **${member.guild.memberCount}** üyeye ulaştık!`);
     } else {
         member.setNickname(config.registration.susoeciosnickname);
