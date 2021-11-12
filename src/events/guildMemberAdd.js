@@ -49,6 +49,7 @@ module.exports = async member => {
         member.roles.add(config.registration.unregistered);
         member.setNickname(config.registration.autonickname);
         member.guild.channels.cache.get(config.channels.welcomechannel).send(`:tada: Sunucumuza hoş geldin ${member}!
+        
 Hesabın ${kuruluş} tarihinde (**${zaman}**) önce oluşturulmuş.
 Sunucumuza kayıt olmak için soldaki ses kanallarından birine girmelisin!
 

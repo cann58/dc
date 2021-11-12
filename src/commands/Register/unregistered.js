@@ -16,7 +16,7 @@ message.guild.members.cache.get(member.id).roles.remove(r)
 
 })
   member.roles.add((config.registration.unregistered))
-  member.roles.add((config.registration.unregistered))
+  member.roles.remove(config.penal.jail.roles)
   member.setNickname(config.registration.autonickname);
   message.channel.send(embed.setDescription(`Kullanıcı başarıyla kayıtsıza (${config.registration.unregistered}) atıldı!`))
 

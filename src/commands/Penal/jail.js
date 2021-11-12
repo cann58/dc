@@ -16,7 +16,7 @@ module.exports = {
         let sebep = args.slice(1).join(' ') || `Sebep girilmemiş.`
         db.set(`roles.${member.id}`, member.roles.cache.map(x => x.id))
         db.set(`isim.${member.id}`, member.displayName)
-        member.setNickname(`[JAILED] ${member.displayName}`)
+        member.setNickname(`[CEZALI] ${member.displayName}`)
         member.roles.set([config.penals.jail.roles])
         message.channel.send((`**${member}** **(${member.id})**kullanıcısı "**${sebep}**" sebebiyle jail'e atıldı! (Ceza Numarası: \`#${db.fetch(`ceza_${guild.id}`)}\`)`))
         db.add(`ceza_${guild.id}`, 1)

@@ -17,6 +17,7 @@ message.guild.members.cache.get(member.id).roles.remove(r)
 
 })
   member.roles.add((config.registration.unregistered))
+  member.roles.remove((config.registration.unregistered))
   member.setNickname(config.registration.autonickname);
   message.channel.send(embed.setDescription(`${kullanıcı} kullanıcısı karantinadan çıkarıldı!`)).catch(err => console.log(err), client.ytick(message)).then(m => m.delete({timeout: 10000}));
     const log = new Discord.MessageEmbed()
