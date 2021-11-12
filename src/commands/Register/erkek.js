@@ -32,7 +32,7 @@ module.exports = {
         await guild.members.cache.get(member.id).roles.add(config.registration.man);
         await guild.members.cache.get(member.id).roles.remove(config.registration.unregistered)
         if (!names) {
-            channel.send(embed.setDescription(`Kullanıcının ismi ${name} ${config.registration.symbol} ${age} olarak değiştirildi ve <@&${config.registration.oneman}> rolü verilerek kayıt edildi!`))
+            channel.send(embed.setDescription(`Kullanıcının ismi \`${name} ${config.registration.symbol} ${age}\` olarak değiştirildi ve <@&${config.registration.oneman}> rolü verilerek kayıt edildi!`))
         } else {
             channel.send(embed.setDescription(`Kullanıcı başarıyla <@&${config.registration.oneman}> olarak kayıt edildi!\n\n Kullanıcının toplamda " ${names.length} " isim kayıtı görüntülendi.\n${names.map((data) => `${data}`).join("\n")}`))
         }
