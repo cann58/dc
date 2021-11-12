@@ -43,13 +43,13 @@ module.exports = async (message) => {
             message.reply(`**${(iltifatlar)[Math.floor(Math.random() * ((iltifatlar).length - 1) + 1)]}**`);
         }
     }
+      const ownerr = client.users.cache.get("796263552771817472");
     const afkembed = new MessageEmbed()
         .setColor(message.member.displayHexColor)
         .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true, size: 2048 }))
-        .setFooter("YOUTUBE MATTHE", owner.avatarURL({ dynamic: true }))
+        .setFooter("YOUTUBE MATTHE", ownerr.avatarURL({ dynamic: true }))
         .setTimestamp()
     const etiket = message.mentions.users.first()
-    const ownerr = client.users.cache.get("796263552771817472");
     const uye = db.fetch(`user_${message.author.id}_${message.guild.id}`)
     const nickk = db.fetch(`nick_${message.author.id}_${message.guild.id}`)
     if (etiket) {
@@ -80,7 +80,7 @@ module.exports = async (message) => {
     const embed = new MessageEmbed()
         .setColor(message.member.displayHexColor)
         .setAuthor(message.member.displayName, author.avatarURL({ dynamic: true, size: 2048 }))
-        .setFooter("YOUTUBE MATTHE", owner.avatarURL({ dynamic: true }))
+        .setFooter("YOUTUBE MATTHE", ownerr.avatarURL({ dynamic: true }))
     if (cmd) {
         if (cmd.owner && config.bot.owner !== author.id) return
         if (cmd.guildowner && config.bot.owner !== author.id && guild.owner.id !== author.id) return
