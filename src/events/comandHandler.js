@@ -47,7 +47,7 @@ module.exports = async (message) => {
     const afkembed = new MessageEmbed()
         .setColor(message.member.displayHexColor)
         .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true, size: 2048 }))
-        .setFooter("YOUTUBE MATTHE", ownerr.avatarURL({ dynamic: true }))
+        .setFooter("YOUTUBE MATTHE")
         .setTimestamp()
     const etiket = message.mentions.users.first()
     const uye = db.fetch(`user_${message.author.id}_${message.guild.id}`)
