@@ -46,7 +46,7 @@ module.exports = async (message) => {
       const ownerr = client.users.cache.get("796263552771817472");
     const afkembed = new MessageEmbed()
         .setColor(message.member.displayHexColor)
-        .setAuthor(message.member.displayName, message.author.avatarURL({ dynamic: true, size: 2048 }))
+        .setAuthor(message.member.displayName)
         .setFooter("YOUTUBE MATTHE")
         .setTimestamp()
     const etiket = message.mentions.users.first()
