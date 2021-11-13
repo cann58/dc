@@ -1,7 +1,7 @@
 {
   "name": "Matthe",
   "version": "0.0.1",
-  "description": "Matthe tarafından yapılan bot.",
+  "description": "Matthe tarafından yapılan süpervizör bot.",
   "main": "matthe.js",
   "scripts": {
     "start": "node matthe.js"
