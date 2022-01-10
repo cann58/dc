@@ -80,7 +80,7 @@ module.exports = async (message) => {
     const embed = new MessageEmbed()
         .setColor(message.member.displayHexColor)
         .setAuthor(message.member.displayName, author.avatarURL({ dynamic: true, size: 2048 }))
-        .setFooter("YOUTUBE MATTHE", ownerr.avatarURL({ dynamic: true }))
+        .setFooter("YOUTUBE MATTHE")
     if (cmd) {
         if (cmd.owner && config.bot.owner !== author.id) return
         if (cmd.guildowner && config.bot.owner !== author.id && guild.owner.id !== author.id) return
