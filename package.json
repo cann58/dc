@@ -1,12 +1,12 @@
 {
-  "name": "Matthe",
+  "name": "BoranGkdn",
   "version": "0.0.1",
-  "description": "Matthe tarafından yapılan süpervizör bot.",
-  "main": "matthe.js",
+  "description": "BoranGkdn tarafından yapılan süpervizör bot.",
+  "main": "borangkdn.js",
   "scripts": {
-    "start": "node matthe.js"
+    "start": "node borangkdn.js"
   },
-  "author": "Matthe",
+  "author": "BoranGkdn",
   "license": "MIT",
   "dependencies": {
     "canvacord": "^5.2.3",
@@ -36,9 +36,9 @@
     "node": "12.x"
   },
   "keywords": [
-    "Matthe",
-    "Matthe",
-    "Matthe",
-    "Matthe"
+    "BoranGkdn",
+    "BoranGkdn",
+    "BoranGkdn",
+    "BoranGkdn"
   ]
 }      
